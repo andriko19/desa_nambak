@@ -14,7 +14,7 @@
                     <div id="total-revenue-chart"></div>
                 </div>
                 <div>
-                    <h4 class="mb-1 mt-1"><span data-plugin="counterup">20</span></h4>
+                    <h4 class="mb-1 mt-1"><span data-plugin="counterup">50</span></h4>
                     <p class="text-muted mb-0">Total Product</p>
                 </div>
                 {{-- <p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i class="mdi mdi-arrow-up-bold me-1"></i>2.65%</span> since last week
