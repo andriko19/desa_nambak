@@ -1,0 +1,20 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "localhost",
+            "group": "local",
+            "username": "root",
+            "database": "mylaracool",
+            "password": ""
+        }
+    ],
+    "nuxt.isNuxtApp": false,
+    "git.ignoreLimitWarning": true
+}
