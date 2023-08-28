@@ -39,8 +39,8 @@ class FrontLandingController extends Controller
         $title = 'home';
         $pages = 'landing';
 
-        return view('front/signin', compact('title', 'pages'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        // return view('front/signin', compact('title', 'pages'))
+        return view('frontend/index', compact('title', 'pages'));
     }
 
     /**

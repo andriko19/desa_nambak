@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 use App\Http\Controllers\Front\FrontLoginController;
 
@@ -73,7 +74,7 @@ use App\Http\Controllers\CrudBuilderController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\Vend\VendController;
 
-use App\Http\Controllers\Auth\ForgotPasswordController;
+
 
 // General
 use App\Http\Controllers\GeneralController;
@@ -168,6 +169,7 @@ Route::get('/landing', function () {
     ]);
 });
 
+// Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 // USER INTERFACE
 // home pages
