@@ -43,6 +43,32 @@ class FrontLandingController extends Controller
         return view('frontend/index', compact('title', 'pages'));
     }
 
+    public function profil_desa(Request $request)
+    {
+        $title = 'home';
+        $pages = 'landing';
+
+        // return view('front/signin', compact('title', 'pages'))
+        return view('frontend/profil_desa', compact('title', 'pages'));
+    } 
+
+    public function jumlah_remaja_preventif_jenis_kelamin_dan_usia(Request $request)
+    {
+        $title = 'home';
+        $pages = 'landing';
+
+        // return view('front/signin', compact('title', 'pages'))
+        return view('frontend/informasi', compact('title', 'pages'));
+    }
+
+    public function contact(Request $request)
+    {
+        $title = 'home';
+        $pages = 'landing';
+
+        // return view('front/signin', compact('title', 'pages'))
+        return view('frontend/contact', compact('title', 'pages'));
+    }
     /**
      * Show the form for creating a new resource.
      *

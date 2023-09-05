@@ -1,128 +1,194 @@
-<!-- ======= Header ======= -->
-<header id="header" class="header fixed-top" data-scrollto-offset="0">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
-
-        <a href="index.html" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Ds<span>Nambak</span></h1>
-        </a>
-
-        <nav id="navbar" class="navbar">
-        <ul>
-
-            <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                    <li><a href="#">Profil Desa</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                    <li class="dropdown"><a href="#"><span>Informasi Reproduksi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                        <ul>
-                            <li><a href="#">Informasi Reproduksi Perempuan Perem </a></li>
-                            <li><a href="#">Informasi Reproduksi Laki-laki</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#"><span>Informasi Pencegahan kawin</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                        <ul>
-                            <li><a href="#">Pendidikan Seksual</a></li>
-                            <li><a href="#">Komunikasi Terbuka</a></li>
-                            <li><a href="#">Kepercayaan diri dan keterampilan pos</a></li>
-                            <li><a href="#">Membangun nilai diri yang positif</a></li>
-                            <li><a href="#">Menghindari tekanan teman sebaya</a></li>
-                            <li><a href="#">Memahami Konsekuensi dan resiko</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#"><span>Informasi Penanganan remaja kawin</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                        <ul>
-                            <li><a href="#">Pendidikan seksual</a></li>
-                            <li><a href="#">Konseling keluarga</a></li>
-                            <li><a href="#">Pemahaman tanggung jawab Perempuan</a></li>
-                            <li><a href="#">Pengemdalian Emosi</a></li>
-                            <li><a href="#">Perlindungan hukum</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-
-             <li class="dropdown"><a href="#"><span>Data dan Informasi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                    <li><a href="#">Jumlah Remaja Preventif , Jenis Kelamin dan Usia</a></li>
-                    <li><a href="#">Jumlah Remaja Dispensasi Kawin, Usia, Jenis Kelamin</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown"><a href="#"><span>Layanan Publik</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                    <li><a href="#">Profil Desa</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown"><a href="#"><span>Parenting</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                    <li><a href="#">Profil Desa</a></li>
-                </ul>
-            </li>
-            
-
-            {{-- <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
-            <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
-            <li><a class="nav-link scrollto" href="index.html#portfolio">Portfolio</a></li>
-            <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li class="dropdown megamenu"><a href="#"><span>Mega Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-                <li>
-                <a href="#">Column 1 link 1</a>
-                <a href="#">Column 1 link 2</a>
-                <a href="#">Column 1 link 3</a>
-                </li>
-                <li>
-                <a href="#">Column 2 link 1</a>
-                <a href="#">Column 2 link 2</a>
-                <a href="#">Column 3 link 3</a>
-                </li>
-                <li>
-                <a href="#">Column 3 link 1</a>
-                <a href="#">Column 3 link 2</a>
-                <a href="#">Column 3 link 3</a>
-                </li>
-                <li>
-                <a href="#">Column 4 link 1</a>
-                <a href="#">Column 4 link 2</a>
-                <a href="#">Column 4 link 3</a>
+<div id="top-bar" class="top-bar">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-8">
+            <ul class="top-info text-center text-md-left">
+                <li> <a href="https://www.google.com/maps/place/Kantor+Desa+Nambak/@-8.0085368,111.444779,17z/data=!3m1!4b1!4m6!3m5!1s0x2e797314e94e2e9d:0xf3375f2d0bd66cc6!8m2!3d-8.0085421!4d111.4473539!16s%2Fg%2F11cm0bszjk?hl=id&entry=ttu" target="blank" > <i class="fas fa-map-marker-alt"></i> <p class="info-text">Desa Nambak, Ponorogo, Jawa Timur</p> </a>
                 </li>
             </ul>
-            </li>
-            <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-                <li><a href="#">Drop Down 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
+          </div>
+          <!--/ Top info end -->
+
+          <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
+            <ul class="list-unstyled">
+                <li>
+                  <a title="Facebook" href="https://facebbok.com/themefisher.com">
+                      <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                  </a>
+                  <a title="Twitter" href="https://twitter.com/themefisher.com">
+                      <span class="social-icon"><i class="fab fa-twitter"></i></span>
+                  </a>
+                  <a title="Instagram" href="https://instagram.com/themefisher.com">
+                      <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                  </a>
+                  <a title="Linkdin" href="https://github.com/themefisher.com">
+                      <span class="social-icon"><i class="fab fa-github"></i></span>
+                  </a>
                 </li>
-                <li><a href="#">Drop Down 2</a></li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
             </ul>
-            </li>
-            <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li> --}}
-
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle d-none"></i>
-        </nav><!-- .navbar -->
-
-        <div class="btn-getstarted scrollto">
-            <img src="{{ URL::asset('assets/frontend/')}}/img/favicon.png">
-        </div>
-        {{-- <a class="btn-getstarted scrollto"  href="index.html#about">Get Started</a> --}}
-
+          </div>
+          <!--/ Top social end -->
+      </div>
+      <!--/ Content row end -->
     </div>
-</header><!-- End Header -->
+    <!--/ Container end -->
+</div>
+<!--/ Topbar end -->
+<!-- Header start -->
+<header id="header" class="header-one">
+  <div class="bg-white">
+    <div class="container">
+      <div class="logo-area">
+          <div class="row align-items-center">
+            <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
+                <a class="d-block" href="{{url('/')}}">
+                  <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/logo.png" alt="Constra" style="width: 60%; height: auto;">
+                </a>
+            </div><!-- logo end -->
+  
+            <div class="col-lg-9 header-right">
+                <ul class="top-info-box">
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Telfon</p>
+                          <p class="info-box-subtitle">0823321******</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Email</p>
+                          <p class="info-box-subtitle">dsnambak008@gmail.com</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="last">
+                    <div class="info-box last">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Global Certificate</p>
+                          <p class="info-box-subtitle">ISO 9001:2017</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="header-get-a-quote">
+                    <a class="btn btn-primary" href="#site-navigation">Kenali Kami</a>
+                  </li>
+                </ul><!-- Ul end -->
+            </div><!-- header right end -->
+          </div><!-- logo area end -->
+  
+      </div><!-- Row end -->
+    </div><!-- Container end -->
+  </div>
+
+  <div class="site-navigation" id="site-navigation">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div id="navbar-collapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav mr-auto">
+                      <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+
+                      <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profil<i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{url('/profil_desa')}}">Profil Desa</a></li>
+                          </ul>
+                      </li>
+              
+                      <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Data dan Informasi<i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{url('/jumlah_remaja_preventif_jenis_kelamin_dan_usia')}}">Jumlah Remaja Preventif, Jenis Kelamin dan Usia</a></li>
+                            <li><a href="#">Jumlah Remaja Dispensasi Kawin, Usia, Jenis Kelamin</a></li>
+                          </ul>
+                      </li>
+              
+                      <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informasi Publik<i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-submenu">
+                              <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Reproduksi</a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#!">Informasi Reproduksi Perempuan</a></li>
+                                <li><a href="#!">Informasi Reproduksi Laki-laki</a></li>
+                              </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                              <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Pencegahan</a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#!">Pendidikan Seksual</a></li>
+                                <li><a href="#!">Komunikasi Terbuka</a></li>
+                                <li><a href="#!">Kepercayaan Diri dan Keterampilan Pengambilan Keputusan</a></li>
+                                <li><a href="#!">Membangun Nilai Diri Yang Positif</a></li>
+                                <li><a href="#!">Menghindari Tekanan Teman Sebaya</a></li>
+                                <li><a href="#!">Memahami Konsekuensi dan Resiko Perilaku Seks Bebas</a></li>
+                              </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                              <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Penanganan Remaja Dispensasi Kawin</a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#!">Pendidikan Seksual</a></li>
+                                <li><a href="#!">Konseling Keluarga</a></li>
+                                <li><a href="#!">Pemahaman Tanggung Jawab</a></li>
+                                <li><a href="#!">Pengemdalian Emosi</a></li>
+                                <li><a href="#!">Perlindungan Hukum</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                      </li>
+
+                      <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan Publik<i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Layanan Internal</a></li>
+                          <li><a href="#">Layanan Konseling</a></li>
+                          <li><a href="#">Form Pengaduan Masyarakat</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Parenting<i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Cara Mendidikan Anak</a></li>
+                            <li><a href="#">Mengambangkan Hubungan Yang Sehat Pada Anak</a></li>
+                            <li><a href="#">Membangun Komunikasi Yang Baik</a></li>
+                            <li><a href="#">Mendorong Perkembangan Anak</a></li>
+                            <li><a href="#">Menerapkan Aturan dan Batasan</a></li>
+                            <li><a href="#">Perkembangan Anak</a></li>
+                          </ul>
+                      </li>
+              
+                      <li class="nav-item"><a class="nav-link" href="{{url('/contact')}}">Contact</a></li>
+                    </ul>
+                </div>
+              </nav>
+          </div>
+          <!--/ Col end -->
+        </div>
+        <!--/ Row end -->
+
+        <div class="nav-search">
+          <span id="search"><i class="fa fa-search"></i></span>
+        </div><!-- Search end -->
+
+        <div class="search-block" style="display: none;">
+          <label for="search-field" class="w-100 mb-0">
+            <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
+          </label>
+          <span class="search-close">&times;</span>
+        </div><!-- Site search end -->
+    </div>
+    <!--/ Container end -->
+
+  </div>
+  <!--/ Navigation end -->
+</header>
+<!--/ Header end -->

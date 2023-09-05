@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-{{-- tag head --}}
-@include('frontend.layouts.head')
-
-<body>
-
-  <!-- ======= Header/Topbar ======= -->
-  @include('frontend.layouts.topbar')
-
-  @yield('section-index')
-
-  <main id="main">
  
-    {{-- content --}}
-    @yield('content')
-    
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  @include('frontend.layouts.footer')
+  {{-- tag head --}}
+  @include('frontend.layouts.head')
 
 
-  <!-- Vendor JS Files -->
-  @include('frontend.layouts.javascript')
+  <body>
+    <div class="body-inner">
 
-</body>
+      {{-- topbar --}}
+      @include('frontend.layouts.topbar')
+
+      {{-- content --}}
+      @yield('content')
+
+      <!-- ======= Footer ======= -->
+      @include('frontend.layouts.footer')
+
+
+      <!-- Javascript Files
+      ================================================== -->
+      @include('frontend.layouts.javascript')
+      
+
+    </div><!-- Body inner end -->
+  </body>
 
 </html>

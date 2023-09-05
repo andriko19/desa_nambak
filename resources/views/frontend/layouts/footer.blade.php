@@ -1,86 +1,86 @@
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-
-    <div class="footer-content">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>HeroBiz</h3>
-              <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+<footer id="footer" class="footer bg-overlay">
+  <div class="footer-main">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-4 col-md-6 footer-widget footer-about">
+          <h3 class="widget-title">About Us</h3>
+          <img loading="lazy" class="" src="{{ URL::asset('assets/frontend/')}}/images/footer-logo.png" alt="Constra" style="width: 60%; height: auto; margin-bottom: 25px">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
+            labore et dolore magna aliqua.</p>
+          <div class="footer-social">
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i
+                    class="fab fa-facebook-f"></i></a></li>
+              <li><a href="https://twitter.com/themefisher" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a></li>
+              <li><a href="https://github.com/themefisher" aria-label="Github"><i class="fab fa-github"></i></a></li>
+            </ul>
+          </div><!-- Footer social end -->
+        </div><!-- Col end -->
+
+        <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
+          <h3 class="widget-title">Working Hours</h3>
+          <div class="working-hours">
+            We work 7 days a week, every day excluding major holidays. Contact us if you have an emergency, with our
+            Hotline and Contact form.
+            <br><br> Monday - Friday: <span class="text-right">10:00 - 16:00 </span>
+            <br> Saturday: <span class="text-right">12:00 - 15:00</span>
+            <br> Sunday and holidays: <span class="text-right">09:00 - 12:00</span>
+          </div>
+        </div><!-- Col end -->
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+          <h3 class="widget-title">Services</h3>
+          <ul class="list-arrow">
+            <li><a href="service-single.html">Pre-Construction</a></li>
+            <li><a href="service-single.html">General Contracting</a></li>
+            <li><a href="service-single.html">Construction Management</a></li>
+            <li><a href="service-single.html">Design and Build</a></li>
+            <li><a href="service-single.html">Self-Perform Construction</a></li>
+          </ul>
+        </div><!-- Col end -->
+      </div><!-- Row end -->
+    </div><!-- Container end -->
+  </div><!-- Footer main end -->
+
+  <div class="copyright">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-12">
+          <div class="copyright-info text-center">
+            <span>Copyright &copy; <script>
+                document.write(new Date().getFullYear())
+              </script>, Designed &amp; Developed by <a href="http://ict.uwp.ac.id/">ICT UWP</a></span>
+          </div>
+        </div>
+
+        {{-- <div class="col-md-12">
+          <div class="copyright-info text-center">
+            <span>Distributed by <a href="https://themewagon.com/">Themewagon</a></span>
+          </div>
+        </div> --}}
+
+        {{-- <div class="col-md-12">
+          <div class="footer-menu text-center">
+            <ul class="list-unstyled mb-0">
+              <li><a href="about.html">About</a></li>
+              <li><a href="team.html">Our people</a></li>
+              <li><a href="faq.html">Faq</a></li>
+              <li><a href="news-left-sidebar.html">Blog</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
             </ul>
           </div>
+        </div> --}}
+      </div><!-- Row end -->
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-
-          </div>
-
-        </div>
+      <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
+        <button class="btn btn-primary" title="Back to Top">
+          <i class="fa fa-angle-double-up"></i>
+        </button>
       </div>
-    </div>
 
-    <div class="footer-legal text-center">
-      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
-
-        <div class="d-flex flex-column align-items-center align-items-lg-start">
-          <div class="copyright">
-            &copy; Copyright <strong><span>HeroBiz</span></strong>. All Rights Reserved
-          </div>
-          <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-          </div>
-        </div>
-
-        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-
-      </div>
-    </div>
-
-</footer><!-- End Footer -->
-
-<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<div id="preloader"></div>
+    </div><!-- Container end -->
+  </div><!-- Copyright end -->
+</footer><!-- Footer end -->
