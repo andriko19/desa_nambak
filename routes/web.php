@@ -110,6 +110,7 @@ Route::post('file', [FileController::class, 'store']);
 
 //Route::get('/', [App\Http\Controllers\HomeController::class, 'root']);
 Route::get('/index', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/admin_nambak', [FrontLandingController::class, 'admin_nambak'])->name('admin_nambak');
 
 
 Route::group(['middleware' => ['auth']], function () {

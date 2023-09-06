@@ -32,10 +32,16 @@ class FrontLandingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function admin_nambak()
+    {
+        $title = 'home';
+        $pages = 'landing';
+
+        return view('front/signin', compact('title', 'pages'));
+    }
+
     public function index(Request $request)
     {
-
-
         $title = 'home';
         $pages = 'landing';
 
@@ -50,7 +56,7 @@ class FrontLandingController extends Controller
 
         // return view('front/signin', compact('title', 'pages'))
         return view('frontend/profil_desa', compact('title', 'pages'));
-    } 
+    }
 
     public function jumlah_remaja_preventif_jenis_kelamin_dan_usia(Request $request)
     {
