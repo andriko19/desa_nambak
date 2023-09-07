@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title')
-  Desa Nambak
+  Desa Nambak | Profil Desa
 @endsection
 @section('css')
     <!-- DataTables -->

@@ -8,8 +8,13 @@
   <!-- Mobile Specific Metas
   ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Construction Html5 Template">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  {{-- <meta name="description" content="Construction Html5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"> --}}
+  {{-- <meta property="og:url" content="https://nothing.com"> --}}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Desa Nambak">
+  <meta property="og:description" content="Moto Desa">
+  <meta property="og:image" content="{{ URL::asset('assets/frontend/')}}/images/logo.png">
 
   <!-- Favicon
   ================================================== -->

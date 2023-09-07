@@ -34,13 +34,20 @@ class FrontLandingController extends Controller
      */
     public function index(Request $request)
     {
-
-
         $title = 'home';
         $pages = 'landing';
 
         // return view('front/signin', compact('title', 'pages'))
         return view('frontend/index', compact('title', 'pages'));
+    }
+
+    public function semua_galeri(Request $request)
+    {
+        $title = 'home';
+        $pages = 'landing';
+
+        // return view('front/signin', compact('title', 'pages'))
+        return view('frontend/semua_galeri', compact('title', 'pages'));
     }
 
     public function profil_desa(Request $request)

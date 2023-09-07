@@ -171,6 +171,7 @@ Route::get('/landing', function () {
 
 // Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
+Route::get('/semua_galeri', [FrontLandingController::class, 'semua_galeri'])->name('semua_galeri');
 Route::get('/profil_desa', [FrontLandingController::class, 'profil_desa'])->name('profil_desa');
 Route::get('/jumlah_remaja_preventif_jenis_kelamin_dan_usia', [FrontLandingController::class, 'jumlah_remaja_preventif_jenis_kelamin_dan_usia'])->name('jumlah_remaja_preventif_jenis_kelamin_dan_usia');
 Route::get('/contact', [FrontLandingController::class, 'contact'])->name('contact');

@@ -68,12 +68,12 @@
           <div class="row align-items-center">
             <div class="col-md-8 text-center text-md-left">
                 <div class="call-to-action-text">
-                  <h3 class="action-title">We understand your needs on construction</h3>
+                  <h3 class="action-title">Moto Desa Nambak</h3>
                 </div>
             </div><!-- Col end -->
             <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
                 <div class="call-to-action-btn">
-                  <a class="btn btn-dark" href="#">Request Quote</a>
+                  <a class="btn btn-dark" href="#ts-features">Profil Singkat</a>
                 </div>
             </div><!-- col end -->
           </div><!-- row end -->
@@ -86,11 +86,9 @@
       <div class="row">
           <div class="col-lg-6">
             <div class="ts-intro">
-                <h2 class="into-title">About Us</h2>
-                <h3 class="into-sub-title">We deliver landmark projects</h3>
-                <p>We are rethoric question ran over her cheek When she reached the first hills of the Italic Mountains,
-                  she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village
-                  and the subline of her own road, the Line Lane.</p>
+                <h2 class="into-title">Profil Singkat</h2>
+                <h3 class="into-sub-title">Desa Nambak</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div><!-- Intro box end -->
 
             <div class="gap-20"></div>
@@ -102,7 +100,7 @@
                         <i class="fas fa-trophy"></i>
                       </span>
                       <div class="ts-service-box-content">
-                        <h3 class="service-box-title">We've Repution for Excellence</h3>
+                        <h3 class="service-box-title">Prestasi 1</h3>
                       </div>
                   </div><!-- Service 1 end -->
                 </div><!-- col end -->
@@ -113,7 +111,7 @@
                         <i class="fas fa-sliders-h"></i>
                       </span>
                       <div class="ts-service-box-content">
-                        <h3 class="service-box-title">We Build Partnerships</h3>
+                        <h3 class="service-box-title">Prestasi 2</h3>
                       </div>
                   </div><!-- Service 2 end -->
                 </div><!-- col end -->
@@ -126,7 +124,7 @@
                         <i class="fas fa-thumbs-up"></i>
                       </span>
                       <div class="ts-service-box-content">
-                        <h3 class="service-box-title">Guided by Commitment</h3>
+                        <h3 class="service-box-title">Prestasi 3</h3>
                       </div>
                   </div><!-- Service 1 end -->
                 </div><!-- col end -->
@@ -137,7 +135,7 @@
                         <i class="fas fa-users"></i>
                       </span>
                       <div class="ts-service-box-content">
-                        <h3 class="service-box-title">A Team of Professionals</h3>
+                        <h3 class="service-box-title">Prestasi 4</h3>
                       </div>
                   </div><!-- Service 2 end -->
                 </div><!-- col end -->
@@ -145,15 +143,15 @@
           </div><!-- Col end -->
 
           <div class="col-lg-6 mt-4 mt-lg-0">
-            <h3 class="into-sub-title">Our Values</h3>
-            <p>Minim Austin 3 wolf moon scenester aesthetic, umami odio pariatur bitters. Pop-up occaecat taxidermy street art, tattooed beard literally.</p>
+            <h3 class="into-sub-title">Pertanyaan Umum</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
             <div class="accordion accordion-group" id="our-values-accordion">
                 <div class="card">
                   <div class="card-header p-0 bg-transparent" id="headingOne">
                       <h2 class="mb-0">
                         <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Safety
+                          PERTANYAAN 1
                         </button>
                       </h2>
                   </div>
@@ -168,7 +166,7 @@
                   <div class="card-header p-0 bg-transparent" id="headingTwo">
                       <h2 class="mb-0">
                         <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Customer Service
+                          PERTANYAAN 2
                         </button>
                       </h2>
                   </div>
@@ -182,7 +180,7 @@
                   <div class="card-header p-0 bg-transparent" id="headingThree">
                       <h2 class="mb-0">
                         <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Integrity
+                          PERTANYAAN 3
                         </button>
                       </h2>
                   </div>
@@ -209,8 +207,8 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/fact1.png" alt="facts-img">
                 </div>
                 <div class="ts-facts-content">
-                  <h2 class="ts-facts-num"><span class="counterUp" data-count="1789">0</span></h2>
-                  <h3 class="ts-facts-title">Total Projects</h3>
+                  <h2 class="ts-facts-num"><span class="counterUp" data-count="10">0</span></h2>
+                  <h3 class="ts-facts-title">Total Pengunjung hari ini</h3>
                 </div>
             </div><!-- Col end -->
 
@@ -219,8 +217,8 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/fact2.png" alt="facts-img">
                 </div>
                 <div class="ts-facts-content">
-                  <h2 class="ts-facts-num"><span class="counterUp" data-count="647">0</span></h2>
-                  <h3 class="ts-facts-title">Staff Members</h3>
+                  <h2 class="ts-facts-num"><span class="counterUp" data-count="20">0</span></h2>
+                  <h3 class="ts-facts-title">Total Pengunjung bulan lalu</h3>
                 </div>
             </div><!-- Col end -->
 
@@ -229,8 +227,8 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/fact3.png" alt="facts-img">
                 </div>
                 <div class="ts-facts-content">
-                  <h2 class="ts-facts-num"><span class="counterUp" data-count="4000">0</span></h2>
-                  <h3 class="ts-facts-title">Hours of Work</h3>
+                  <h2 class="ts-facts-num"><span class="counterUp" data-count="30">0</span></h2>
+                  <h3 class="ts-facts-title">Total Pengunjung tahun lalu</h3>
                 </div>
             </div><!-- Col end -->
 
@@ -239,8 +237,8 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/fact4.png" alt="facts-img">
                 </div>
                 <div class="ts-facts-content">
-                  <h2 class="ts-facts-num"><span class="counterUp" data-count="44">0</span></h2>
-                  <h3 class="ts-facts-title">Countries Experience</h3>
+                  <h2 class="ts-facts-num"><span class="counterUp" data-count="40">0</span></h2>
+                  <h3 class="ts-facts-title">Total Semua Pengunjung</h3>
                 </div>
             </div><!-- Col end -->
 
@@ -255,8 +253,8 @@
     <div class="container">
       <div class="row text-center">
           <div class="col-12">
-            <h2 class="section-title">We Are Specialists In</h2>
-            <h3 class="section-sub-title">What We Do</h3>
+            <h2 class="section-title">Layanan Desa</h2>
+            <h3 class="section-sub-title">Layanan yang tersedia</h3>
           </div>
       </div>
       <!--/ Title row end -->
@@ -268,7 +266,7 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon1.png" alt="service-icon">
                 </div>
                 <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Home Construction</a></h3>
+                  <h3 class="service-box-title"><a href="#">Layanan 1</a></h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
                 </div>
             </div><!-- Service 1 end -->
@@ -278,7 +276,7 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon2.png" alt="service-icon">
                 </div>
                 <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Building Remodels</a></h3>
+                  <h3 class="service-box-title"><a href="#">Layanan 2</a></h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
                 </div>
             </div><!-- Service 2 end -->
@@ -288,7 +286,7 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon3.png"  alt="service-icon">
                 </div>
                 <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Interior Design</a></h3>
+                  <h3 class="service-box-title"><a href="#">Layanan 3</a></h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
                 </div>
             </div><!-- Service 3 end -->
@@ -305,7 +303,7 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon4.png" alt="service-icon">
                 </div>
                 <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Exterior Design</a></h3>
+                  <h3 class="service-box-title"><a href="#">Layanan 4</a></h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
                 </div>
             </div><!-- Service 4 end -->
@@ -315,7 +313,7 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon5.png" alt="service-icon">
                 </div>
                 <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Renovation</a></h3>
+                  <h3 class="service-box-title"><a href="#">Layanan 5</a></h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
                 </div>
             </div><!-- Service 5 end -->
@@ -325,7 +323,7 @@
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon6.png" alt="service-icon">
                 </div>
                 <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Safety Management</a></h3>
+                  <h3 class="service-box-title"><a href="#">Layanan 6</a></h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
                 </div>
             </div><!-- Service 6 end -->
@@ -340,8 +338,8 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-lg-12">
-          <h2 class="section-title">Work of Excellence</h2>
-          <h3 class="section-sub-title">Recent Projects</h3>
+          <h2 class="section-title">Galeri</h2>
+          <h3 class="section-sub-title">Dokumentasi Desa</h3>
         </div>
       </div>
       <!--/ Title row end -->
@@ -350,15 +348,15 @@
         <div class="col-12">
           <div class="shuffle-btn-group">
             <label class="active" for="all">
-              <input type="radio" name="shuffle-filter" id="all" value="all" checked="checked">Show All
+              <input type="radio" name="shuffle-filter" id="all" value="all" checked="checked">semua
             </label>
             <label for="commercial">
-              <input type="radio" name="shuffle-filter" id="commercial" value="commercial">Commercial
+              <input type="radio" name="shuffle-filter" id="commercial" value="commercial">Didalam desa
             </label>
             <label for="education">
-              <input type="radio" name="shuffle-filter" id="education" value="education">Education
+              <input type="radio" name="shuffle-filter" id="education" value="education">Diluar desa
             </label>
-            <label for="government">
+            {{-- <label for="government">
               <input type="radio" name="shuffle-filter" id="government" value="government">Government
             </label>
             <label for="infrastructure">
@@ -369,7 +367,7 @@
             </label>
             <label for="healthcare">
               <input type="radio" name="shuffle-filter" id="healthcare" value="healthcare">Healthcare
-            </label>
+            </label> --}}
           </div><!-- project filter end -->
 
 
@@ -482,7 +480,7 @@
 
         <div class="col-12">
           <div class="general-btn text-center">
-            <a class="btn btn-primary" href="projects.html">View All Projects</a>
+            <a class="btn btn-primary" href="{{url('/semua_galeri')}}">Lihat semua</a>
           </div>
         </div>
 
@@ -495,7 +493,7 @@
     <div class="container">
       <div class="row">
           <div class="col-lg-6">
-            <h3 class="column-title">Testimonials</h3>
+            <h3 class="column-title">Testimoni Pengunjung</h3>
 
             <div id="testimonial-slide" class="testimonial-slide">
                 <div class="item">
@@ -561,16 +559,16 @@
 
           <div class="col-lg-6 mt-5 mt-lg-0">
 
-            <h3 class="column-title">Happy Clients</h3>
+            <h3 class="column-title">Kerjasama dengan</h3>
 
             <div class="row all-clients">
                 <div class="col-sm-4 col-6">
                   <figure class="clients-logo">
-                      <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/client1.png" alt="clients-logo" /></a>
+                      <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/uwp-ok.jpg" alt="clients-logo" /></a>
                   </figure>
                 </div><!-- Client 1 end -->
 
-                <div class="col-sm-4 col-6">
+                {{-- <div class="col-sm-4 col-6">
                   <figure class="clients-logo">
                       <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/client2.png" alt="clients-logo" /></a>
                   </figure>
@@ -598,7 +596,7 @@
                   <figure class="clients-logo">
                       <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/client6.png" alt="clients-logo" /></a>
                   </figure>
-                </div><!-- Client 6 end -->
+                </div><!-- Client 6 end --> --}}
 
             </div><!-- Clients row end -->
 
@@ -615,26 +613,26 @@
       <div class="row">
           <div class="col-lg-4">
             <div class="subscribe-call-to-acton">
-                <h3>Can We Help?</h3>
-                <h4>(+9) 847-291-4353</h4>
+                <h3>Telfon</h3>
+                <h4>0823988******</h4>
             </div>
           </div><!-- Col end -->
 
           <div class="col-lg-8">
             <div class="ts-newsletter row align-items-center">
                 <div class="col-md-5 newsletter-introtext">
-                  <h4 class="text-white mb-0">Newsletter Sign-up</h4>
-                  <p class="text-white">Latest updates and news</p>
+                  <h4 class="text-white mb-0">Moto Desa</h4>
+                  <p class="text-white">contoh: Guyup rukun makmur</p>
                 </div>
 
-                <div class="col-md-7 newsletter-form">
+                {{-- <div class="col-md-7 newsletter-form">
                   <form action="#" method="post">
                       <div class="form-group">
                         <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
                         <input type="email" name="email" id="newsletter-email" class="form-control form-control-lg" placeholder="Your your email and hit enter" autocomplete="off">
                       </div>
                   </form>
-                </div>
+                </div> --}}
             </div><!-- Newsletter end -->
           </div><!-- Col end -->
 
@@ -648,8 +646,8 @@
     <div class="container">
       <div class="row text-center">
           <div class="col-12">
-            <h2 class="section-title">Work of Excellence</h2>
-            <h3 class="section-sub-title">Recent Projects</h3>
+            <h2 class="section-title">Berita</h2>
+            <h3 class="section-sub-title">Kumpulan berita terkini</h3>
           </div>
       </div>
       <!--/ Title row end -->
