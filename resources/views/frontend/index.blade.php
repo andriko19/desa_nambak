@@ -480,7 +480,7 @@
 
         <div class="col-12">
           <div class="general-btn text-center">
-            <a class="btn btn-primary" href="{{url('/semua_galeri')}}">Lihat semua</a>
+            <a class="btn btn-primary" href="{{url('/semua_galeri')}}">Lihat semua galeri</a>
           </div>
         </div>
 
@@ -716,7 +716,7 @@
       <!--/ Content row end -->
 
       <div class="general-btn text-center mt-4">
-          <a class="btn btn-primary" href="news-left-sidebar.html">See All Posts</a>
+          <a class="btn btn-primary" href="{{url('/semua_berita')}}">Lihat Semua Berita</a>
       </div>
 
     </div>

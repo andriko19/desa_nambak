@@ -58,6 +58,24 @@ class FrontLandingController extends Controller
         return view('frontend/semua_galeri', compact('title', 'pages'));
     }
 
+    public function semua_berita(Request $request)
+    {
+        $title = 'home';
+        $pages = 'landing';
+
+        // return view('front/signin', compact('title', 'pages'))
+        return view('frontend/semua_berita', compact('title', 'pages'));
+    }
+
+    public function detail_berita(Request $request)
+    {
+        $title = 'home';
+        $pages = 'landing';
+
+        // return view('front/signin', compact('title', 'pages'))
+        return view('frontend/detail_berita', compact('title', 'pages'));
+    }
+
     public function profil_desa(Request $request)
     {
         $title = 'home';
