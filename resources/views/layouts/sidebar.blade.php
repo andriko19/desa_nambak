@@ -82,6 +82,62 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="#">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('Tentang Desa')</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('Layanan')</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('Galeri')</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('Testimoni')</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('Berita')</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('Footer')</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('contact')</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('Data dan Informasi')</span>
+                    </a>
+                </li>
+
                 <li class="menu-title">@lang('General Information')</li>
 
                 <li>

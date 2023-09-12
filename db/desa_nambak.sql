@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhostku
+ Source Server         : local
  Source Server Type    : MySQL
- Source Server Version : 100424
+ Source Server Version : 100427
  Source Host           : localhost:3306
- Source Schema         : indis
+ Source Schema         : desa_nambak
 
  Target Server Type    : MySQL
- Target Server Version : 100424
+ Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 02/02/2023 13:53:15
+ Date: 12/09/2023 22:46:56
 */
 
 SET NAMES utf8mb4;
@@ -40,7 +40,7 @@ CREATE TABLE `account`  (
   `update_time` time NULL DEFAULT NULL,
   `update_by` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_account`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of account
@@ -70,7 +70,7 @@ CREATE TABLE `address`  (
   `created_date` date NULL DEFAULT NULL,
   `created_by` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_address`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of address
@@ -93,7 +93,7 @@ CREATE TABLE `attachment`  (
   `update_time` time NULL DEFAULT NULL,
   `update_by` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_att`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of attachment
@@ -122,7 +122,7 @@ CREATE TABLE `contact_person`  (
   `update_time` time NULL DEFAULT NULL,
   `update_by` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_contact`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of contact_person
@@ -356,10 +356,10 @@ INSERT INTO `files` VALUES (7, '[\"167419540361.png\",\"167419540371.jpg\",\"167
 INSERT INTO `files` VALUES (8, '[\"16741954363.png\",\"167419543673.jpg\",\"167419543682.jpg\"]', '121', '2023-01-20 06:17:16', '2023-01-20 06:17:16');
 
 -- ----------------------------
--- Table structure for general_information
+-- Table structure for general_informations
 -- ----------------------------
-DROP TABLE IF EXISTS `general_information`;
-CREATE TABLE `general_information`  (
+DROP TABLE IF EXISTS `general_informations`;
+CREATE TABLE `general_informations`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_customer` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `type_usaha` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -379,10 +379,10 @@ CREATE TABLE `general_information`  (
   `update_time` time NULL DEFAULT NULL,
   `update_by` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of general_information
+-- Records of general_informations
 -- ----------------------------
 
 -- ----------------------------
@@ -399,7 +399,7 @@ CREATE TABLE `jenis_toko`  (
   `update_time` time NULL DEFAULT NULL,
   `update_by` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_jenis_toko`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jenis_toko
@@ -422,7 +422,7 @@ CREATE TABLE `legal`  (
   `update_time` time NULL DEFAULT NULL,
   `update_by` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_leg`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of legal
@@ -461,7 +461,7 @@ CREATE TABLE `model_has_permissions`  (
   `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `model_id` bigint UNSIGNED NOT NULL,
   PRIMARY KEY (`permission_id`, `model_id`, `model_type`) USING BTREE,
-  INDEX `model_has_permissions_model_id_model_type_index`(`model_id`, `model_type`) USING BTREE,
+  INDEX `model_has_permissions_model_id_model_type_index`(`model_id` ASC, `model_type` ASC) USING BTREE,
   CONSTRAINT `model_has_permissions_ibfk_1` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
@@ -478,7 +478,7 @@ CREATE TABLE `model_has_roles`  (
   `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `model_id` bigint UNSIGNED NOT NULL,
   PRIMARY KEY (`role_id`, `model_id`, `model_type`) USING BTREE,
-  INDEX `model_has_roles_model_id_model_type_index`(`model_id`, `model_type`) USING BTREE,
+  INDEX `model_has_roles_model_id_model_type_index`(`model_id` ASC, `model_type` ASC) USING BTREE,
   CONSTRAINT `model_has_roles_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
@@ -784,7 +784,7 @@ CREATE TABLE `news`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `blog_category_id_foreign`(`category_id`) USING BTREE,
+  INDEX `blog_category_id_foreign`(`category_id` ASC) USING BTREE,
   CONSTRAINT `news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
@@ -839,7 +839,7 @@ CREATE TABLE `news_image`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `blog_image_blog_id_foreign`(`blog_id`) USING BTREE,
+  INDEX `blog_image_blog_id_foreign`(`blog_id` ASC) USING BTREE,
   CONSTRAINT `news_image_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `news` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
@@ -858,7 +858,7 @@ CREATE TABLE `password_resets`  (
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  INDEX `password_resets_email_index`(`email`) USING BTREE
+  INDEX `password_resets_email_index`(`email` ASC) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
@@ -905,7 +905,7 @@ CREATE TABLE `role_has_permissions`  (
   `permission_id` bigint UNSIGNED NOT NULL,
   `role_id` bigint UNSIGNED NOT NULL,
   PRIMARY KEY (`permission_id`, `role_id`) USING BTREE,
-  INDEX `role_has_permissions_role_id_foreign`(`role_id`) USING BTREE,
+  INDEX `role_has_permissions_role_id_foreign`(`role_id` ASC) USING BTREE,
   CONSTRAINT `role_has_permissions_ibfk_1` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `role_has_permissions_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
@@ -1020,6 +1020,24 @@ CREATE TABLE `sliders`  (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for tbl_banner
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_banner`;
+CREATE TABLE `tbl_banner`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `deskripsi` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `gambar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_banner
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for users
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
@@ -1033,8 +1051,8 @@ CREATE TABLE `users`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+  UNIQUE INDEX `users_email_unique`(`email` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
@@ -1044,5 +1062,6 @@ INSERT INTO `users` VALUES (2, 'staff', 'dm@indraco.com', NULL, '$2y$10$yPwdRFYr
 INSERT INTO `users` VALUES (3, 'asikin', 'asikin@asik.com', NULL, '$2y$10$AEvwlrJegigHuOMx0xgTZOuIXC8q/2lWSIjQvU1PZzOjibza3YbAq', NULL, '2022-09-16 08:53:02', '2022-09-16 08:53:02');
 INSERT INTO `users` VALUES (4, 'Mintul', 'mintul@gmail.com', NULL, '$2y$10$29GHkAfriG13Hu.QT/J0Z.W17wEFEBefiN99PZ0HkFiGBu2MMoUhu', NULL, '2022-10-13 03:13:34', '2022-10-13 03:13:34');
 INSERT INTO `users` VALUES (5, 'agus', 'assgiworld@gmail.com', NULL, '$2y$10$g/BmZgk.6m79ysTvwnZ7l.lulJm7cryrnEF1JMWaXiq3/2aohJhPi', NULL, '2022-10-18 06:49:43', '2022-10-20 09:16:33');
+INSERT INTO `users` VALUES (6, 'nambak@gmail.com', 'nambak@gmail.com', NULL, '$2y$10$1bvw4J9RXAzIrpLWihJFJOWcoKOMbrTcZsTYC3uE1VdNNfQ6rDLRK', NULL, '2023-08-25 11:36:09', '2023-08-25 11:36:09');
 
 SET FOREIGN_KEY_CHECKS = 1;
