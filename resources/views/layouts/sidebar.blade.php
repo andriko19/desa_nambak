@@ -32,7 +32,7 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title">@lang('translation.Menu')</li>
+                <li class="menu-title">@lang('Home')</li>
 
                 <li>
                     {{-- <a href="{{url('index')}}"> --}}
@@ -71,6 +71,15 @@
                         <li><a href="#">@lang('Master Bank')</a></li>
                         <li><a href="#">@lang('Master Harga')</a></li>
                     </ul>
+                </li>
+
+                <li class="menu-title">@lang('Menu')</li>
+
+                <li>
+                    <a href="{{ url('admin/banner') }}">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('Banner')</span>
+                    </a>
                 </li>
 
                 <li class="menu-title">@lang('General Information')</li>

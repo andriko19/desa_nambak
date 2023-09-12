@@ -17,6 +17,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\BannerController;
 
 use App\Http\Controllers\Coupon\CouponController;
 
@@ -115,6 +116,17 @@ Route::get('/admin_nambak', [FrontLandingController::class, 'admin_nambak'])->na
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('admin/dashboard', DashboardController::class);
+    Route::resource('admin/banner', BannerController::class);
+
+
+
+
+
+
+
+
+
+
     Route::resource('admin/websetup', WebsetupController::class);
     Route::resource('member/board', MemberBoardController::class);
     Route::resource('fpdf', FpdfController::class);

@@ -1,5 +1,6 @@
 <meta charset="utf-8" />
 <title>@yield('title') | RO</title>
+{{-- <title>@yield('title') | Desa Nambak</title> --}}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="Project Supresso | Indraco Global Indonesia" name="description" />
 <meta content="SuryoAtmojo" name="author" />
