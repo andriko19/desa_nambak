@@ -5,6 +5,9 @@
 <link href="{{ URL::asset('/assets/css/icons.min.css')}}" id="icons-style" rel="stylesheet" type="text/css" />
 <!-- App Css-->
 <link href="{{ URL::asset('/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+{{-- Sweet Alert --}}
+<link rel="stylesheet" href="{{ url('/') }}/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<script src="{{ url('/') }}/sweetalert2/sweetalert2.min.js"></script>
 
 <link rel="stylesheet" href="{{asset('assets/libs/codemirror/lib/codemirror.css')}}">
 <link rel="stylesheet" href="{{asset('assets/libs/codemirror/theme/dracula.css')}}">

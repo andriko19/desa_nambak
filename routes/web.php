@@ -175,12 +175,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
-Route::get('/landing', function () {
-    return view('ui/landing', [
-        "title" => "Home",
-        "pages" => "landing"
-    ]);
-});
+// admin panel page
+Route::post('banner/store', [BannerController::class, 'store'])->name('banner.store');
 
 // Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');

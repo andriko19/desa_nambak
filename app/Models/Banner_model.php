@@ -9,6 +9,7 @@ class Banner_model extends Model
 {
     use HasFactory;
 
+    protected $table = 'tbl_banner';
     protected $fillable = [
         'judul',
         'deskripsi',

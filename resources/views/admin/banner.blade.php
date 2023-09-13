@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    @lang('Banner')
+    @lang($title)
 @endsection
 @section('css')
     <!-- DataTables -->
@@ -13,7 +13,7 @@
             Admin
         @endslot
         @slot('title')
-            List Banner
+            @lang($pages)
         @endslot
     @endcomponent
 
@@ -43,36 +43,32 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Judul</th>
-                                    <th>Email</th>
-                                    <th>Roles</th>
+                                    <th>Deskripsi</th>
+                                    <th>Gambar</th>
                                     <th width="280px">Action</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($data as $key => $user)
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @foreach ($banners as $key => $data)
                                     <tr>
-                                        <td>{{ ++$i }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->judul }}</td>
+                                        <td>{!! $data->deskripsi !!}</td>
                                         <td>
-                                          @if(!empty($user->getRoleNames()))
-                                            @foreach($user->getRoleNames() as $v)
+                                            @if(!empty($data->gambar))
 
-                                                {{ $v }}
-
-                                            @endforeach
-                                          @endif
+                                            @endif
                                         </td>
                                         <td>
-                                           <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
-                                           <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
-                                            {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                            {!! Form::close() !!}
+                                            <a class="btn btn-primary" href="#">Edit</a>
+                                            <a class="btn btn-danger" href="#">Hapus</a>
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
 
                             </tbody>
                         </table>
@@ -84,7 +80,7 @@
 @endsection
 <!-- Button trigger modal -->
 
-  
+
 <!-- Modal Add Data-->
 <div class="modal fade" id="modalBanner" tabindex="-1" aria-labelledby="modalBannerLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -100,21 +96,21 @@
                         <ul></ul>
                     </div>
                     <div class="form-group">
-                        <label for="title">Judul</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="Judul Banner">
+                        <label for="judul">Judul</label>
+                        <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul Banner">
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" rows="8"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="gambar">Gambar</label>
-                        <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Gambar">
+                        <label for="file">Gambar</label>
+                        <input type="file" class="form-control" id="file" name="file" placeholder="Gambar">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
         </div>
@@ -126,14 +122,80 @@
     <script src="{{ URL::asset('/assets/libs/jszip/jszip.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+    {{-- ckEditor --}}
+    <script src="{{ url('/') }}/ckeditor/ckeditor.js"></script>
+
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script> --}}
 
     <script>
         var deskripsi = document.getElementById("deskripsi");
-            CKEDITOR.replace(deskripsi,{
+        CKEDITOR.replace(deskripsi,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
+        // proses submit add new job
+        $('#add_new_banner').submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            var judul = formData.get("judul");
+            var deskripsi = CKEDITOR.instances['deskripsi'].getData();
+            var file = formData.get("file");
+            console.log(file);
+            let token = $("meta[name='csrf-token']").attr("content");
+            $.ajax({
+                type: 'POST',
+                url: "{{ url('banner/store') }}",
+                // data : formData,
+                data: {
+                    "judul": judul,
+                    "deskripsi" : deskripsi,
+                    "file" : file,
+                    "_token": token
+                },
+                contentType: false,
+                processData: false,
+                cache: false,
+                success:function(data){
+                    if($.isEmptyObject(data.error)){
+                        Swal.fire({
+                            // icon: 'success',
+                            type: "success",
+                            title: 'Berhasil!',
+                            text: `${data.message}`,
+                            // showConfirmButton: false,
+                            timer: 3000
+                        });
+                        window.location.href = "{{url('admin/banner')}}";
+                    }else{
+                        printErrorMsgAdd(data.error);
+                    }
+                }
+            });
+        });
+
+
+
+
+
+
+
+        function printErrorMsgAdd (msg) {
+            $(".print-error-msg-add").find("ul").html('');
+            $(".print-error-msg-add").css('display','block');
+
+            $.each( msg, function( key, value ) {
+                $(".print-error-msg-add").find("ul").append('<li>'+value+'</li>');
+            });
+        }
+
+        function printErrorMsgEdit (msg) {
+            $(".print-error-msg-edit").find("ul").html('');
+            $(".print-error-msg-edit").css('display','block');
+
+            $.each( msg, function( key, value ) {
+                $(".print-error-msg-edit").find("ul").append('<li>'+value+'</li>');
+            });
+        }
     </script>
 @endsection
