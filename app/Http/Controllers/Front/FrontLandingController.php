@@ -102,6 +102,15 @@ class FrontLandingController extends Controller
         // return view('front/signin', compact('title', 'pages'))
         return view('frontend/contact', compact('title', 'pages'));
     }
+
+    public function testimoni(Request $request)
+    {
+        $title = 'home';
+        $pages = 'landing';
+
+        // return view('front/signin', compact('title', 'pages'))
+        return view('frontend/testimoni', compact('title', 'pages'));
+    }
     /**
      * Show the form for creating a new resource.
      *

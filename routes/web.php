@@ -186,6 +186,7 @@ Route::get('/semua_berita', [FrontLandingController::class, 'semua_berita'])->na
 Route::get('/detail_berita', [FrontLandingController::class, 'detail_berita'])->name('detail_berita');
 Route::get('/jumlah_remaja_preventif_jenis_kelamin_dan_usia', [FrontLandingController::class, 'jumlah_remaja_preventif_jenis_kelamin_dan_usia'])->name('jumlah_remaja_preventif_jenis_kelamin_dan_usia');
 Route::get('/contact', [FrontLandingController::class, 'contact'])->name('contact');
+Route::get('/testimoni', [FrontLandingController::class, 'testimoni'])->name('testimoni');
 // USER INTERFACE
 // home pages
 // Route::get('/ui/', function () {

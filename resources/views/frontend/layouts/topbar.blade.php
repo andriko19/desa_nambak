@@ -166,7 +166,7 @@
                           </ul>
                       </li>
               
-                      <li class="nav-item"><a class="nav-link" href="{{url('/contact')}}">Contact</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{{url('/contact')}}">kontak</a></li>
                     </ul>
                 </div>
               </nav>

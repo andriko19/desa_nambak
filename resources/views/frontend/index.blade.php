@@ -620,19 +620,14 @@
 
           <div class="col-lg-8">
             <div class="ts-newsletter row align-items-center">
-                <div class="col-md-5 newsletter-introtext">
+                <div class="col-md-8 newsletter-introtext">
                   <h4 class="text-white mb-0">Moto Desa</h4>
                   <p class="text-white">contoh: Guyup rukun makmur</p>
                 </div>
 
-                {{-- <div class="col-md-7 newsletter-form">
-                  <form action="#" method="post">
-                      <div class="form-group">
-                        <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
-                        <input type="email" name="email" id="newsletter-email" class="form-control form-control-lg" placeholder="Your your email and hit enter" autocomplete="off">
-                      </div>
-                  </form>
-                </div> --}}
+                <div class="col-md-4 newsletter-form">
+                  <a class="btn btn-primary" href="{{url('/testimoni')}}">Bagaimana menurut anda tentang desa kami</a>
+                </div>
             </div><!-- Newsletter end -->
           </div><!-- Col end -->
 

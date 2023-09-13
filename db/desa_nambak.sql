@@ -11,7 +11,7 @@
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 12/09/2023 22:46:56
+ Date: 13/09/2023 22:33:34
 */
 
 SET NAMES utf8mb4;
@@ -1027,6 +1027,7 @@ CREATE TABLE `tbl_banner`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `deskripsi` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `jenis` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `gambar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1035,6 +1036,162 @@ CREATE TABLE `tbl_banner`  (
 
 -- ----------------------------
 -- Records of tbl_banner
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_berita
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_berita`;
+CREATE TABLE `tbl_berita`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `isi_berita` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `tag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `gambar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_berita
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_data_dan_informasi
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_data_dan_informasi`;
+CREATE TABLE `tbl_data_dan_informasi`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `jenis` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `isi_data_informasi` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `tag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `gambar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_data_dan_informasi
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_footer
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_footer`;
+CREATE TABLE `tbl_footer`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `jenis` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `prakata` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `hari` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `jam_oprasional` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_footer
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_galeri
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_galeri`;
+CREATE TABLE `tbl_galeri`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `jenis` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `gambar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_galeri
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_kontak
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_kontak`;
+CREATE TABLE `tbl_kontak`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `jenis` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `isi_kontak` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `link_maps` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_kontak
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_layanan
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_layanan`;
+CREATE TABLE `tbl_layanan`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `jenis` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `deskripsi` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `gambar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_layanan
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_tentang_desa
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_tentang_desa`;
+CREATE TABLE `tbl_tentang_desa`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `jenis` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `judul` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `prakata` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `deskripsi` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `pertanyaan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `jawaban` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `gambar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_tentang_desa
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_testimoni
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_testimoni`;
+CREATE TABLE `tbl_testimoni`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `alamat` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `foto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `tanggapan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_testimoni
 -- ----------------------------
 
 -- ----------------------------
