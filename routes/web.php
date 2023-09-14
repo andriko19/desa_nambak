@@ -179,6 +179,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::post('banner/store', [BannerController::class, 'store'])->name('banner.store');
 Route::get('banner/show/{id}', [BannerController::class, 'show'])->name('banner.show');
 Route::post('banner/update/{id}', [BannerController::class, 'update'])->name('banner.update');
+Route::get('banner/destroy/{id}', [BannerController::class, 'destroy'])->name('banner.destroy');
 
 // Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');

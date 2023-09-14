@@ -132,23 +132,35 @@ class BannerController extends Controller
 
         //check if validation fails
         if ($validator->passes()) {
-            // if ($request->hasfile('file')) {
+            $Banner = Banner_model::findOrFail($id);
 
-            //     $gambar = $request->file('file');
-            //     $nama = time() . rand(1, 100) . '.' . $gambar->extension();
-            //     $gambar->move(public_path('uploads/banner'), $nama);
+            if($request->file('edit_file') == "") {
 
-            //     // insert to db
-            //     $Banner = Banner_model::create([
-            //         'judul' => $request->judul,
-            //         'deskripsi' => $request->deskripsi,
-            //         'jenis' => $request->jenis,
-            //         'gambar' => $nama,
-            //     ]);
-
-            // }
-
-            return response()->json(['message' => 'Berhasil menambahkan data baru!']);
+                $Banner->update([
+                    'judul' => $request->edit_judul,
+                    'deskripsi' => $request->edit_deskripsi,
+                    'jenis' => $request->edit_jenis,
+                ]);
+        
+            } else {
+                //hapus old image
+                unlink(public_path('uploads/banner/').$Banner->gambar);
+        
+                //upload new image
+                $gambar = $request->file('edit_file');
+                $nama = time() . rand(1, 100) . '.' . $gambar->extension();
+                $gambar->move(public_path('uploads/banner'), $nama);
+        
+                $Banner->update([
+                    'judul' => $request->edit_judul,
+                    'deskripsi' => $request->edit_deskripsi,
+                    'jenis' => $request->edit_jenis,
+                    'gambar' => $nama,
+                ]);
+        
+            }
+            
+            return response()->json(['message' => 'Berhasil edit data!']);
         }
 
         return response()->json(['error' => $validator->errors()->all()]);
@@ -162,6 +174,15 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Banner = Banner_model::findOrFail($id);
+        //hapus old image
+        unlink(public_path('uploads/banner/').$Banner->gambar);
+        
+        Banner_model::find($id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Hapus data!',
+            // 'data'    => $post
+        ]);
     }
 }

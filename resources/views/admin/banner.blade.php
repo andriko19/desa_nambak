@@ -145,7 +145,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="alert alert-danger print-error-msg-add" style="display:none">
+                    <div class="alert alert-danger print-error-msg-edit" style="display:none">
                         <ul></ul>
                     </div>
                     <input type="hidden" class="form-control" id="edit_id" name="edit_id">
@@ -171,7 +171,7 @@
                         <label for="edit_file">Gambar</label>
                         <div class="row">
                             <div class="col" style="text-align: center">
-                                <img id="gambar_lama" src="about:blank" class="" style="width: 60%" alt="{{ $data->judul }}"> <br>
+                                <img id="gambar_lama" src="about:blank" class="" style="width: 60%" alt=""> <br>
                                 <p>Gambar lama</p>
                             </div>
                             <div class="col">
@@ -217,21 +217,11 @@
             e.preventDefault();
             var formData = new FormData(this);
             formData.append('deskripsi', CKEDITOR.instances['deskripsi'].getData());
-            // var judul = formData.get("judul");
-            // var deskripsi = CKEDITOR.instances['deskripsi'].getData();
-            // var file = formData.get("file");
-            // let token = $("meta[name='csrf-token']").attr("content");
-            // console.log(formData);
+
             $.ajax({
                 type: 'POST',
                 url: "{{ url('banner/store') }}",
                 data : formData,
-                // data: {
-                //     "judul": judul,
-                //     "deskripsi" : deskripsi,
-                //     "file" : file,
-                //     "_token": token
-                // },
                 contentType: false,
                 processData: false,
                 cache: false,
@@ -278,7 +268,7 @@
             let id = $('#edit_id').val();
             var formData = new FormData(this);
             formData.append('edit_deskripsi', CKEDITOR.instances['edit_deskripsi'].getData());
-            console.log(formData);
+            // console.log(formData);
 
             $.ajax({
                 type: 'POST',
@@ -297,15 +287,46 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        // window.location.href = "{{url('admin/banner')}}";
+                        window.location.href = "{{url('admin/banner')}}";
                     }else{
-                        printErrorMsgAdd(data.error);
+                        printErrorMsgEdit(data.error);
                     }
                 }
             });
         });
 
-
+        function destroy(id) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Hapus Data',
+                text: 'Apakah anda yakin ingin mengapus data ini ?',
+                showCancelButton: !0,
+                confirmButtonText: "Ya",
+                cancelButtonText: "Tidak",
+                reverseButtons: !0
+            }).then(function (e) {
+                if (e.value === true) {
+                    $.ajax({
+                        type: "get",
+                        url: "{{ url('banner/destroy') }}/" + id,
+                        success: function(data) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: `${data.message}`,
+                                showConfirmButton: true,
+                                // timer: 3000
+                            });
+                            window.location.href = "{{url('admin/banner')}}";
+                        }
+                    });
+                } else {
+                    e.dismiss;
+                }
+            }, function (dismiss) {
+                return false;
+            });
+        }
 
         function printErrorMsgAdd (msg) {
             $(".print-error-msg-add").find("ul").html('');
