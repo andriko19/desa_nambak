@@ -177,6 +177,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 // admin panel page
 Route::post('banner/store', [BannerController::class, 'store'])->name('banner.store');
+Route::get('banner/show/{id}', [BannerController::class, 'show'])->name('banner.show');
+Route::post('banner/update/{id}', [BannerController::class, 'update'])->name('banner.update');
 
 // Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');

@@ -43,6 +43,7 @@ class BannerController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
+                'jenis' => 'required|not_in:0',
                 'judul' => 'required',
                 'deskripsi' => 'required',
                 'file' => 'required',
@@ -57,35 +58,20 @@ class BannerController extends Controller
         //check if validation fails
         if ($validator->passes()) {
             if ($request->hasfile('file')) {
-                // foreach ($request->file('filenames') as $file) {
-                //     $name = time() . rand(1, 100) . '.' . $file->extension();
-                //     // $file->move(public_path('files'), $name);
-                //     Image::make($file)->resize(850, null, function ($constraint) {
-                //         $constraint->aspectRatio();
-                //     })->save(public_path('files/' . $name));
 
-                //     $files[] = $name;
-                //     // $namaFiles[] = $request->namaFile;
-                // }
+                $gambar = $request->file('file');
+                $nama = time() . rand(1, 100) . '.' . $gambar->extension();
+                $gambar->move(public_path('uploads/banner'), $nama);
 
-                // $CreateAttachment = Attachment_model::create([
-                //     'id_customer'   => $request->id_customer,
-                //     'files'         => implode(",",$files),
-                //     'nama_files'    => implode(",",$request->namaFile),
-                //     'ar'            => $request->ar,
-                //     'created_date'  => $request->created_date,
-                //     'created_by'    => $request->ar,
-                // ]);
+                // insert to db
+                $Banner = Banner_model::create([
+                    'judul' => $request->judul,
+                    'deskripsi' => $request->deskripsi,
+                    'jenis' => $request->jenis,
+                    'gambar' => $nama,
+                ]);
 
-                $data = $request->file('file');
-                dd($data);
             }
-
-            // insert to db
-            $Banner = Banner_model::create([
-                'judul' => $request->judul,
-                'deskripsi' => $request->deskripsi,
-            ]);
 
             return response()->json(['message' => 'Berhasil menambahkan data baru!']);
         }
@@ -101,7 +87,12 @@ class BannerController extends Controller
      */
     public function show($id)
     {
-        //
+        $Banner = Banner_model::find($id);
+
+        return response()->json([
+            'success' => true,
+            'data'    => $Banner
+        ]);
     }
 
     /**
@@ -124,7 +115,43 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'edit_jenis' => 'required|not_in:0',
+                'edit_judul' => 'required',
+                'edit_deskripsi' => 'required',
+                // 'edit_file' => 'required',
+            ],
+            [
+                'judul.required' => 'The Judul field is required.',
+                'deskripsi.required' => 'The Deskripsi field is required.',
+                'file.required' => 'The Gambar field is required.',
+            ]
+        );
+
+        //check if validation fails
+        if ($validator->passes()) {
+            // if ($request->hasfile('file')) {
+
+            //     $gambar = $request->file('file');
+            //     $nama = time() . rand(1, 100) . '.' . $gambar->extension();
+            //     $gambar->move(public_path('uploads/banner'), $nama);
+
+            //     // insert to db
+            //     $Banner = Banner_model::create([
+            //         'judul' => $request->judul,
+            //         'deskripsi' => $request->deskripsi,
+            //         'jenis' => $request->jenis,
+            //         'gambar' => $nama,
+            //     ]);
+
+            // }
+
+            return response()->json(['message' => 'Berhasil menambahkan data baru!']);
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
     }
 
     /**
