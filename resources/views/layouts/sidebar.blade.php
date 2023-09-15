@@ -58,20 +58,6 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">@lang('Master')</li>
-
-                <li>
-                    <a href="#" class="has-arrow waves-effect">
-                        <i class="uil-database"></i>
-                        <span>@lang('Master')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="{{url('ui/master')}}">@lang('Master User')</a></li>
-                        <li><a href="#">@lang('Master Produk')</a></li>
-                        <li><a href="#">@lang('Master Bank')</a></li>
-                        <li><a href="#">@lang('Master Harga')</a></li>
-                    </ul>
-                </li>
 
                 <li class="menu-title">@lang('Menu')</li>
 
@@ -83,7 +69,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/tentang_desa') }}">
                         <i class="uil-home-alt"></i>
                         <span>@lang('Tentang Desa')</span>
                     </a>
@@ -137,41 +123,6 @@
                         <span>@lang('Data dan Informasi')</span>
                     </a>
                 </li>
-
-                <li class="menu-title">@lang('General Information')</li>
-
-                <li>
-                    <a href="{{ route('generals.index') }}">
-                        <i class="uil-home-alt"></i>
-                        <span>@lang('General')</span>
-                    </a>
-                </li>
-
-
-                <li class="menu-title">@lang('Setting')</li>
-
-                <li>
-                    <a href="{{url('admin/websetup')}}">
-                        <i class="uil-analytics"></i>
-                        <span>@lang('Setup Web')</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-database"></i>
-                        <span>@lang('Sync Database')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href={{ route('sync-product.index') }}>@lang('Sync Products')</a></li>
-                        <li><a href="#">@lang('Sync Orders')</a></li>
-                    </ul>
-                </li>
-
-
-
-
-
-
 
             </ul>
         </div>
