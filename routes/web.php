@@ -44,6 +44,7 @@ Route::get('/admin_nambak', [FrontLandingController::class, 'admin_nambak'])->na
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('admin/dashboard', DashboardController::class);
     Route::resource('admin/banner', BannerController::class);
+    Route::resource('admin/tentang_desa', TentangDesaController::class);
 
 
 

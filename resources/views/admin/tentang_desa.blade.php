@@ -22,8 +22,8 @@
             <div class="card">
                 <div class="card-body">
                     @can('product-create')
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBanner">
-                            <i class="fas fa-calendar-plus"> </i> Tambah Banner Baru
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{$idmodal}}">
+                            <i class="fas fa-calendar-plus"> </i> Tambah @lang($title) Baru
                         </button>
                     @endcan
 
@@ -53,7 +53,7 @@
                                 @php
                                     $no = 1;
                                 @endphp
-                                @foreach ($banners as $key => $data)
+                                @foreach ($tentang_desa as $key => $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->jenis }}</td>
@@ -89,13 +89,13 @@
 
 
 <!-- Modal Add Data-->
-<div class="modal fade" id="modalBanner" tabindex="-1" aria-labelledby="modalBannerLabel" aria-hidden="true">
+<div class="modal fade" id="modal{{$idmodal}}" tabindex="-1" aria-labelledby="modal{{$idmodal}}Label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form id="add_new_banner" class="forms-sample" method="POST" action="javascript:void(0)" accept-charset="utf-8" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalBannerLabel">Tambah Banner Baru</h5>
+                    <h5 class="modal-title" id="modal{{$idmodal}}Label">Tambah {{$title}} Baru</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -106,19 +106,34 @@
                         <label for="judul">Jenis</label>
                         <select class="form-select" name="jenis">
                             {{-- @foreach ($product_collection_models as $product_collection) --}}
-                            <option value="0" selected> --Pilih Jenis Banner-- </option>
-                            <option value="Pembuka">Pembuka</option>
-                            <option value="Highlight">Highlight</option>
+                            <option value="0" selected> --Pilih Jenis {{$title}}-- </option>
+                            <option value="Moto">Moto</option>
+                            <option value="Profil">Profil</option>
+                            <option value="Keunggulan">Keunggulan</option>
+                            <option value="Prakata Pertanyaan">Prakata Pertanyaan</option>
+                            <option value="Pertanyaan Umum">Pertanyaan Umum</option>
                             {{-- @endforeach  --}}
                         </select>
                     </div>
                     <div class="form-group mb-4">
                         <label for="judul">Judul</label>
-                        <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul Banner">
+                        <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul {{$title}}">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="prakata">Prakata</label>
+                        <textarea class="form-control" id="prakata" name="prakata" rows="8"></textarea>
                     </div>
                     <div class="form-group mb-4">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" rows="8"></textarea>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="pertanyaan">Pertanyaan</label>
+                        <textarea class="form-control" id="pertanyaan" name="pertanyaan" rows="8"></textarea>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="jawaban">Jawaban</label>
+                        <textarea class="form-control" id="jawaban" name="jawaban" rows="8"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="file">Gambar</label>
@@ -200,12 +215,33 @@
     {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script> --}}
 
     <script>
+        // ckeditor_add
+        var prakata = document.getElementById("prakata");
+            CKEDITOR.replace(prakata,{
+            language:'en-gb'
+        });
+        CKEDITOR.config.allowedContent = true;
+
         var deskripsi = document.getElementById("deskripsi");
             CKEDITOR.replace(deskripsi,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
+        var pertanyaan = document.getElementById("pertanyaan");
+            CKEDITOR.replace(pertanyaan,{
+            language:'en-gb'
+        });
+        CKEDITOR.config.allowedContent = true;
+
+        var jawaban = document.getElementById("jawaban");
+            CKEDITOR.replace(jawaban,{
+            language:'en-gb'
+        });
+        CKEDITOR.config.allowedContent = true;
+
+
+        //ckeditor_edit 
         var deskripsi = document.getElementById("edit_deskripsi");
             CKEDITOR.replace(deskripsi,{
             language:'en-gb'

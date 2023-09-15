@@ -23,7 +23,7 @@
                 <div class="card-body">
                     @can('product-create')
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBanner">
-                            <i class="fas fa-calendar-plus"> </i> Tambah Banner Baru
+                            <i class="fas fa-calendar-plus"> </i> Tambah @lang($title) Baru
                         </button>
                     @endcan
 

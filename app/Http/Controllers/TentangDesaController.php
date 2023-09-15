@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Validator;
+use App\Models\TentangDesa_model;
 
 class TentangDesaController extends Controller
 {
@@ -13,8 +15,12 @@ class TentangDesaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $idmodal = 'TentangDesa';
+        $title = 'Tentang Desa';
+        $pages = 'List Tentang Desa';
+        $tentang_desa = TentangDesa_model::all();
+        return view('admin/tentang_desa', compact('idmodal', 'title', 'pages', 'tentang_desa'));
     }
 
     /**
