@@ -16,7 +16,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 
 use App\Http\Controllers\BannerController;
-
+use App\Http\Controllers\TentangDesaController;
 
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
@@ -34,8 +34,6 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Auth::routes();
 
 //Route::get('/', [App\Http\Controllers\HomeController::class, 'root']);
@@ -51,8 +49,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-
-
     Route::resource('permissions', PermissionController::class);
 
 
@@ -64,7 +60,7 @@ Route::get('banner/show/{id}', [BannerController::class, 'show'])->name('banner.
 Route::post('banner/update/{id}', [BannerController::class, 'update'])->name('banner.update');
 Route::get('banner/destroy/{id}', [BannerController::class, 'destroy'])->name('banner.destroy');
 
-// Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
+// leanding page
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 Route::get('/semua_galeri', [FrontLandingController::class, 'semua_galeri'])->name('semua_galeri');
 Route::get('/profil_desa', [FrontLandingController::class, 'profil_desa'])->name('profil_desa');
