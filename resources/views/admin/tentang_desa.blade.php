@@ -104,7 +104,7 @@
                     </div>
                     <div class="form-group mb-4">
                         <label for="judul">Jenis</label>
-                        <select class="form-select" name="jenis">
+                        <select class="form-select jenis" name="jenis" id="jenis">
                             {{-- @foreach ($product_collection_models as $product_collection) --}}
                             <option value="0" selected> --Pilih Jenis {{$title}}-- </option>
                             <option value="Moto">Moto</option>
@@ -119,23 +119,23 @@
                         <label for="judul">Judul</label>
                         <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul {{$title}}">
                     </div>
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-4 div_prakata">
                         <label for="prakata">Prakata</label>
                         <textarea class="form-control" id="prakata" name="prakata" rows="8"></textarea>
                     </div>
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-4 div_deskripsi">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" rows="8"></textarea>
                     </div>
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-4 div_pertanyaan">
                         <label for="pertanyaan">Pertanyaan</label>
                         <textarea class="form-control" id="pertanyaan" name="pertanyaan" rows="8"></textarea>
                     </div>
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-4 div_jawaban">
                         <label for="jawaban">Jawaban</label>
                         <textarea class="form-control" id="jawaban" name="jawaban" rows="8"></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group div_file">
                         <label for="file">Gambar</label>
                         <input type="file" class="form-control" id="file" name="file" placeholder="Gambar">
                     </div>
@@ -215,6 +215,14 @@
     {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script> --}}
 
     <script>
+        $(document).ready(function() {
+            document.getElementsByClassName('div_prakata')[0].style.display = "none";
+            document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
+            document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
+            document.getElementsByClassName('div_jawaban')[0].style.display = "none";
+            document.getElementsByClassName('div_file')[0].style.display = "none";
+        });
+
         // ckeditor_add
         var prakata = document.getElementById("prakata");
             CKEDITOR.replace(prakata,{
@@ -241,13 +249,49 @@
         CKEDITOR.config.allowedContent = true;
 
 
-        //ckeditor_edit 
+        //ckeditor_edit
         var deskripsi = document.getElementById("edit_deskripsi");
             CKEDITOR.replace(deskripsi,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
+        // change jenis tentang desas
+        $('.jenis').change(function() {
+            let jenis_val = $('.jenis').val();
+            // console.log(jenis_val);
+            if (jenis_val == "Moto") {
+                document.getElementsByClassName('div_prakata')[0].style.display = "none";
+                document.getElementsByClassName('div_deskripsi')[0].style.display = "block";
+                document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
+                document.getElementsByClassName('div_jawaban')[0].style.display = "none";
+                document.getElementsByClassName('div_file')[0].style.display = "none";
+            } else if (jenis_val == "Profil") {
+                document.getElementsByClassName('div_prakata')[0].style.display = "none";
+                document.getElementsByClassName('div_deskripsi')[0].style.display = "block";
+                document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
+                document.getElementsByClassName('div_jawaban')[0].style.display = "none";
+                document.getElementsByClassName('div_file')[0].style.display = "block";
+            } else if (jenis_val == "Keunggulan") {
+                document.getElementsByClassName('div_prakata')[0].style.display = "none";
+                document.getElementsByClassName('div_deskripsi')[0].style.display = "block";
+                document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
+                document.getElementsByClassName('div_jawaban')[0].style.display = "none";
+                document.getElementsByClassName('div_file')[0].style.display = "none";
+            } else if (jenis_val == "Prakata Pertanyaan") {
+                document.getElementsByClassName('div_prakata')[0].style.display = "block";
+                document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
+                document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
+                document.getElementsByClassName('div_jawaban')[0].style.display = "none";
+                document.getElementsByClassName('div_file')[0].style.display = "none";
+            } else if (jenis_val == "Pertanyaan Umum") {
+                document.getElementsByClassName('div_prakata')[0].style.display = "none";
+                document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
+                document.getElementsByClassName('div_pertanyaan')[0].style.display = "block";
+                document.getElementsByClassName('div_jawaban')[0].style.display = "block";
+                document.getElementsByClassName('div_file')[0].style.display = "none";
+            }
+        });
         // proses submit add new job
         $('#add_new_banner').submit(function(e) {
             e.preventDefault();
