@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
        'banner/store',
+       'tentang_desa/store',
 
     ];
 }

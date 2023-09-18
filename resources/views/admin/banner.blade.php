@@ -141,7 +141,7 @@
             <form id="edit_banner" class="forms-sample" method="POST" action="javascript:void(0)" accept-charset="utf-8" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalBannerLabel">Tambah Banner Baru</h5>
+                    <h5 class="modal-title" id="modalBannerLabel">Edit Banner Lama</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

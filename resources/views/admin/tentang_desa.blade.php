@@ -44,7 +44,10 @@
                                     <th>No</th>
                                     <th>Jenis</th>
                                     <th>Judul</th>
+                                    <th>Prakata</th>
                                     <th>Deskripsi</th>
+                                    <th>Pertanyaan</th>
+                                    <th>Jawaban</th>
                                     <th style="width: 300px" >Gambar</th>
                                     <th width="280px">Action</th>
                                 </tr>
@@ -58,10 +61,13 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->jenis }}</td>
                                         <td>{{ $data->judul }}</td>
+                                        <td>{!! $data->prakata !!}</td>
                                         <td>{!! $data->deskripsi !!}</td>
+                                        <td>{!! $data->pertanyaan !!}</td>
+                                        <td>{!! $data->jawaban !!}</td>
                                         <td style="text-align: center">
                                             @if(!empty($data->gambar))
-                                                <img src="{{ URL::asset('/uploads/banner/'.$data->gambar) }}" class="" style="width: 60%" alt="{{ $data->judul }}">
+                                                <img src="{{ URL::asset('/uploads/tentangDesa/'.$data->gambar) }}" class="" style="width: 25%" alt="{{ $data->judul }}">
                                             @endif
                                         </td>
                                         <td>
@@ -92,7 +98,7 @@
 <div class="modal fade" id="modal{{$idmodal}}" tabindex="-1" aria-labelledby="modal{{$idmodal}}Label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="add_new_banner" class="forms-sample" method="POST" action="javascript:void(0)" accept-charset="utf-8" enctype="multipart/form-data">
+            <form id="add_new_{{$idmodal}}" class="forms-sample" method="POST" action="javascript:void(0)" accept-charset="utf-8" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal{{$idmodal}}Label">Tambah {{$title}} Baru</h5>
@@ -150,13 +156,13 @@
 </div>
 
 <!-- Modal Edit Data-->
-<div class="modal fade" id="modalEditBanner" tabindex="-1" aria-labelledby="modalBannerLabel" aria-hidden="true">
+<div class="modal fade" id="modalEdit{{$idmodal}}" tabindex="-1" aria-labelledby="modal{{$idmodal}}Label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="edit_banner" class="forms-sample" method="POST" action="javascript:void(0)" accept-charset="utf-8" enctype="multipart/form-data">
+            <form id="edit_{{$idmodal}}" class="forms-sample" method="POST" action="javascript:void(0)" accept-charset="utf-8" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalBannerLabel">Tambah Banner Baru</h5>
+                    <h5 class="modal-title" id="modal{{$idmodal}}Label">Edit {{$title}} Lama</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -165,24 +171,30 @@
                     </div>
                     <input type="hidden" class="form-control" id="edit_id" name="edit_id">
                     <div class="form-group mb-4">
-                        <label for="judul">Jenis</label>
-                        <select class="form-select" name="edit_jenis">
-                            {{-- @foreach ($product_collection_models as $product_collection) --}}
-                            <option value="0" selected> --Pilih Jenis Banner-- </option>
-                            <option value="Pembuka">Pembuka</option>
-                            <option value="Highlight">Highlight</option>
-                            {{-- @endforeach  --}}
-                        </select>
+                        <label for="edit_jenis">Jenis</label>
+                        <input type="text" class="form-control" id="edit_jenis" name="edit_jenis" placeholder="Judul {{$title}}" readonly>
                     </div>
                     <div class="form-group mb-4">
                         <label for="edit_judul">Judul</label>
-                        <input type="text" class="form-control" id="edit_judul" name="edit_judul" placeholder="Judul Banner">
+                        <input type="text" class="form-control" id="edit_judul" name="edit_judul" placeholder="Judul {{$title}}">
                     </div>
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-4 edit_div_prakata">
+                        <label for="edit_prakata">Prakata</label>
+                        <textarea class="form-control" id="edit_prakata" name="edit_prakata" rows="8"></textarea>
+                    </div>
+                    <div class="form-group mb-4 edit_div_deskripsi">
                         <label for="edit_deskripsi">Deskripsi</label>
                         <textarea class="form-control" id="edit_deskripsi" name="edit_deskripsi" rows="8"></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-4 edit_div_pertanyaan">
+                        <label for="edit_pertanyaan">Pertanyaan</label>
+                        <textarea class="form-control" id="edit_pertanyaan" name="edit_pertanyaan" rows="8"></textarea>
+                    </div>
+                    <div class="form-group mb-4 edit_div_jawaban">
+                        <label for="edit_jawaban">Jawaban</label>
+                        <textarea class="form-control" id="edit_jawaban" name="edit_jawaban" rows="8"></textarea>
+                    </div>
+                    <div class="form-group edit_div_file">
                         <label for="edit_file">Gambar</label>
                         <div class="row">
                             <div class="col" style="text-align: center">
@@ -250,11 +262,30 @@
 
 
         //ckeditor_edit
+        var prakata = document.getElementById("edit_prakata");
+            CKEDITOR.replace(prakata,{
+            language:'en-gb'
+        });
+        CKEDITOR.config.allowedContent = true;
+
         var deskripsi = document.getElementById("edit_deskripsi");
             CKEDITOR.replace(deskripsi,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
+
+        var pertanyaan = document.getElementById("edit_pertanyaan");
+            CKEDITOR.replace(pertanyaan,{
+            language:'en-gb'
+        });
+        CKEDITOR.config.allowedContent = true;
+
+        var jawaban = document.getElementById("edit_jawaban");
+            CKEDITOR.replace(jawaban,{
+            language:'en-gb'
+        });
+        CKEDITOR.config.allowedContent = true;
+
 
         // change jenis tentang desas
         $('.jenis').change(function() {
@@ -292,15 +323,20 @@
                 document.getElementsByClassName('div_file')[0].style.display = "none";
             }
         });
-        // proses submit add new job
-        $('#add_new_banner').submit(function(e) {
+
+        // proses submit add tentang_desa
+        $('#add_new_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
+            // console.log(formData);
+            formData.append('prakata', CKEDITOR.instances['prakata'].getData());
             formData.append('deskripsi', CKEDITOR.instances['deskripsi'].getData());
-
+            formData.append('pertanyaan', CKEDITOR.instances['pertanyaan'].getData());
+            formData.append('jawaban', CKEDITOR.instances['jawaban'].getData());
+            
             $.ajax({
                 type: 'POST',
-                url: "{{ url('banner/store') }}",
+                url: "{{ url('tentang_desa/store') }}",
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -315,7 +351,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/banner')}}";
+                        window.location.href = "{{url('admin/tentang_desa')}}";
                     }else{
                         printErrorMsgAdd(data.error);
                     }
@@ -323,36 +359,74 @@
             });
         });
 
-        // show edit banner
+        // show edit tentang_desa
         function update(id) {
             $.ajax({
-                url: "{{ url('banner/show') }}/" + id,
+                url: "{{ url('tentang_desa/show') }}/" + id,
                 type: "get",
                 cache: false,
                 success: function(response) {
                     //fill data to form
                     $('#edit_id').val(response.data.id);
-                    $('[name="edit_jenis"]').val(response.data.jenis);
+                    $('#edit_jenis').val(response.data.jenis);
                     $('#edit_judul').val(response.data.judul);
+                    CKEDITOR.instances['edit_prakata'].setData(response.data.prakata);
                     CKEDITOR.instances['edit_deskripsi'].setData(response.data.deskripsi);
-                    $('#gambar_lama').attr('src', "{{ asset('uploads/banner') }}/"+response.data.gambar);
+                    CKEDITOR.instances['edit_pertanyaan'].setData(response.data.pertanyaan);
+                    CKEDITOR.instances['edit_jawaban'].setData(response.data.jawaban);
+
+                    if (response.data.jenis == "Moto") {
+                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_file')[0].style.display = "none";
+                    } else if (response.data.jenis == "Profil") {
+                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_file')[0].style.display = "block";
+                        $('#gambar_lama').attr('src', "{{ asset('uploads/tentangDesa') }}/"+response.data.gambar);
+                    } else if (response.data.jenis == "Keunggulan") {
+                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_file')[0].style.display = "none";
+                    } else if (response.data.jenis == "Prakata Pertanyaan") {
+                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_file')[0].style.display = "none";
+                    } else if (response.data.jenis == "Pertanyaan Umum") {
+                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_file')[0].style.display = "none";
+                    }
+
                     //open modal
-                    $('#modalEditBanner').modal('show');
+                    $('#modalEdit{{$idmodal}}').modal('show');
                 }
             });
         }
 
-        // proses submit add new job
-        $('#edit_banner').submit(function(e) {
+        // proses edit tentang_desa
+        $('#edit_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             let id = $('#edit_id').val();
             var formData = new FormData(this);
+            formData.append('edit_prakata', CKEDITOR.instances['edit_prakata'].getData());
             formData.append('edit_deskripsi', CKEDITOR.instances['edit_deskripsi'].getData());
-            // console.log(formData);
-
+            formData.append('edit_pertanyaan', CKEDITOR.instances['edit_pertanyaan'].getData());
+            formData.append('edit_jawaban', CKEDITOR.instances['edit_jawaban'].getData());
+            
             $.ajax({
                 type: 'POST',
-                url: "{{ url('banner/update') }}/"+ id,
+                url: "{{ url('tentang_desa/update') }}/"+ id,
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -367,7 +441,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/banner')}}";
+                        window.location.href = "{{url('admin/tentang_desa')}}";
                     }else{
                         printErrorMsgEdit(data.error);
                     }
@@ -388,7 +462,7 @@
                 if (e.value === true) {
                     $.ajax({
                         type: "get",
-                        url: "{{ url('banner/destroy') }}/" + id,
+                        url: "{{ url('tentang_desa/destroy') }}/" + id,
                         success: function(data) {
                             Swal.fire({
                                 icon: 'success',
@@ -397,7 +471,7 @@
                                 showConfirmButton: true,
                                 // timer: 3000
                             });
-                            window.location.href = "{{url('admin/banner')}}";
+                            window.location.href = "{{url('admin/tentang_desa')}}";
                         }
                     });
                 } else {
