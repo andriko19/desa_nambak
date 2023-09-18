@@ -76,7 +76,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/layanan') }}">
                         <i class="uil-home-alt"></i>
                         <span>@lang('Layanan')</span>
                     </a>

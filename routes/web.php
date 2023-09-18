@@ -17,7 +17,7 @@ use App\Http\Controllers\PermissionController;
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\TentangDesaController;
-
+use App\Http\Controllers\LayananController;
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('admin/dashboard', DashboardController::class);
     Route::resource('admin/banner', BannerController::class);
     Route::resource('admin/tentang_desa', TentangDesaController::class);
-
+    Route::resource('admin/layanan', LayananController::class);
 
 
     Route::resource('roles', RoleController::class);
