@@ -36,7 +36,7 @@
           <h3 class="column-title">Bagaimana menurut anda tentang desa kami ?</h3>
           <!-- contact form works with formspree.io  -->
           <!-- contact form activation doc: https://docs.themefisher.com/constra/contact-form/ -->
-          <form id="contact-form" action="#" method="post" role="form">
+          <form id="add_new_testimoni" class="forms-sample" method="POST" action="javascript:void(0)" accept-charset="utf-8" enctype="multipart/form-data">
             <div class="error-container"></div>
             <div class="row">
               <div class="col-md-4">
@@ -55,13 +55,13 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Foto</label>
-                  <input class="form-control form-control-subject" name="foto" id="foto" placeholder="" type="file" required>
+                  <input class="form-control form-control-subject" name="file" id="file" placeholder="" type="file" required>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label>Tanggapan anda</label>
-              <textarea class="form-control form-control-message" name="message" id="message" placeholder="" rows="10"
+              <textarea class="form-control form-control-message" name="tanggapan" id="tanggapan" placeholder="" rows="10"
                 required></textarea>
             </div>
             <div class="text-right"><br>
@@ -77,4 +77,36 @@
 
 @section('script')
 {{-- <script src="{{ URL::asset('assets/frontend/')}}/js/main.js"></script> --}}
+  <script>
+    // proses submit add testimoni
+    $('#add_new_testimoni').submit(function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        console.log(formData);
+
+        $.ajax({
+            type: 'POST',
+            url: "{{ url('testimoni/store') }}",
+            data : formData,
+            contentType: false,
+            processData: false,
+            cache: false,
+            success:function(data){
+                if($.isEmptyObject(data.error)){
+                    Swal.fire({
+                        // icon: 'success',
+                        type: "success",
+                        title: 'Berhasil!',
+                        text: `${data.message}`,
+                        // showConfirmButton: false,
+                        timer: 3000
+                    });
+                    window.location.href = "{{url('/')}}";
+                }else{
+                    printErrorMsgAdd(data.error);
+                }
+            }
+        });
+    });
+  </script>
 @endsection

@@ -35,5 +35,8 @@
   <link rel="stylesheet" href="{{ URL::asset('assets/frontend/')}}/plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="{{ URL::asset('assets/frontend/')}}/css/style.css">
+  {{-- Sweet Alert --}}
+  <link rel="stylesheet" href="{{ url('/') }}/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+  <script src="{{ url('/') }}/sweetalert2/sweetalert2.min.js"></script>
 
 </head>

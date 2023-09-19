@@ -90,7 +90,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/testimoni') }}">
                         <i class="uil-home-alt"></i>
                         <span>@lang('Testimoni')</span>
                     </a>

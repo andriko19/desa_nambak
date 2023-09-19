@@ -19,6 +19,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\TentangDesaController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\TestimoniController;
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
@@ -48,13 +49,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('admin/tentang_desa', TentangDesaController::class);
     Route::resource('admin/layanan', LayananController::class);
     Route::resource('admin/galeri', GaleriController::class);
+    Route::resource('admin/testimoni', TestimoniController::class);
 
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('permissions', PermissionController::class);
 
-
+    
 });
 
 // admin panel page
@@ -78,6 +80,7 @@ Route::get('galeri/show/{id}', [GaleriController::class, 'show'])->name('galeri.
 Route::post('galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
 Route::get('galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
 
+Route::post('testimoni/store', [TestimoniController::class, 'store'])->name('testimoni.store');
 
 
 
