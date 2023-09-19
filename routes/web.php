@@ -66,6 +66,13 @@ Route::get('tentang_desa/show/{id}', [TentangDesaController::class, 'show'])->na
 Route::post('tentang_desa/update/{id}', [TentangDesaController::class, 'update'])->name('tentang_desa.update');
 Route::get('tentang_desa/destroy/{id}', [TentangDesaController::class, 'destroy'])->name('tentang_desa.destroy');
 
+Route::post('layanan/store', [LayananController::class, 'store'])->name('layanan.store');
+Route::get('layanan/show/{id}', [LayananController::class, 'show'])->name('layanan.show');
+Route::post('layanan/update/{id}', [LayananController::class, 'update'])->name('layanan.update');
+Route::get('layanan/destroy/{id}', [LayananController::class, 'destroy'])->name('layanan.destroy');
+
+
+
 // leanding page
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 Route::get('/semua_galeri', [FrontLandingController::class, 'semua_galeri'])->name('semua_galeri');

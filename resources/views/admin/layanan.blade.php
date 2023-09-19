@@ -61,7 +61,7 @@
                                         <td>{!! $data->deskripsi !!}</td>
                                         <td style="text-align: center">
                                             @if(!empty($data->gambar))
-                                                <img src="{{ URL::asset('/uploads/tentangDesa/'.$data->gambar) }}" class="" style="width: 25%" alt="{{ $data->judul }}">
+                                                <img src="{{ URL::asset('/uploads/fotoKades/'.$data->gambar) }}" class="" style="width: 40%" alt="{{ $data->judul }}">
                                             @endif
                                         </td>
                                         <td>
@@ -107,11 +107,8 @@
                         <select class="form-select jenis" name="jenis" id="jenis">
                             {{-- @foreach ($product_collection_models as $product_collection) --}}
                             <option value="0" selected> --Pilih Jenis {{$title}}-- </option>
-                            <option value="Moto">Moto</option>
-                            <option value="Profil">Profil</option>
-                            <option value="Keunggulan">Keunggulan</option>
-                            <option value="Prakata Pertanyaan">Prakata Pertanyaan</option>
-                            <option value="Pertanyaan Umum">Pertanyaan Umum</option>
+                            <option value="Foto Kades">Foto Kades</option>
+                            <option value="Layanan">Layanan</option>
                             {{-- @endforeach  --}}
                         </select>
                     </div>
@@ -119,24 +116,12 @@
                         <label for="judul">Judul</label>
                         <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul {{$title}}">
                     </div>
-                    <div class="form-group mb-4 div_prakata">
-                        <label for="prakata">Prakata</label>
-                        <textarea class="form-control" id="prakata" name="prakata" rows="8"></textarea>
-                    </div>
                     <div class="form-group mb-4 div_deskripsi">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" rows="8"></textarea>
                     </div>
-                    <div class="form-group mb-4 div_pertanyaan">
-                        <label for="pertanyaan">Pertanyaan</label>
-                        <textarea class="form-control" id="pertanyaan" name="pertanyaan" rows="8"></textarea>
-                    </div>
-                    <div class="form-group mb-4 div_jawaban">
-                        <label for="jawaban">Jawaban</label>
-                        <textarea class="form-control" id="jawaban" name="jawaban" rows="8"></textarea>
-                    </div>
                     <div class="form-group div_file">
-                        <label for="file">Gambar</label>
+                        <label for="file">Foto Kades</label>
                         <input type="file" class="form-control" id="file" name="file" placeholder="Gambar">
                     </div>
                 </div>
@@ -172,21 +157,9 @@
                         <label for="edit_judul">Judul</label>
                         <input type="text" class="form-control" id="edit_judul" name="edit_judul" placeholder="Judul {{$title}}">
                     </div>
-                    <div class="form-group mb-4 edit_div_prakata">
-                        <label for="edit_prakata">Prakata</label>
-                        <textarea class="form-control" id="edit_prakata" name="edit_prakata" rows="8"></textarea>
-                    </div>
                     <div class="form-group mb-4 edit_div_deskripsi">
                         <label for="edit_deskripsi">Deskripsi</label>
                         <textarea class="form-control" id="edit_deskripsi" name="edit_deskripsi" rows="8"></textarea>
-                    </div>
-                    <div class="form-group mb-4 edit_div_pertanyaan">
-                        <label for="edit_pertanyaan">Pertanyaan</label>
-                        <textarea class="form-control" id="edit_pertanyaan" name="edit_pertanyaan" rows="8"></textarea>
-                    </div>
-                    <div class="form-group mb-4 edit_div_jawaban">
-                        <label for="edit_jawaban">Jawaban</label>
-                        <textarea class="form-control" id="edit_jawaban" name="edit_jawaban" rows="8"></textarea>
                     </div>
                     <div class="form-group edit_div_file">
                         <label for="edit_file">Gambar</label>
@@ -222,115 +195,48 @@
 
     <script>
         $(document).ready(function() {
-            document.getElementsByClassName('div_prakata')[0].style.display = "none";
             document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
-            document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
-            document.getElementsByClassName('div_jawaban')[0].style.display = "none";
             document.getElementsByClassName('div_file')[0].style.display = "none";
         });
 
         // ckeditor_add
-        var prakata = document.getElementById("prakata");
-            CKEDITOR.replace(prakata,{
-            language:'en-gb'
-        });
-        CKEDITOR.config.allowedContent = true;
-
         var deskripsi = document.getElementById("deskripsi");
             CKEDITOR.replace(deskripsi,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
-        var pertanyaan = document.getElementById("pertanyaan");
-            CKEDITOR.replace(pertanyaan,{
-            language:'en-gb'
-        });
-        CKEDITOR.config.allowedContent = true;
-
-        var jawaban = document.getElementById("jawaban");
-            CKEDITOR.replace(jawaban,{
-            language:'en-gb'
-        });
-        CKEDITOR.config.allowedContent = true;
-
 
         //ckeditor_edit
-        var prakata = document.getElementById("edit_prakata");
-            CKEDITOR.replace(prakata,{
-            language:'en-gb'
-        });
-        CKEDITOR.config.allowedContent = true;
-
         var deskripsi = document.getElementById("edit_deskripsi");
             CKEDITOR.replace(deskripsi,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
-        var pertanyaan = document.getElementById("edit_pertanyaan");
-            CKEDITOR.replace(pertanyaan,{
-            language:'en-gb'
-        });
-        CKEDITOR.config.allowedContent = true;
-
-        var jawaban = document.getElementById("edit_jawaban");
-            CKEDITOR.replace(jawaban,{
-            language:'en-gb'
-        });
-        CKEDITOR.config.allowedContent = true;
-
-
-        // change jenis tentang desas
+        // change jenis layanan
         $('.jenis').change(function() {
             let jenis_val = $('.jenis').val();
             // console.log(jenis_val);
-            if (jenis_val == "Moto") {
-                document.getElementsByClassName('div_prakata')[0].style.display = "none";
-                document.getElementsByClassName('div_deskripsi')[0].style.display = "block";
-                document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
-                document.getElementsByClassName('div_jawaban')[0].style.display = "none";
-                document.getElementsByClassName('div_file')[0].style.display = "none";
-            } else if (jenis_val == "Profil") {
-                document.getElementsByClassName('div_prakata')[0].style.display = "none";
-                document.getElementsByClassName('div_deskripsi')[0].style.display = "block";
-                document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
-                document.getElementsByClassName('div_jawaban')[0].style.display = "none";
+            if (jenis_val == "Foto Kades") {
+                document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
                 document.getElementsByClassName('div_file')[0].style.display = "block";
-            } else if (jenis_val == "Keunggulan") {
-                document.getElementsByClassName('div_prakata')[0].style.display = "none";
+            } else if (jenis_val == "Layanan") {
                 document.getElementsByClassName('div_deskripsi')[0].style.display = "block";
-                document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
-                document.getElementsByClassName('div_jawaban')[0].style.display = "none";
-                document.getElementsByClassName('div_file')[0].style.display = "none";
-            } else if (jenis_val == "Prakata Pertanyaan") {
-                document.getElementsByClassName('div_prakata')[0].style.display = "block";
-                document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
-                document.getElementsByClassName('div_pertanyaan')[0].style.display = "none";
-                document.getElementsByClassName('div_jawaban')[0].style.display = "none";
-                document.getElementsByClassName('div_file')[0].style.display = "none";
-            } else if (jenis_val == "Pertanyaan Umum") {
-                document.getElementsByClassName('div_prakata')[0].style.display = "none";
-                document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
-                document.getElementsByClassName('div_pertanyaan')[0].style.display = "block";
-                document.getElementsByClassName('div_jawaban')[0].style.display = "block";
                 document.getElementsByClassName('div_file')[0].style.display = "none";
             }
         });
 
-        // proses submit add tentang_desa
+        // proses submit add layanan
         $('#add_new_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
-            // console.log(formData);
-            formData.append('prakata', CKEDITOR.instances['prakata'].getData());
             formData.append('deskripsi', CKEDITOR.instances['deskripsi'].getData());
-            formData.append('pertanyaan', CKEDITOR.instances['pertanyaan'].getData());
-            formData.append('jawaban', CKEDITOR.instances['jawaban'].getData());
-            
+            // console.log(formData);
+
             $.ajax({
                 type: 'POST',
-                url: "{{ url('tentang_desa/store') }}",
+                url: "{{ url('layanan/store') }}",
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -345,7 +251,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/tentang_desa')}}";
+                        window.location.href = "{{url('admin/layanan')}}";
                     }else{
                         printErrorMsgAdd(data.error);
                     }
@@ -353,10 +259,10 @@
             });
         });
 
-        // show edit tentang_desa
+        // show edit layanan
         function update(id) {
             $.ajax({
-                url: "{{ url('tentang_desa/show') }}/" + id,
+                url: "{{ url('layanan/show') }}/" + id,
                 type: "get",
                 cache: false,
                 success: function(response) {
@@ -364,41 +270,14 @@
                     $('#edit_id').val(response.data.id);
                     $('#edit_jenis').val(response.data.jenis);
                     $('#edit_judul').val(response.data.judul);
-                    CKEDITOR.instances['edit_prakata'].setData(response.data.prakata);
                     CKEDITOR.instances['edit_deskripsi'].setData(response.data.deskripsi);
-                    CKEDITOR.instances['edit_pertanyaan'].setData(response.data.pertanyaan);
-                    CKEDITOR.instances['edit_jawaban'].setData(response.data.jawaban);
 
-                    if (response.data.jenis == "Moto") {
-                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "block";
-                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_file')[0].style.display = "none";
-                    } else if (response.data.jenis == "Profil") {
-                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "block";
-                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "none";
+                    if (response.data.jenis == "Foto Kades") {
+                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "none";
                         document.getElementsByClassName('edit_div_file')[0].style.display = "block";
-                        $('#gambar_lama').attr('src', "{{ asset('uploads/tentangDesa') }}/"+response.data.gambar);
-                    } else if (response.data.jenis == "Keunggulan") {
-                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
+                        $('#gambar_lama').attr('src', "{{ asset('uploads/fotoKades') }}/"+response.data.gambar);
+                    } else if (response.data.jenis == "Layanan") {
                         document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "block";
-                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_file')[0].style.display = "none";
-                    } else if (response.data.jenis == "Prakata Pertanyaan") {
-                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "block";
-                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_file')[0].style.display = "none";
-                    } else if (response.data.jenis == "Pertanyaan Umum") {
-                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_pertanyaan')[0].style.display = "block";
-                        document.getElementsByClassName('edit_div_jawaban')[0].style.display = "block";
                         document.getElementsByClassName('edit_div_file')[0].style.display = "none";
                     }
 
@@ -408,19 +287,16 @@
             });
         }
 
-        // proses edit tentang_desa
+        // proses edit layanan
         $('#edit_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             let id = $('#edit_id').val();
             var formData = new FormData(this);
-            formData.append('edit_prakata', CKEDITOR.instances['edit_prakata'].getData());
             formData.append('edit_deskripsi', CKEDITOR.instances['edit_deskripsi'].getData());
-            formData.append('edit_pertanyaan', CKEDITOR.instances['edit_pertanyaan'].getData());
-            formData.append('edit_jawaban', CKEDITOR.instances['edit_jawaban'].getData());
-            
+
             $.ajax({
                 type: 'POST',
-                url: "{{ url('tentang_desa/update') }}/"+ id,
+                url: "{{ url('layanan/update') }}/"+ id,
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -435,7 +311,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/tentang_desa')}}";
+                        window.location.href = "{{url('admin/layanan')}}";
                     }else{
                         printErrorMsgEdit(data.error);
                     }
@@ -456,7 +332,7 @@
                 if (e.value === true) {
                     $.ajax({
                         type: "get",
-                        url: "{{ url('tentang_desa/destroy') }}/" + id,
+                        url: "{{ url('layanan/destroy') }}/" + id,
                         success: function(data) {
                             Swal.fire({
                                 icon: 'success',
@@ -465,7 +341,7 @@
                                 showConfirmButton: true,
                                 // timer: 3000
                             });
-                            window.location.href = "{{url('admin/tentang_desa')}}";
+                            window.location.href = "{{url('admin/layanan')}}";
                         }
                     });
                 } else {
