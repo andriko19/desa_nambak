@@ -83,7 +83,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/galeri') }}">
                         <i class="uil-home-alt"></i>
                         <span>@lang('Galeri')</span>
                     </a>
