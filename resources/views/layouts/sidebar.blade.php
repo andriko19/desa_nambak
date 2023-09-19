@@ -97,7 +97,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/berita') }}">
                         <i class="uil-home-alt"></i>
                         <span>@lang('Berita')</span>
                     </a>
