@@ -124,8 +124,8 @@ class BannerController extends Controller
                 // 'edit_file' => 'required',
             ],
             [
-                'judul.required' => 'The Judul field is required.',
-                'deskripsi.required' => 'The Deskripsi field is required.',
+                'edit_judul.required' => 'The Judul field is required.',
+                'edit_deskripsi.required' => 'The Deskripsi field is required.',
                 'file.required' => 'The Gambar field is required.',
             ]
         );

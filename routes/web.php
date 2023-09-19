@@ -73,6 +73,17 @@ Route::get('layanan/show/{id}', [LayananController::class, 'show'])->name('layan
 Route::post('layanan/update/{id}', [LayananController::class, 'update'])->name('layanan.update');
 Route::get('layanan/destroy/{id}', [LayananController::class, 'destroy'])->name('layanan.destroy');
 
+Route::post('galeri/store', [GaleriController::class, 'store'])->name('galeri.store');
+Route::get('galeri/show/{id}', [GaleriController::class, 'show'])->name('galeri.show');
+Route::post('galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
+Route::get('galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
+
+
+
+
+
+
+
 
 
 // leanding page

@@ -144,16 +144,18 @@
                     </div>
                     <input type="hidden" class="form-control" id="edit_id" name="edit_id">
                     <div class="form-group mb-4">
-                        <label for="edit_jenis">Jenis</label>
-                        <input type="text" class="form-control" id="edit_jenis" name="edit_jenis" placeholder="Judul {{$title}}" readonly>
+                        <label for="judul">Jenis</label>
+                        <select class="form-select" name="edit_jenis">
+                            {{-- @foreach ($product_collection_models as $product_collection) --}}
+                            <option value="0" selected> --Pilih Jenis {{$title}}-- </option>
+                            <option value="Didalam Desa">Didalam Desa</option>
+                            <option value="Diluar Desa">Diluar Desa</option>
+                            {{-- @endforeach  --}}
+                        </select>
                     </div>
                     <div class="form-group mb-4">
                         <label for="edit_judul">Judul</label>
                         <input type="text" class="form-control" id="edit_judul" name="edit_judul" placeholder="Judul {{$title}}">
-                    </div>
-                    <div class="form-group mb-4 edit_div_deskripsi">
-                        <label for="edit_deskripsi">Deskripsi</label>
-                        <textarea class="form-control" id="edit_deskripsi" name="edit_deskripsi" rows="8"></textarea>
                     </div>
                     <div class="form-group edit_div_file">
                         <label for="edit_file">Gambar</label>
@@ -193,43 +195,15 @@
             // document.getElementsByClassName('div_file')[0].style.display = "none";
         });
 
-        // // ckeditor_add
-        // var deskripsi = document.getElementById("deskripsi");
-        //     CKEDITOR.replace(deskripsi,{
-        //     language:'en-gb'
-        // });
-        // CKEDITOR.config.allowedContent = true;
-
-        // //ckeditor_edit
-        // var deskripsi = document.getElementById("edit_deskripsi");
-        //     CKEDITOR.replace(deskripsi,{
-        //     language:'en-gb'
-        // });
-        // CKEDITOR.config.allowedContent = true;
-
-        // change jenis layanan
-        // $('.jenis').change(function() {
-        //     let jenis_val = $('.jenis').val();
-        //     // console.log(jenis_val);
-        //     if (jenis_val == "Foto Kades") {
-        //         document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
-        //         document.getElementsByClassName('div_file')[0].style.display = "block";
-        //     } else if (jenis_val == "Layanan") {
-        //         document.getElementsByClassName('div_deskripsi')[0].style.display = "block";
-        //         document.getElementsByClassName('div_file')[0].style.display = "none";
-        //     }
-        // });
-
-        // proses submit add layanan
+        // proses submit add galeri
         $('#add_new_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
-            formData.append('deskripsi', CKEDITOR.instances['deskripsi'].getData());
             // console.log(formData);
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('layanan/store') }}",
+                url: "{{ url('galeri/store') }}",
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -244,7 +218,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/layanan')}}";
+                        window.location.href = "{{url('admin/galeri')}}";
                     }else{
                         printErrorMsgAdd(data.error);
                     }
@@ -252,44 +226,33 @@
             });
         });
 
-        // show edit layanan
+        // show edit galeri
         function update(id) {
             $.ajax({
-                url: "{{ url('layanan/show') }}/" + id,
+                url: "{{ url('galeri/show') }}/" + id,
                 type: "get",
                 cache: false,
                 success: function(response) {
                     //fill data to form
                     $('#edit_id').val(response.data.id);
-                    $('#edit_jenis').val(response.data.jenis);
+                    $('[name="edit_jenis"]').val(response.data.jenis);
                     $('#edit_judul').val(response.data.judul);
-                    CKEDITOR.instances['edit_deskripsi'].setData(response.data.deskripsi);
-
-                    if (response.data.jenis == "Foto Kades") {
-                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_file')[0].style.display = "block";
-                        $('#gambar_lama').attr('src', "{{ asset('uploads/fotoKades') }}/"+response.data.gambar);
-                    } else if (response.data.jenis == "Layanan") {
-                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "block";
-                        document.getElementsByClassName('edit_div_file')[0].style.display = "none";
-                    }
-
+                    $('#gambar_lama').attr('src', "{{ asset('uploads/galeri') }}/"+response.data.gambar);
                     //open modal
                     $('#modalEdit{{$idmodal}}').modal('show');
                 }
             });
         }
 
-        // proses edit layanan
+        // proses edit galeri
         $('#edit_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             let id = $('#edit_id').val();
             var formData = new FormData(this);
-            formData.append('edit_deskripsi', CKEDITOR.instances['edit_deskripsi'].getData());
-
+           
             $.ajax({
                 type: 'POST',
-                url: "{{ url('layanan/update') }}/"+ id,
+                url: "{{ url('galeri/update') }}/"+ id,
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -304,7 +267,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/layanan')}}";
+                        window.location.href = "{{url('admin/galeri')}}";
                     }else{
                         printErrorMsgEdit(data.error);
                     }
@@ -325,7 +288,7 @@
                 if (e.value === true) {
                     $.ajax({
                         type: "get",
-                        url: "{{ url('layanan/destroy') }}/" + id,
+                        url: "{{ url('galeri/destroy') }}/" + id,
                         success: function(data) {
                             Swal.fire({
                                 icon: 'success',
@@ -334,7 +297,7 @@
                                 showConfirmButton: true,
                                 // timer: 3000
                             });
-                            window.location.href = "{{url('admin/layanan')}}";
+                            window.location.href = "{{url('admin/galeri')}}";
                         }
                     });
                 } else {

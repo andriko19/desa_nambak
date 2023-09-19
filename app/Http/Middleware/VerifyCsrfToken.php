@@ -16,6 +16,7 @@ class VerifyCsrfToken extends Middleware
        'banner/store',
        'tentang_desa/store',
        'layanan/store',
+       'galeri/store',
 
     ];
 }
