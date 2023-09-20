@@ -21,6 +21,7 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\FooterController;
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
@@ -52,6 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('admin/galeri', GaleriController::class);
     Route::resource('admin/testimoni', TestimoniController::class);
     Route::resource('admin/berita', BeritaController::class);
+    Route::resource('admin/footer', FooterController::class);
 
 
     Route::resource('roles', RoleController::class);

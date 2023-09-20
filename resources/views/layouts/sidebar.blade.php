@@ -104,7 +104,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/footer') }}">
                         <i class="uil-home-alt"></i>
                         <span>@lang('Footer')</span>
                     </a>
