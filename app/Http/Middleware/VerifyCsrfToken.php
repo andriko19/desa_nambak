@@ -18,7 +18,7 @@ class VerifyCsrfToken extends Middleware
         'layanan/store',
         'galeri/store',
         'testimoni/store',
-
+        'berita/store',
 
 
     ];

@@ -6,7 +6,9 @@
     <!-- DataTables -->
     <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
     {{-- select2 --}}
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
+    <link href="{{ URL::asset('assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('assets/libs/select2/select2.css') }}" rel="stylesheet" type="text/css">
 @endsection
 
 @section('content')
@@ -60,7 +62,19 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->judul }}</td>
                                         <td>{!! $data->isi_berita !!}</td>
-                                        <td>{{ $data->tag }}</td>
+                                        <td>
+                                            @php
+                                                $listTag = explode(',', $data->tag);
+                                                // dump($listTag[0]);
+                                            @endphp
+
+                                            @if ($listTag[0] != "")
+                                                @foreach ( $listTag as $tag)
+                                                    <a class="btn btn-success" href="{{$tag}}">{{$tag}}</a>
+                                                @endforeach
+                                            @endif
+
+                                        </td>
                                         <td style="text-align: center">
                                             @if(!empty($data->gambar))
                                                 <img src="{{ URL::asset('/uploads/berita/'.$data->gambar) }}" class="" style="width: 40%" alt="{{ $data->judul }}">
@@ -113,10 +127,11 @@
                         <textarea class="form-control" id="isi_berita" name="isi_berita" rows="8"></textarea>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="tag">Tag</label>
-                        <select class="form-select js-example-basic-multiple" id="tag" name="tag[]" multiple="multiple">
+                        <label for="tag">Pilih Siapa Yang Ingin di Tag</label>
+                        <select class="form-select js-select2-multi" id="tag" name="tag[]" multiple="multiple">
                             {{-- @foreach ($product_collection_models as $product_collection) --}}
-
+                            <option></option>
+                            {{-- <option value="0" selected>--Pilih Siapa Yang Ingin di Tag--</option> --}}
                             <option value="1">Indonesia</option>
                             <option value="2">Buka Lapak</option>
                             <option value="3">Shoppe</option>
@@ -154,16 +169,25 @@
                     </div>
                     <input type="hidden" class="form-control" id="edit_id" name="edit_id">
                     <div class="form-group mb-4">
-                        <label for="edit_jenis">Jenis</label>
-                        <input type="text" class="form-control" id="edit_jenis" name="edit_jenis" placeholder="Judul {{$title}}" readonly>
-                    </div>
-                    <div class="form-group mb-4">
                         <label for="edit_judul">Judul</label>
                         <input type="text" class="form-control" id="edit_judul" name="edit_judul" placeholder="Judul {{$title}}">
                     </div>
-                    <div class="form-group mb-4 edit_div_deskripsi">
-                        <label for="edit_deskripsi">Deskripsi</label>
-                        <textarea class="form-control" id="edit_deskripsi" name="edit_deskripsi" rows="8"></textarea>
+                    <div class="form-group mb-4 edit_div_isi_berita">
+                        <label for="edit_isi_berita">isi_berita</label>
+                        <textarea class="form-control" id="edit_isi_berita" name="edit_isi_berita" rows="8"></textarea>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="tag">Pilih Siapa Yang Ingin di Tag</label>
+                        <select class="form-select js-select2-multi" id="edit_tag" name="edit_tag[]" multiple="multiple">
+                            {{-- @foreach ($product_collection_models as $product_collection) --}}
+                            <option></option>
+                            {{-- <option value="0" selected>--Pilih Siapa Yang Ingin di Tag--</option> --}}
+                            <option value="1">Indonesia</option>
+                            <option value="2">Buka Lapak</option>
+                            <option value="3">Shoppe</option>
+                            <option value="4">Indraco</option>
+                            {{-- @endforeach  --}}
+                        </select>
                     </div>
                     <div class="form-group edit_div_file">
                         <label for="edit_file">Gambar</label>
@@ -195,14 +219,17 @@
     {{-- ckEditor --}}
     <script src="{{ url('/') }}/ckeditor/ckeditor.js"></script>
     {{-- select2 --}}
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
+    <script src="{{ URL::asset('/assets/libs/select2/select2.min.js') }}"></script>
 
     <script>
         $(document).ready(function() {
             // document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
             // document.getElementsByClassName('div_file')[0].style.display = "none";
-            $('#tag').select2({
-                placeholder : "--Pilih Siapa Yang Ingin di Tag--",
+            $('.js-select2-multi').select2({
+                // placeholder : "--Pilih Siapa Yang Ingin di Tag--",
+                // placeholder: "--Pilih Siapa Yang Ingin di Tag--",
+                // allowClear: true,
             });
         });
 
@@ -256,24 +283,18 @@
         // show edit berita
         function update(id) {
             $.ajax({
-                url: "{{ url('layanan/show') }}/" + id,
+                url: "{{ url('berita/show') }}/" + id,
                 type: "get",
                 cache: false,
                 success: function(response) {
                     //fill data to form
                     $('#edit_id').val(response.data.id);
-                    $('#edit_jenis').val(response.data.jenis);
                     $('#edit_judul').val(response.data.judul);
-                    CKEDITOR.instances['edit_deskripsi'].setData(response.data.deskripsi);
-
-                    if (response.data.jenis == "Foto Kades") {
-                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_file')[0].style.display = "block";
-                        $('#gambar_lama').attr('src', "{{ asset('uploads/fotoKades') }}/"+response.data.gambar);
-                    } else if (response.data.jenis == "Layanan") {
-                        document.getElementsByClassName('edit_div_deskripsi')[0].style.display = "block";
-                        document.getElementsByClassName('edit_div_file')[0].style.display = "none";
-                    }
+                    CKEDITOR.instances['edit_isi_berita'].setData(response.data.isi_berita);
+                    var strArrayTag = response.data.tag.split(",");
+                    $("#edit_tag").select2().val(strArrayTag)
+                        .change();
+                    $('#gambar_lama').attr('src', "{{ asset('uploads/berita') }}/"+response.data.gambar);
 
                     //open modal
                     $('#modalEdit{{$idmodal}}').modal('show');
@@ -281,16 +302,17 @@
             });
         }
 
-        // proses edit layanan
+        // proses edit berita
         $('#edit_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             let id = $('#edit_id').val();
             var formData = new FormData(this);
-            formData.append('edit_deskripsi', CKEDITOR.instances['edit_deskripsi'].getData());
+            formData.append('edit_isi_berita', CKEDITOR.instances['edit_isi_berita'].getData());
+            // console.log(formData);
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('layanan/update') }}/"+ id,
+                url: "{{ url('berita/update') }}/"+ id,
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -305,7 +327,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/layanan')}}";
+                        window.location.href = "{{url('admin/berita')}}";
                     }else{
                         printErrorMsgEdit(data.error);
                     }
@@ -326,7 +348,7 @@
                 if (e.value === true) {
                     $.ajax({
                         type: "get",
-                        url: "{{ url('layanan/destroy') }}/" + id,
+                        url: "{{ url('berita/destroy') }}/" + id,
                         success: function(data) {
                             Swal.fire({
                                 icon: 'success',
@@ -335,7 +357,7 @@
                                 showConfirmButton: true,
                                 // timer: 3000
                             });
-                            window.location.href = "{{url('admin/layanan')}}";
+                            window.location.href = "{{url('admin/berita')}}";
                         }
                     });
                 } else {

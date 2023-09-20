@@ -40,7 +40,44 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul' => 'required',
+                'isi_berita' => 'required',
+                'tag' => 'required|not_in:0',
+                'file' => 'required',
+            ],
+            [
+                'judul.required' => 'The Judul field is required.',
+                'isi_berita.required' => 'The Deskripsi field is required.',
+                'tag.required' => 'The Tag field is required.',
+                'file.required' => 'The Gambar field is required.',
+            ]
+        );
+
+        //check if validation fails
+        if ($validator->passes()) {
+            if ($request->hasfile('file')) {
+
+                $gambar = $request->file('file');
+                $nama = time() . rand(1, 100) . '.' . $gambar->extension();
+                $gambar->move(public_path('uploads/berita'), $nama);
+
+                // insert to db
+                $berita = Berita_model::create([
+                    'judul' => $request->judul,
+                    'isi_berita' => $request->isi_berita,
+                    'tag' => implode(",",$request->tag),
+                    'gambar' => $nama,
+                ]);
+
+            }
+
+            return response()->json(['message' => 'Berhasil menambahkan data baru!']);
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
     }
 
     /**
@@ -51,7 +88,12 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        //
+        $berita = Berita_model::find($id);
+
+        return response()->json([
+            'success' => true,
+            'data'    => $berita
+        ]);
     }
 
     /**
@@ -74,7 +116,55 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'edit_judul' => 'required',
+                'edit_isi_berita' => 'required',
+                'edit_tag' => 'required|not_in:0',
+                'edit_file' => 'required',
+            ],
+            [
+                'edit_judul.required' => 'The Judul field is required.',
+                'edit_isi_berita.required' => 'The Deskripsi field is required.',
+                'edit_file.required' => 'The Gambar field is required.',
+            ]
+        );
+
+        //check if validation fails
+        if ($validator->passes()) {
+            $berita = Berita_model::findOrFail($id);
+
+            if($request->file('edit_file') == "") {
+
+                $berita->update([
+                    'judul' => $request->edit_judul,
+                    'isi_berita' => $request->edit_isi_berita,
+                    'tag' => implode(",",$request->edit_tag),
+                ]);
+
+            } else {
+                //hapus old image
+                unlink(public_path('uploads/berita/').$berita->gambar);
+
+                //upload new image
+                $gambar = $request->file('edit_file');
+                $nama = time() . rand(1, 100) . '.' . $gambar->extension();
+                $gambar->move(public_path('uploads/berita'), $nama);
+
+                $berita->update([
+                    'judul' => $request->edit_judul,
+                    'isi_berita' => $request->edit_isi_berita,
+                    'tag' => implode(",",$request->edit_tag),
+                    'gambar' => $nama,
+                ]);
+
+            }
+
+            return response()->json(['message' => 'Berhasil edit data!']);
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
     }
 
     /**
@@ -85,6 +175,15 @@ class BeritaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $berita = Berita_model::findOrFail($id);
+        //hapus old image
+        unlink(public_path('uploads/berita/').$berita->gambar);
+
+        Berita_model::find($id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Hapus data!',
+            // 'data'    => $post
+        ]);
     }
 }

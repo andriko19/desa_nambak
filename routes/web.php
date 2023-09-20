@@ -58,7 +58,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UserController::class);
     Route::resource('permissions', PermissionController::class);
 
-    
+
 });
 
 // admin panel page
@@ -84,9 +84,10 @@ Route::get('galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('g
 
 Route::post('testimoni/store', [TestimoniController::class, 'store'])->name('testimoni.store');
 
-
-
-
+Route::post('berita/store', [BeritaController::class, 'store'])->name('berita.store');
+Route::get('berita/show/{id}', [BeritaController::class, 'show'])->name('berita.show');
+Route::post('berita/update/{id}', [BeritaController::class, 'update'])->name('berita.update');
+Route::get('berita/destroy/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
 
 
 
