@@ -5,6 +5,8 @@
 @section('css')
     <!-- DataTables -->
     <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+    {{-- select2 --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -103,25 +105,27 @@
                         <ul></ul>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="judul">Jenis</label>
-                        <select class="form-select jenis" name="jenis" id="jenis">
-                            {{-- @foreach ($product_collection_models as $product_collection) --}}
-                            <option value="0" selected> --Pilih Jenis {{$title}}-- </option>
-                            <option value="Foto Kades">Foto Kades</option>
-                            <option value="Layanan">Layanan</option>
-                            {{-- @endforeach  --}}
-                        </select>
-                    </div>
-                    <div class="form-group mb-4">
                         <label for="judul">Judul</label>
                         <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul {{$title}}">
                     </div>
-                    <div class="form-group mb-4 div_deskripsi">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea class="form-control" id="deskripsi" name="deskripsi" rows="8"></textarea>
+                    <div class="form-group mb-4">
+                        <label for="isi_berita">Isi Berita</label>
+                        <textarea class="form-control" id="isi_berita" name="isi_berita" rows="8"></textarea>
                     </div>
-                    <div class="form-group div_file">
-                        <label for="file">Foto Kades</label>
+                    <div class="form-group mb-4">
+                        <label for="tag">Tag</label>
+                        <select class="form-select js-example-basic-multiple" id="tag" name="tag[]" multiple="multiple">
+                            {{-- @foreach ($product_collection_models as $product_collection) --}}
+
+                            <option value="1">Indonesia</option>
+                            <option value="2">Buka Lapak</option>
+                            <option value="3">Shoppe</option>
+                            <option value="4">Indraco</option>
+                            {{-- @endforeach  --}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Gambar</label>
                         <input type="file" class="form-control" id="file" name="file" placeholder="Gambar">
                     </div>
                 </div>
@@ -190,53 +194,43 @@
     <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
     {{-- ckEditor --}}
     <script src="{{ url('/') }}/ckeditor/ckeditor.js"></script>
-
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script> --}}
+    {{-- select2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>
         $(document).ready(function() {
-            document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
-            document.getElementsByClassName('div_file')[0].style.display = "none";
+            // document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
+            // document.getElementsByClassName('div_file')[0].style.display = "none";
+            $('#tag').select2({
+                placeholder : "--Pilih Siapa Yang Ingin di Tag--",
+            });
         });
 
         // ckeditor_add
-        var deskripsi = document.getElementById("deskripsi");
-            CKEDITOR.replace(deskripsi,{
+        var isi_berita = document.getElementById("isi_berita");
+            CKEDITOR.replace(isi_berita,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
 
         //ckeditor_edit
-        var deskripsi = document.getElementById("edit_deskripsi");
-            CKEDITOR.replace(deskripsi,{
+        var isi_berita = document.getElementById("edit_isi_berita");
+            CKEDITOR.replace(isi_berita,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
-        // change jenis layanan
-        $('.jenis').change(function() {
-            let jenis_val = $('.jenis').val();
-            // console.log(jenis_val);
-            if (jenis_val == "Foto Kades") {
-                document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
-                document.getElementsByClassName('div_file')[0].style.display = "block";
-            } else if (jenis_val == "Layanan") {
-                document.getElementsByClassName('div_deskripsi')[0].style.display = "block";
-                document.getElementsByClassName('div_file')[0].style.display = "none";
-            }
-        });
-
-        // proses submit add layanan
+        // proses submit add berita
         $('#add_new_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
-            formData.append('deskripsi', CKEDITOR.instances['deskripsi'].getData());
+            formData.append('isi_berita', CKEDITOR.instances['isi_berita'].getData());
             // console.log(formData);
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('layanan/store') }}",
+                url: "{{ url('berita/store') }}",
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -251,7 +245,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/layanan')}}";
+                        window.location.href = "{{url('admin/berita')}}";
                     }else{
                         printErrorMsgAdd(data.error);
                     }
@@ -259,7 +253,7 @@
             });
         });
 
-        // show edit layanan
+        // show edit berita
         function update(id) {
             $.ajax({
                 url: "{{ url('layanan/show') }}/" + id,
