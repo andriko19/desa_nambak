@@ -9,11 +9,11 @@ class Kontak_model extends Model
 {
     use HasFactory;
 
-    protected $table = 'tbl_footer';
+    protected $table = 'tbl_kontak';
     protected $fillable = [
         'jenis',
         'judul',
         'isi_kontak',
-        'link_maps',
+        'link',
     ];
 }

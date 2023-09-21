@@ -41,7 +41,37 @@ class KontakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'jenis' => 'required|not_in:0',
+                'judul' => 'required',
+                // 'prakata' => 'required',
+                // 'hari' => 'required',
+                // 'jam' => 'required',
+            ],
+            [
+                'judul.required' => 'The Judul field is required.',
+                // 'prakata.required' => 'The Prakata field is required.',
+                // 'hari.required' => 'The Hari field is required.',
+                // 'jam.required' => 'The Jam field is required.',
+            ]
+        );
+
+        //check if validation fails
+        if ($validator->passes()) {
+            // insert to db
+            $kontak = Kontak_model::create([
+                'jenis' => $request->jenis,
+                'judul' => $request->judul,
+                'isi_kontak' => $request->isi_kontak,
+                'link' => $request->link,
+            ]);
+            return response()->json(['message' => 'Berhasil menambahkan data baru!']);
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
+
     }
 
     /**
@@ -52,7 +82,12 @@ class KontakController extends Controller
      */
     public function show($id)
     {
-        //
+        $kontak = Kontak_model::find($id);
+
+        return response()->json([
+            'success' => true,
+            'data'    => $kontak
+        ]);
     }
 
     /**
@@ -63,7 +98,7 @@ class KontakController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 
     }
 
     /**
@@ -75,7 +110,38 @@ class KontakController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                // 'edit_jenis' => 'required|not_in:0',
+                'edit_judul' => 'required',
+                // 'edit_prakata' => 'required',
+                // 'edit_hari' => 'required',
+                // 'edit_jam' => 'required',
+            ],
+            [
+                'edit_judul.required' => 'The Judul field is required.',
+                // 'edit_prakata.required' => 'The Prakata field is required.',
+                // 'edit_hari.required' => 'The Hari field is required.',
+                // 'edit_jam.required' => 'The Jam field is required.',
+            ]
+        );
+
+        //check if validation fails
+        if ($validator->passes()) {
+            $kontak = Kontak_model::findOrFail($id);
+
+            $kontak->update([
+                'jenis' => $request->edit_jenis,
+                'judul' => $request->edit_judul,
+                'isi_kontak' => $request->edit_isi_kontak,
+                'link' => $request->edit_link,
+            ]);
+
+            return response()->json(['message' => 'Berhasil edit data!']);
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
     }
 
     /**
@@ -86,6 +152,11 @@ class KontakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kontak_model::find($id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Hapus data!',
+            // 'data'    => $post
+        ]);
     }
 }

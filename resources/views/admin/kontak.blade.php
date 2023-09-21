@@ -62,9 +62,8 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->jenis }}</td>
                                         <td>{{ $data->judul }}</td>
-                                        <td>{!! $data->prakata !!}</td>
-                                        <td>{{ $data->hari }}</td>
-                                        <td>{{ $data->jam_oprasional }}</td>
+                                        <td>{{ $data->isi_kontak }}</td>
+                                        <td> <a href="{{ $data->link }}" target="blank">{{ $data->link }}</a></td>
                                         <td>
                                             {{-- <a class="btn btn-primary" href="#">Edit</a>
                                             <a class="btn btn-danger" href="#">Hapus</a> --}}
@@ -108,26 +107,25 @@
                         <select class="form-select jenis" name="jenis" id="jenis">
                             {{-- @foreach ($product_collection_models as $product_collection) --}}
                             <option value="0" selected> --Pilih Jenis {{$title}}-- </option>
-                            <option value="Prakata">Prakata</option>
-                            <option value="Oprasional">Oprasional</option>
-                            {{-- @endforeach  --}}
+                            <option value="Alamat">Alamat</option>
+                            <option value="Email">Email</option>
+                            <option value="Telepon">Telepon</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Maps">Maps</option>
+                            {{-- @endforeach  --}} 
                         </select>
                     </div>
                     <div class="form-group mb-4">
                         <label for="judul">Judul</label>
                         <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul {{$title}}">
                     </div>
-                    <div class="form-group mb-4 div_prakata">
-                        <label for="prakata">prakata</label>
-                        <textarea class="form-control" id="prakata" name="prakata" rows="8"></textarea>
+                    <div class="form-group mb-4 div_isi_kontak">
+                        <label for="isi_kontak">Isi Kontak</label>
+                        <input type="text" class="form-control" id="isi_kontak" name="isi_kontak" placeholder="Contoh : 082387337**** atau Jl. Jhosuman RT/RW 008/008">
                     </div>
-                    <div class="form-group mb-4 div_hari">
-                        <label for="hari">Hari</label>
-                        <input type="text" class="form-control" id="hari" name="hari" placeholder="Contoh : Senin - Jum'at">
-                    </div>
-                    <div class="form-group div_jam">
-                        <label for="jam_oprasional">Jam Oprasional</label>
-                        <input type="text" class="form-control" id="jam_oprasional" name="jam_oprasional" placeholder="Contoh : 08:00 - 15:00">
+                    <div class="form-group div_link">
+                        <label for="link">Link Sosmed / Maps</label>
+                        <input type="text" class="form-control" id="link" name="link" placeholder="Contoh : copy dari google">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -162,17 +160,13 @@
                         <label for="edit_judul">Judul</label>
                         <input type="text" class="form-control" id="edit_judul" name="edit_judul" placeholder="Judul {{$title}}">
                     </div>
-                    <div class="form-group mb-4 edit_div_prakata">
-                        <label for="edit_prakata">prakata</label>
-                        <textarea class="form-control" id="edit_prakata" name="edit_prakata" rows="8"></textarea>
+                    <div class="form-group mb-4 edit_div_isi_kontak">
+                        <label for="edit_isi_kontak">Isi Kontak</label>
+                        <input type="text" class="form-control" id="edit_isi_kontak" name="edit_isi_kontak" placeholder="Contoh : 082387337**** atau Jl. Jhosuman RT/RW 008/008">
                     </div>
-                    <div class="form-group mb-4 edit_div_hari">
-                        <label for="edit_hari">Hari</label>
-                        <input type="text" class="form-control" id="edit_hari" name="edit_hari" placeholder="hari {{$title}}">
-                    </div>
-                    <div class="form-group mb-4 edit_div_jam_oprasional">
-                        <label for="edit_jam_oprasional">Jam Oprasional</label>
-                        <input type="text" class="form-control" id="edit_jam_oprasional" name="edit_jam_oprasional" placeholder="jam_oprasional {{$title}}">
+                    <div class="form-group edit_div_link">
+                        <label for="edit_link">Link Sosmed / Maps</label>
+                        <input type="text" class="form-control" id="edit_link" name="edit_link" placeholder="Contoh : copy dari google">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -197,9 +191,8 @@
 
     <script>
         $(document).ready(function() {
-            document.getElementsByClassName('div_prakata')[0].style.display = "none";
-            document.getElementsByClassName('div_hari')[0].style.display = "none";
-            document.getElementsByClassName('div_jam')[0].style.display = "none";
+            document.getElementsByClassName('div_isi_kontak')[0].style.display = "none";
+            document.getElementsByClassName('div_link')[0].style.display = "none";
             $('.js-select2-multi').select2({
                 // placeholder : "--Pilih Siapa Yang Ingin di Tag--",
                 // placeholder: "--Pilih Siapa Yang Ingin di Tag--",
@@ -207,45 +200,52 @@
             });
         });
 
-        // ckeditor_add
-        var prakata = document.getElementById("prakata");
-            CKEDITOR.replace(prakata,{
-            language:'en-gb'
-        });
-        CKEDITOR.config.allowedContent = true;
+        // // ckeditor_add
+        // var prakata = document.getElementById("prakata");
+        //     CKEDITOR.replace(prakata,{
+        //     language:'en-gb'
+        // });
+        // CKEDITOR.config.allowedContent = true;
 
-        //ckeditor_edit
-        var prakata = document.getElementById("edit_prakata");
-            CKEDITOR.replace(prakata,{
-            language:'en-gb'
-        });
-        CKEDITOR.config.allowedContent = true;
-
-        // change jenis footer
+        // //ckeditor_edit
+        // var prakata = document.getElementById("edit_prakata");
+        //     CKEDITOR.replace(prakata,{
+        //     language:'en-gb'
+        // });
+        // CKEDITOR.config.allowedContent = true;
+            
+        // change jenis kontak
         $('.jenis').change(function() {
             let jenis_val = $('.jenis').val();
             // console.log(jenis_val);
-            if (jenis_val == "Prakata") {
-                document.getElementsByClassName('div_prakata')[0].style.display = "block";
-                document.getElementsByClassName('div_hari')[0].style.display = "none";
-                document.getElementsByClassName('div_jam')[0].style.display = "none";
-            } else if (jenis_val == "Oprasional") {
-                document.getElementsByClassName('div_prakata')[0].style.display = "none";
-                document.getElementsByClassName('div_hari')[0].style.display = "block";
-                document.getElementsByClassName('div_jam')[0].style.display = "block";
+            if (jenis_val == "Alamat") {
+                document.getElementsByClassName('div_isi_kontak')[0].style.display = "block";
+                document.getElementsByClassName('div_link')[0].style.display = "none";
+            } else if (jenis_val == "Email") {
+                document.getElementsByClassName('div_isi_kontak')[0].style.display = "block";
+                document.getElementsByClassName('div_link')[0].style.display = "none";
+            } else if (jenis_val == "Telepon") {
+                document.getElementsByClassName('div_isi_kontak')[0].style.display = "block";
+                document.getElementsByClassName('div_link')[0].style.display = "none";
+            } else if (jenis_val == "Instagram") {
+                document.getElementsByClassName('div_isi_kontak')[0].style.display = "none";
+                document.getElementsByClassName('div_link')[0].style.display = "block";
+            } else if (jenis_val == "Maps") {
+                document.getElementsByClassName('div_isi_kontak')[0].style.display = "none";
+                document.getElementsByClassName('div_link')[0].style.display = "block";
             }
         });
 
-        // proses submit add footer
+        // proses submit add kontak
         $('#add_new_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
-            formData.append('prakata', CKEDITOR.instances['prakata'].getData());
+            // formData.append('prakata', CKEDITOR.instances['prakata'].getData());
             // console.log(formData);
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('footer/store') }}",
+                url: "{{ url('kontak/store') }}",
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -260,7 +260,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/footer')}}";
+                        window.location.href = "{{url('admin/kontak')}}";
                     }else{
                         printErrorMsgAdd(data.error);
                     }
@@ -268,10 +268,10 @@
             });
         });
 
-        // show edit footer
+        // show edit kontak
         function update(id) {
             $.ajax({
-                url: "{{ url('footer/show') }}/" + id,
+                url: "{{ url('kontak/show') }}/" + id,
                 type: "get",
                 cache: false,
                 success: function(response) {
@@ -279,18 +279,24 @@
                     $('#edit_id').val(response.data.id);
                     $('#edit_jenis').val(response.data.jenis);
                     $('#edit_judul').val(response.data.judul);
-                    CKEDITOR.instances['edit_prakata'].setData(response.data.prakata);
-                    $('#edit_hari').val(response.data.hari);
-                    $('#edit_jam_oprasional').val(response.data.jam_oprasional);
+                    $('#edit_isi_kontak').val(response.data.isi_kontak);
+                    $('#edit_link').val(response.data.link);
 
-                    if (response.data.jenis == "Prakata") {
-                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "block";
-                        document.getElementsByClassName('edit_div_hari')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_jam_oprasional')[0].style.display = "none";
-                    } else if (response.data.jenis == "Oprasional") {
-                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
-                        document.getElementsByClassName('edit_div_hari')[0].style.display = "block";
-                        document.getElementsByClassName('edit_div_jam_oprasional')[0].style.display = "block";
+                    if (response.data.jenis == "Alamat") {
+                        document.getElementsByClassName('edit_div_isi_kontak')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_link')[0].style.display = "none";
+                    } else if (response.data.jenis == "Email") {
+                        document.getElementsByClassName('edit_div_isi_kontak')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_link')[0].style.display = "none";
+                    } else if (response.data.jenis == "Telepon") {
+                        document.getElementsByClassName('edit_div_isi_kontak')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_link')[0].style.display = "none";
+                    } else if (response.data.jenis == "Instagram") {
+                        document.getElementsByClassName('edit_div_isi_kontak')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_link')[0].style.display = "block";
+                    } else if (response.data.jenis == "Maps") {
+                        document.getElementsByClassName('edit_div_isi_kontak')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_link')[0].style.display = "block";
                     }
 
                     //open modal
@@ -299,17 +305,17 @@
             });
         }
 
-        // proses edit footer
+        // proses edit kontak
         $('#edit_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             let id = $('#edit_id').val();
             var formData = new FormData(this);
-            formData.append('edit_prakata', CKEDITOR.instances['edit_prakata'].getData());
+            // formData.append('edit_prakata', CKEDITOR.instances['edit_prakata'].getData());
             // console.log(formData);
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('footer/update') }}/"+ id,
+                url: "{{ url('kontak/update') }}/"+ id,
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -324,7 +330,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/footer')}}";
+                        window.location.href = "{{url('admin/kontak')}}";
                     }else{
                         printErrorMsgEdit(data.error);
                     }
@@ -345,7 +351,7 @@
                 if (e.value === true) {
                     $.ajax({
                         type: "get",
-                        url: "{{ url('footer/destroy') }}/" + id,
+                        url: "{{ url('kontak/destroy') }}/" + id,
                         success: function(data) {
                             Swal.fire({
                                 icon: 'success',
@@ -354,7 +360,7 @@
                                 showConfirmButton: true,
                                 // timer: 3000
                             });
-                            window.location.href = "{{url('admin/footer')}}";
+                            window.location.href = "{{url('admin/kontak')}}";
                         }
                     });
                 } else {

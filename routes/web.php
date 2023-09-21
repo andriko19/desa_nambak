@@ -98,6 +98,10 @@ Route::get('footer/show/{id}', [FooterController::class, 'show'])->name('footer.
 Route::post('footer/update/{id}', [FooterController::class, 'update'])->name('footer.update');
 Route::get('footer/destroy/{id}', [FooterController::class, 'destroy'])->name('footer.destroy');
 
+Route::post('kontak/store', [KontakController::class, 'store'])->name('kontak.store');
+Route::get('kontak/show/{id}', [KontakController::class, 'show'])->name('kontak.show');
+Route::post('kontak/update/{id}', [KontakController::class, 'update'])->name('kontak.update');
+Route::get('kontak/destroy/{id}', [KontakController::class, 'destroy'])->name('kontak.destroy');
 
 // leanding page
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
