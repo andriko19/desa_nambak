@@ -118,7 +118,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/data_informasi') }}">
                         <i class="uil-home-alt"></i>
                         <span>@lang('Data dan Informasi')</span>
                     </a>

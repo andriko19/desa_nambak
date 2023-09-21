@@ -23,6 +23,7 @@ use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\DataInformasiController;
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
@@ -56,6 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('admin/berita', BeritaController::class);
     Route::resource('admin/footer', FooterController::class);
     Route::resource('admin/kontak', KontakController::class);
+    Route::resource('admin/data_informasi', DataInformasiController::class);
 
 
     Route::resource('roles', RoleController::class);
