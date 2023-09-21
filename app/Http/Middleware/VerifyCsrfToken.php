@@ -19,7 +19,7 @@ class VerifyCsrfToken extends Middleware
         'galeri/store',
         'testimoni/store',
         'berita/store',
-
+        'footer/store',
 
     ];
 }

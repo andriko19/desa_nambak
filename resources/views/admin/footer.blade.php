@@ -61,26 +61,11 @@
                                 @foreach ($footer as $key => $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
+                                        <td>{{ $data->jenis }}</td>
                                         <td>{{ $data->judul }}</td>
-                                        <td>{!! $data->isi_berita !!}</td>
-                                        <td>
-                                            @php
-                                                $listTag = explode(',', $data->tag);
-                                                // dump($listTag[0]);
-                                            @endphp
-
-                                            @if ($listTag[0] != "")
-                                                @foreach ( $listTag as $tag)
-                                                    <a class="btn btn-success" href="{{$tag}}">{{$tag}}</a>
-                                                @endforeach
-                                            @endif
-
-                                        </td>
-                                        <td style="text-align: center">
-                                            @if(!empty($data->gambar))
-                                                <img src="{{ URL::asset('/uploads/berita/'.$data->gambar) }}" class="" style="width: 40%" alt="{{ $data->judul }}">
-                                            @endif
-                                        </td>
+                                        <td>{!! $data->prakata !!}</td>
+                                        <td>{{ $data->hari }}</td>
+                                        <td>{{ $data->jam_oprasional }}</td>
                                         <td>
                                             {{-- <a class="btn btn-primary" href="#">Edit</a>
                                             <a class="btn btn-danger" href="#">Hapus</a> --}}
@@ -120,29 +105,30 @@
                         <ul></ul>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="judul">Judul</label>
-                        <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul {{$title}}">
-                    </div>
-                    <div class="form-group mb-4">
-                        <label for="isi_berita">Isi Berita</label>
-                        <textarea class="form-control" id="isi_berita" name="isi_berita" rows="8"></textarea>
-                    </div>
-                    <div class="form-group mb-4">
-                        <label for="tag">Pilih Siapa Yang Ingin di Tag</label>
-                        <select class="form-select js-select2-multi" id="tag" name="tag[]" multiple="multiple">
+                        <label for="judul">Jenis</label>
+                        <select class="form-select jenis" name="jenis" id="jenis">
                             {{-- @foreach ($product_collection_models as $product_collection) --}}
-                            <option></option>
-                            {{-- <option value="0" selected>--Pilih Siapa Yang Ingin di Tag--</option> --}}
-                            <option value="1">Indonesia</option>
-                            <option value="2">Buka Lapak</option>
-                            <option value="3">Shoppe</option>
-                            <option value="4">Indraco</option>
+                            <option value="0" selected> --Pilih Jenis {{$title}}-- </option>
+                            <option value="Prakata">Prakata</option>
+                            <option value="Oprasional">Oprasional</option>
                             {{-- @endforeach  --}}
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="file">Gambar</label>
-                        <input type="file" class="form-control" id="file" name="file" placeholder="Gambar">
+                    <div class="form-group mb-4">
+                        <label for="judul">Judul</label>
+                        <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul {{$title}}">
+                    </div>
+                    <div class="form-group mb-4 div_prakata">
+                        <label for="prakata">prakata</label>
+                        <textarea class="form-control" id="prakata" name="prakata" rows="8"></textarea>
+                    </div>
+                    <div class="form-group mb-4 div_hari">
+                        <label for="hari">Hari</label>
+                        <input type="text" class="form-control" id="hari" name="hari" placeholder="Contoh : Senin - Jum'at">
+                    </div>
+                    <div class="form-group div_jam">
+                        <label for="jam_oprasional">Jam Oprasional</label>
+                        <input type="text" class="form-control" id="jam_oprasional" name="jam_oprasional" placeholder="Contoh : 08:00 - 15:00">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -170,37 +156,24 @@
                     </div>
                     <input type="hidden" class="form-control" id="edit_id" name="edit_id">
                     <div class="form-group mb-4">
+                        <label for="edit_jenis">Jenis</label>
+                        <input type="text" class="form-control" id="edit_jenis" name="edit_jenis" placeholder="jenis {{$title}}" readonly>
+                    </div>
+                    <div class="form-group mb-4">
                         <label for="edit_judul">Judul</label>
                         <input type="text" class="form-control" id="edit_judul" name="edit_judul" placeholder="Judul {{$title}}">
                     </div>
-                    <div class="form-group mb-4 edit_div_isi_berita">
-                        <label for="edit_isi_berita">isi_berita</label>
-                        <textarea class="form-control" id="edit_isi_berita" name="edit_isi_berita" rows="8"></textarea>
+                    <div class="form-group mb-4 edit_div_prakata">
+                        <label for="edit_prakata">prakata</label>
+                        <textarea class="form-control" id="edit_prakata" name="edit_prakata" rows="8"></textarea>
                     </div>
-                    <div class="form-group mb-4">
-                        <label for="tag">Pilih Siapa Yang Ingin di Tag</label>
-                        <select class="form-select js-select2-multi" id="edit_tag" name="edit_tag[]" multiple="multiple">
-                            {{-- @foreach ($product_collection_models as $product_collection) --}}
-                            <option></option>
-                            {{-- <option value="0" selected>--Pilih Siapa Yang Ingin di Tag--</option> --}}
-                            <option value="1">Indonesia</option>
-                            <option value="2">Buka Lapak</option>
-                            <option value="3">Shoppe</option>
-                            <option value="4">Indraco</option>
-                            {{-- @endforeach  --}}
-                        </select>
+                    <div class="form-group mb-4 edit_div_hari">
+                        <label for="edit_hari">Hari</label>
+                        <input type="text" class="form-control" id="edit_hari" name="edit_hari" placeholder="hari {{$title}}">
                     </div>
-                    <div class="form-group edit_div_file">
-                        <label for="edit_file">Gambar</label>
-                        <div class="row">
-                            <div class="col" style="text-align: center">
-                                <img id="gambar_lama" src="about:blank" class="" style="width: 60%" alt=""> <br>
-                                <p>Gambar lama</p>
-                            </div>
-                            <div class="col">
-                                <input type="file" class="form-control" id="edit_file" name="edit_file" placeholder="Gambar">
-                            </div>
-                        </div>
+                    <div class="form-group mb-4 edit_div_jam_oprasional">
+                        <label for="edit_jam_oprasional">Jam Oprasional</label>
+                        <input type="text" class="form-control" id="edit_jam_oprasional" name="edit_jam_oprasional" placeholder="jam_oprasional {{$title}}">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -225,8 +198,9 @@
 
     <script>
         $(document).ready(function() {
-            // document.getElementsByClassName('div_deskripsi')[0].style.display = "none";
-            // document.getElementsByClassName('div_file')[0].style.display = "none";
+            document.getElementsByClassName('div_prakata')[0].style.display = "none";
+            document.getElementsByClassName('div_hari')[0].style.display = "none";
+            document.getElementsByClassName('div_jam')[0].style.display = "none";
             $('.js-select2-multi').select2({
                 // placeholder : "--Pilih Siapa Yang Ingin di Tag--",
                 // placeholder: "--Pilih Siapa Yang Ingin di Tag--",
@@ -235,30 +209,44 @@
         });
 
         // ckeditor_add
-        var isi_berita = document.getElementById("isi_berita");
-            CKEDITOR.replace(isi_berita,{
+        var prakata = document.getElementById("prakata");
+            CKEDITOR.replace(prakata,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
-
 
         //ckeditor_edit
-        var isi_berita = document.getElementById("edit_isi_berita");
-            CKEDITOR.replace(isi_berita,{
+        var prakata = document.getElementById("edit_prakata");
+            CKEDITOR.replace(prakata,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
-        // proses submit add berita
+        // change jenis footer
+        $('.jenis').change(function() {
+            let jenis_val = $('.jenis').val();
+            // console.log(jenis_val);
+            if (jenis_val == "Prakata") {
+                document.getElementsByClassName('div_prakata')[0].style.display = "block";
+                document.getElementsByClassName('div_hari')[0].style.display = "none";
+                document.getElementsByClassName('div_jam')[0].style.display = "none";
+            } else if (jenis_val == "Oprasional") {
+                document.getElementsByClassName('div_prakata')[0].style.display = "none";
+                document.getElementsByClassName('div_hari')[0].style.display = "block";
+                document.getElementsByClassName('div_jam')[0].style.display = "block";
+            }
+        });
+
+        // proses submit add footer
         $('#add_new_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
-            formData.append('isi_berita', CKEDITOR.instances['isi_berita'].getData());
+            formData.append('prakata', CKEDITOR.instances['prakata'].getData());
             // console.log(formData);
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('berita/store') }}",
+                url: "{{ url('footer/store') }}",
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -273,7 +261,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/berita')}}";
+                        window.location.href = "{{url('admin/footer')}}";
                     }else{
                         printErrorMsgAdd(data.error);
                     }
@@ -281,21 +269,30 @@
             });
         });
 
-        // show edit berita
+        // show edit footer
         function update(id) {
             $.ajax({
-                url: "{{ url('berita/show') }}/" + id,
+                url: "{{ url('footer/show') }}/" + id,
                 type: "get",
                 cache: false,
                 success: function(response) {
                     //fill data to form
                     $('#edit_id').val(response.data.id);
+                    $('#edit_jenis').val(response.data.jenis);
                     $('#edit_judul').val(response.data.judul);
-                    CKEDITOR.instances['edit_isi_berita'].setData(response.data.isi_berita);
-                    var strArrayTag = response.data.tag.split(",");
-                    $("#edit_tag").select2().val(strArrayTag)
-                        .change();
-                    $('#gambar_lama').attr('src', "{{ asset('uploads/berita') }}/"+response.data.gambar);
+                    CKEDITOR.instances['edit_prakata'].setData(response.data.prakata);
+                    $('#edit_hari').val(response.data.hari);
+                    $('#edit_jam_oprasional').val(response.data.jam_oprasional);
+
+                    if (response.data.jenis == "Prakata") {
+                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_hari')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_jam_oprasional')[0].style.display = "none";
+                    } else if (response.data.jenis == "Oprasional") {
+                        document.getElementsByClassName('edit_div_prakata')[0].style.display = "none";
+                        document.getElementsByClassName('edit_div_hari')[0].style.display = "block";
+                        document.getElementsByClassName('edit_div_jam_oprasional')[0].style.display = "block";
+                    }
 
                     //open modal
                     $('#modalEdit{{$idmodal}}').modal('show');
@@ -303,17 +300,17 @@
             });
         }
 
-        // proses edit berita
+        // proses edit footer
         $('#edit_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             let id = $('#edit_id').val();
             var formData = new FormData(this);
-            formData.append('edit_isi_berita', CKEDITOR.instances['edit_isi_berita'].getData());
+            formData.append('edit_prakata', CKEDITOR.instances['edit_prakata'].getData());
             // console.log(formData);
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('berita/update') }}/"+ id,
+                url: "{{ url('footer/update') }}/"+ id,
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -328,7 +325,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/berita')}}";
+                        window.location.href = "{{url('admin/footer')}}";
                     }else{
                         printErrorMsgEdit(data.error);
                     }
@@ -349,7 +346,7 @@
                 if (e.value === true) {
                     $.ajax({
                         type: "get",
-                        url: "{{ url('berita/destroy') }}/" + id,
+                        url: "{{ url('footer/destroy') }}/" + id,
                         success: function(data) {
                             Swal.fire({
                                 icon: 'success',
@@ -358,7 +355,7 @@
                                 showConfirmButton: true,
                                 // timer: 3000
                             });
-                            window.location.href = "{{url('admin/berita')}}";
+                            window.location.href = "{{url('admin/footer')}}";
                         }
                     });
                 } else {

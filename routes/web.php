@@ -91,7 +91,10 @@ Route::get('berita/show/{id}', [BeritaController::class, 'show'])->name('berita.
 Route::post('berita/update/{id}', [BeritaController::class, 'update'])->name('berita.update');
 Route::get('berita/destroy/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
 
-
+Route::post('footer/store', [FooterController::class, 'store'])->name('footer.store');
+Route::get('footer/show/{id}', [FooterController::class, 'show'])->name('footer.show');
+Route::post('footer/update/{id}', [FooterController::class, 'update'])->name('footer.update');
+Route::get('footer/destroy/{id}', [FooterController::class, 'destroy'])->name('footer.destroy');
 
 
 // leanding page
