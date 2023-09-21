@@ -111,9 +111,9 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/kontak') }}">
                         <i class="uil-home-alt"></i>
-                        <span>@lang('contact')</span>
+                        <span>@lang('Kontak')</span>
                     </a>
                 </li>
 
