@@ -105,6 +105,11 @@ Route::get('kontak/show/{id}', [KontakController::class, 'show'])->name('kontak.
 Route::post('kontak/update/{id}', [KontakController::class, 'update'])->name('kontak.update');
 Route::get('kontak/destroy/{id}', [KontakController::class, 'destroy'])->name('kontak.destroy');
 
+Route::post('data_informasi/store', [DataInformasiController::class, 'store'])->name('data_informasi.store');
+Route::get('data_informasi/show/{id}', [DataInformasiController::class, 'show'])->name('data_informasi.show');
+Route::post('data_informasi/update/{id}', [DataInformasiController::class, 'update'])->name('data_informasi.update');
+Route::get('data_informasi/destroy/{id}', [DataInformasiController::class, 'destroy'])->name('data_informasi.destroy');
+
 // leanding page
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');
 Route::get('/semua_galeri', [FrontLandingController::class, 'semua_galeri'])->name('semua_galeri');

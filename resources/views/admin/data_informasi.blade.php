@@ -46,8 +46,9 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Jenis</th>
                                     <th>Judul</th>
-                                    <th>Isi Berita</th>
+                                    <th>Isi Data dan Informasi</th>
                                     <th>Tag</th>
                                     <th style="width: 300px" >Gambar</th>
                                     <th width="280px">Action</th>
@@ -60,8 +61,9 @@
                                 @foreach ($data_informasi as $key => $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
+                                        <td>{{ $data->jenis }}</td>
                                         <td>{{ $data->judul }}</td>
-                                        <td>{!! $data->isi_berita !!}</td>
+                                        <td>{!! $data->isi_data_informasi !!}</td>
                                         <td>
                                             @php
                                                 $listTag = explode(',', $data->tag);
@@ -77,7 +79,7 @@
                                         </td>
                                         <td style="text-align: center">
                                             @if(!empty($data->gambar))
-                                                <img src="{{ URL::asset('/uploads/berita/'.$data->gambar) }}" class="" style="width: 40%" alt="{{ $data->judul }}">
+                                                <img src="{{ URL::asset('/uploads/dataInformasi/'.$data->gambar) }}" class="" style="width: 40%" alt="{{ $data->judul }}">
                                             @endif
                                         </td>
                                         <td>
@@ -119,12 +121,41 @@
                         <ul></ul>
                     </div>
                     <div class="form-group mb-4">
+                        <label for="judul">Jenis</label>
+                        <select class="form-select jenis" name="jenis" id="jenis">
+                            {{-- @foreach ($product_collection_models as $product_collection) --}}
+                            <option value="0" selected> --Pilih Jenis {{$title}}-- </option>
+                            <option value="Jumlah Remaja Preventif, Jenis Kelamin dan Usia">Jumlah Remaja Preventif, Jenis Kelamin dan Usia</option>
+                            <option value="Jumlah Remaja Dispensasi Kawin, Usia, Jenis Kelamin">Jumlah Remaja Dispensasi Kawin, Usia, Jenis Kelamin</option>
+                            <option value="Informasi Reproduksi Perempuan">Informasi Reproduksi Perempuan</option>
+                            <option value="Informasi Reproduksi Laki-laki">Informasi Reproduksi Laki-laki</option>
+                            <option value="Pendidikan Seksual (Pencegahan)">Pendidikan Seksual (Pencegahan)</option>
+                            <option value="Komunikasi Terbuka">Komunikasi Terbuka</option>
+                            <option value="Kepercayaan Diri dan Keterampilan Pengambilan Keputusan">Kepercayaan Diri dan Keterampilan Pengambilan Keputusan</option>
+                            <option value="Membangun Nilai Diri Yang Positif">Membangun Nilai Diri Yang Positif</option>
+                            <option value="Menghindari Tekanan Teman Sebaya">Menghindari Tekanan Teman Sebaya</option>
+                            <option value="Memahami Konsekuensi dan Resiko Perilaku Seks Bebas">Memahami Konsekuensi dan Resiko Perilaku Seks Bebas</option>
+                            <option value="Pendidikan Seksual (Penanganan Remaja)">Pendidikan Seksual (Penanganan Remaja)</option>
+                            <option value="Konseling Keluarga">Konseling Keluarga</option>
+                            <option value="Pemahaman Tanggung Jawab">Pemahaman Tanggung Jawab</option>
+                            <option value="Pengemdalian Emosi">Pengemdalian Emosi</option>
+                            <option value="Perlindungan Hukum">Perlindungan Hukum</option>
+                            <option value="Cara Mendidikan Anak">Cara Mendidikan Anak</option>
+                            <option value="Mengambangkan Hubungan Yang Sehat Pada Anak">Mengambangkan Hubungan Yang Sehat Pada Anak</option>
+                            <option value="Membangun Komunikasi Yang Baik">Membangun Komunikasi Yang Baik</option>
+                            <option value="Mendorong Perkembangan Anak">Mendorong Perkembangan Anak</option>
+                            <option value="Menerapkan Aturan dan Batasan">Menerapkan Aturan dan Batasan</option>
+                            <option value="Perkembangan Anak">Perkembangan Anak</option>
+                            {{-- @endforeach  --}}
+                        </select>
+                    </div>
+                    <div class="form-group mb-4">
                         <label for="judul">Judul</label>
                         <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul {{$title}}">
                     </div>
                     <div class="form-group mb-4">
-                        <label for="isi_berita">Isi Berita</label>
-                        <textarea class="form-control" id="isi_berita" name="isi_berita" rows="8"></textarea>
+                        <label for="isi_data_informasi">Isi Data Informasi</label>
+                        <textarea class="form-control" id="isi_data_informasi" name="isi_data_informasi" rows="8"></textarea>
                     </div>
                     <div class="form-group mb-4">
                         <label for="tag">Pilih Siapa Yang Ingin di Tag</label>
@@ -169,12 +200,16 @@
                     </div>
                     <input type="hidden" class="form-control" id="edit_id" name="edit_id">
                     <div class="form-group mb-4">
+                        <label for="edit_jenis">Jenis</label>
+                        <input type="text" class="form-control" id="edit_jenis" name="edit_jenis" placeholder="jenis {{$title}}" readonly>
+                    </div>
+                    <div class="form-group mb-4">
                         <label for="edit_judul">Judul</label>
                         <input type="text" class="form-control" id="edit_judul" name="edit_judul" placeholder="Judul {{$title}}">
                     </div>
                     <div class="form-group mb-4 edit_div_isi_berita">
-                        <label for="edit_isi_berita">isi_berita</label>
-                        <textarea class="form-control" id="edit_isi_berita" name="edit_isi_berita" rows="8"></textarea>
+                        <label for="edit_isi_data_informasi">Isi Data Informasi</label>
+                        <textarea class="form-control" id="edit_isi_data_informasi" name="edit_isi_data_informasi" rows="8"></textarea>
                     </div>
                     <div class="form-group mb-4">
                         <label for="tag">Pilih Siapa Yang Ingin di Tag</label>
@@ -234,30 +269,30 @@
         });
 
         // ckeditor_add
-        var isi_berita = document.getElementById("isi_berita");
-            CKEDITOR.replace(isi_berita,{
+        var isi_data_informasi = document.getElementById("isi_data_informasi");
+            CKEDITOR.replace(isi_data_informasi,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
 
         //ckeditor_edit
-        var isi_berita = document.getElementById("edit_isi_berita");
-            CKEDITOR.replace(isi_berita,{
+        var isi_data_informasi = document.getElementById("edit_isi_data_informasi");
+            CKEDITOR.replace(isi_data_informasi,{
             language:'en-gb'
         });
         CKEDITOR.config.allowedContent = true;
 
-        // proses submit add berita
+        // proses submit add data_informasi
         $('#add_new_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
-            formData.append('isi_berita', CKEDITOR.instances['isi_berita'].getData());
+            formData.append('isi_data_informasi', CKEDITOR.instances['isi_data_informasi'].getData());
             // console.log(formData);
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('berita/store') }}",
+                url: "{{ url('data_informasi/store') }}",
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -272,7 +307,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/berita')}}";
+                        window.location.href = "{{url('admin/data_informasi')}}";
                     }else{
                         printErrorMsgAdd(data.error);
                     }
@@ -280,21 +315,22 @@
             });
         });
 
-        // show edit berita
+        // show edit data_informasi
         function update(id) {
             $.ajax({
-                url: "{{ url('berita/show') }}/" + id,
+                url: "{{ url('data_informasi/show') }}/" + id,
                 type: "get",
                 cache: false,
                 success: function(response) {
                     //fill data to form
                     $('#edit_id').val(response.data.id);
+                    $('#edit_jenis').val(response.data.jenis);
                     $('#edit_judul').val(response.data.judul);
-                    CKEDITOR.instances['edit_isi_berita'].setData(response.data.isi_berita);
+                    CKEDITOR.instances['edit_isi_data_informasi'].setData(response.data.isi_data_informasi);
                     var strArrayTag = response.data.tag.split(",");
                     $("#edit_tag").select2().val(strArrayTag)
                         .change();
-                    $('#gambar_lama').attr('src', "{{ asset('uploads/berita') }}/"+response.data.gambar);
+                    $('#gambar_lama').attr('src', "{{ asset('uploads/dataInformasi') }}/"+response.data.gambar);
 
                     //open modal
                     $('#modalEdit{{$idmodal}}').modal('show');
@@ -302,17 +338,17 @@
             });
         }
 
-        // proses edit berita
+        // proses edit data_informasi
         $('#edit_{{$idmodal}}').submit(function(e) {
             e.preventDefault();
             let id = $('#edit_id').val();
             var formData = new FormData(this);
-            formData.append('edit_isi_berita', CKEDITOR.instances['edit_isi_berita'].getData());
+            formData.append('edit_isi_data_informasi', CKEDITOR.instances['edit_isi_data_informasi'].getData());
             // console.log(formData);
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('berita/update') }}/"+ id,
+                url: "{{ url('data_informasi/update') }}/"+ id,
                 data : formData,
                 contentType: false,
                 processData: false,
@@ -327,7 +363,7 @@
                             // showConfirmButton: false,
                             timer: 3000
                         });
-                        window.location.href = "{{url('admin/berita')}}";
+                        window.location.href = "{{url('admin/data_informasi')}}";
                     }else{
                         printErrorMsgEdit(data.error);
                     }
@@ -348,7 +384,7 @@
                 if (e.value === true) {
                     $.ajax({
                         type: "get",
-                        url: "{{ url('berita/destroy') }}/" + id,
+                        url: "{{ url('data_informasi/destroy') }}/" + id,
                         success: function(data) {
                             Swal.fire({
                                 icon: 'success',
@@ -357,7 +393,7 @@
                                 showConfirmButton: true,
                                 // timer: 3000
                             });
-                            window.location.href = "{{url('admin/berita')}}";
+                            window.location.href = "{{url('admin/data_informasi')}}";
                         }
                     });
                 } else {
