@@ -24,6 +24,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\DataInformasiController;
+use App\Http\Controllers\TagController;
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
@@ -58,7 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('admin/footer', FooterController::class);
     Route::resource('admin/kontak', KontakController::class);
     Route::resource('admin/data_informasi', DataInformasiController::class);
-
+    Route::resource('admin/tag', TagController::class);
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
@@ -109,6 +110,11 @@ Route::post('data_informasi/store', [DataInformasiController::class, 'store'])->
 Route::get('data_informasi/show/{id}', [DataInformasiController::class, 'show'])->name('data_informasi.show');
 Route::post('data_informasi/update/{id}', [DataInformasiController::class, 'update'])->name('data_informasi.update');
 Route::get('data_informasi/destroy/{id}', [DataInformasiController::class, 'destroy'])->name('data_informasi.destroy');
+
+Route::post('tag/store', [TagController::class, 'store'])->name('tag.store');
+Route::get('tag/show/{id}', [TagController::class, 'show'])->name('tag.show');
+Route::post('tag/update/{id}', [TagController::class, 'update'])->name('tag.update');
+Route::get('tag/destroy/{id}', [TagController::class, 'destroy'])->name('tag.destroy');
 
 // leanding page
 Route::get('/', [FrontLandingController::class, 'index'])->name('landing');

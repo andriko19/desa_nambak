@@ -58,6 +58,14 @@
                     </ul>
                 </li>
 
+                <li class="menu-title">@lang('Master')</li>
+
+                <li>
+                    <a href="{{ url('admin/tag') }}">
+                        <i class="uil-home-alt"></i>
+                        <span>@lang('Tag')</span>
+                    </a>
+                </li>
 
                 <li class="menu-title">@lang('Menu')</li>
 

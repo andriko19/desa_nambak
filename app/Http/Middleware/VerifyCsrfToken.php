@@ -21,6 +21,8 @@ class VerifyCsrfToken extends Middleware
         'berita/store',
         'footer/store',
         'kontak/store',
+        'data_informasi/store',
+        'tag/store',
 
     ];
 }
