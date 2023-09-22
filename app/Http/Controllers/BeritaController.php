@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Berita_model;
+use App\Models\Tag_model;
 
 class BeritaController extends Controller
 {
@@ -19,7 +21,10 @@ class BeritaController extends Controller
         $title = 'Berita';
         $pages = 'List Berita';
         $berita = Berita_model::all();
-        return view('admin/berita', compact('idmodal', 'title', 'pages', 'berita'));
+        // $tag = Tag_model::all();
+        $tags = DB::table('tbl_tag')->get();
+        // dd($tag);
+        return view('admin/berita', compact('idmodal', 'title', 'pages', 'berita', 'tags'));
     }
 
     /**

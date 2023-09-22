@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\DataInformasi_model;
@@ -19,7 +20,8 @@ class DataInformasiController extends Controller
         $title = 'Data dan Informasi';
         $pages = 'List Data dan Informasi';
         $data_informasi = DataInformasi_model::all();
-        return view('admin/data_informasi', compact('idmodal', 'title', 'pages', 'data_informasi'));
+        $tags = DB::table('tbl_tag')->get();
+        return view('admin/data_informasi', compact('idmodal', 'title', 'pages', 'data_informasi', 'tags'));
     }
 
     /**

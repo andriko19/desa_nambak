@@ -72,7 +72,11 @@
 
                                             @if ($listTag[0] != "")
                                                 @foreach ( $listTag as $tag)
-                                                    <a class="btn btn-success" href="{{$tag}}">{{$tag}}</a>
+                                                    @php
+                                                        $listTag = DB::select('select * from tbl_tag where id = "'.$tag.'"');
+                                                        // dump($listTag[0]->judul);
+                                                    @endphp
+                                                    <a class="btn btn-success" href="{{$listTag[0]->link}}" target="blank">{{$listTag[0]->judul}}</a>
                                                 @endforeach
                                             @endif
 
@@ -160,14 +164,9 @@
                     <div class="form-group mb-4">
                         <label for="tag">Pilih Siapa Yang Ingin di Tag</label>
                         <select class="form-select js-select2-multi" id="tag" name="tag[]" multiple="multiple">
-                            {{-- @foreach ($product_collection_models as $product_collection) --}}
-                            <option></option>
-                            {{-- <option value="0" selected>--Pilih Siapa Yang Ingin di Tag--</option> --}}
-                            <option value="1">Indonesia</option>
-                            <option value="2">Buka Lapak</option>
-                            <option value="3">Shoppe</option>
-                            <option value="4">Indraco</option>
-                            {{-- @endforeach  --}}
+                            @foreach ($tags as $tag)
+                                <option value="{{$tag->id}}">{{$tag->judul}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
@@ -214,14 +213,9 @@
                     <div class="form-group mb-4">
                         <label for="tag">Pilih Siapa Yang Ingin di Tag</label>
                         <select class="form-select js-select2-multi" id="edit_tag" name="edit_tag[]" multiple="multiple">
-                            {{-- @foreach ($product_collection_models as $product_collection) --}}
-                            <option></option>
-                            {{-- <option value="0" selected>--Pilih Siapa Yang Ingin di Tag--</option> --}}
-                            <option value="1">Indonesia</option>
-                            <option value="2">Buka Lapak</option>
-                            <option value="3">Shoppe</option>
-                            <option value="4">Indraco</option>
-                            {{-- @endforeach  --}}
+                            @foreach ($tags as $tag)
+                                <option value="{{$tag->id}}">{{$tag->judul}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group edit_div_file">
