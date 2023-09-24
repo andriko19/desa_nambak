@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title')
-  Desa Nambak
+  @lang($title)
 @endsection
 @section('css')
     <!-- DataTables -->
@@ -9,57 +9,42 @@
 
 @section('content')
   <div class="banner-carousel banner-carousel-1 mb-0">
-    <div class="banner-carousel-item" style="background-image:url({{ URL::asset('assets/frontend/')}}/images/slider-main/bg1.jpg)">
+
+    <div class="banner-carousel-item" style="background-image:url({{ URL::asset('uploads/banner/')}}/{{$BannerByUcapan[0]->gambar}})">
       <div class="slider-content">
           <div class="container h-100">
             <div class="row align-items-center h-100">
                 <div class="col-md-12 text-center">
-                  <h2 class="slide-title" data-animation-in="slideInLeft">17 Years of excellence in</h2>
-                  <h3 class="slide-sub-title" data-animation-in="slideInRight">Construction Industry</h3>
-                  <p data-animation-in="slideInLeft" data-duration-in="1.2">
+                  <h2 class="slide-title" data-animation-in="slideInLeft" style="color:#ffc107;">{{$BannerByUcapan[0]->judul}}</h2>
+                  <h3 class="slide-sub-title" data-animation-in="slideInRight" style="color:#ffc107;">{!!$BannerByUcapan[0]->deskripsi!!}</h3>
+                  {{-- <p data-animation-in="slideInLeft" data-duration-in="1.2">
                       <a href="services.html" class="slider btn btn-primary">Our Services</a>
                       <a href="contact.html" class="slider btn btn-primary border">Contact Now</a>
-                  </p>
+                  </p> --}}
                 </div>
             </div>
           </div>
       </div>
     </div>
 
-    <div class="banner-carousel-item" style="background-image:url({{ URL::asset('assets/frontend/')}}/images/slider-main/bg8.jpg)">
-      <div class="slider-content text-left">
-          <div class="container h-100">
-            <div class="row align-items-center h-100">
-                <div class="col-md-12">
-                  <h2 class="slide-title-box" data-animation-in="slideInDown">World Class Service</h2>
-                  <h3 class="slide-title" data-animation-in="fadeIn">When Service Matters</h3>
-                  <h3 class="slide-sub-title" data-animation-in="slideInLeft">Your Choice is Simple</h3>
-                  <p data-animation-in="slideInRight">
-                      <a href="services.html" class="slider btn btn-primary border">Our Services</a>
-                  </p>
-                </div>
-            </div>
-          </div>
-      </div>
-    </div>
-
-    <div class="banner-carousel-item" style="background-image:url({{ URL::asset('assets/frontend/')}}/images/slider-main/bg6.jpg)">
-      <div class="slider-content text-right">
-          <div class="container h-100">
-            <div class="row align-items-center h-100">
-                <div class="col-md-12">
-                  <h2 class="slide-title" data-animation-in="slideInDown">Meet Our Engineers</h2>
-                  <h3 class="slide-sub-title" data-animation-in="fadeIn">We believe sustainability</h3>
-                  <p class="slider-description lead" data-animation-in="slideInRight">We will deal with your failure that determines how you achieve success.</p>
-                  <div data-animation-in="slideInLeft">
-                      <a href="contact.html" class="slider btn btn-primary" aria-label="contact-with-us">Get Free Quote</a>
-                      <a href="about.html" class="slider btn btn-primary border" aria-label="learn-more-about-us">Learn more</a>
+    @foreach ($BannerByHighlight as $key => $data)
+      <div class="banner-carousel-item" style="background-image:url({{ URL::asset('uploads/banner/')}}/{{$data->gambar}})">
+        <div class="slider-content text-left">
+            <div class="container h-100">
+              <div class="row align-items-center h-100">
+                  <div class="col-md-12">
+                    {{-- <h2 class="slide-title-box" data-animation-in="slideInDown">World Class Service</h2> --}}
+                    <h3 class="slide-title" data-animation-in="fadeIn" style="color:#ffc107;">{{$data->judul}}</h3>
+                    <h3 class="slide-sub-title" data-animation-in="slideInLeft" style="color:#ffc107;">{!! $data->deskripsi !!}</h3>
+                    {{-- <p data-animation-in="slideInRight">
+                        <a href="services.html" class="slider btn btn-primary border">Our Services</a>
+                    </p> --}}
                   </div>
-                </div>
+              </div>
             </div>
-          </div>
+        </div>
       </div>
-    </div>
+    @endforeach
   </div>
 
   <section class="call-to-action-box no-padding">
@@ -68,7 +53,7 @@
           <div class="row align-items-center">
             <div class="col-md-8 text-center text-md-left">
                 <div class="call-to-action-text">
-                  <h3 class="action-title">Moto Desa Nambak</h3>
+                  <h3 class="action-title"> <p style="font-size: 40%"> {!! $TentangDesaByMoto[0]->deskripsi !!} </p> </h3>
                 </div>
             </div><!-- Col end -->
             <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
@@ -88,108 +73,52 @@
             <div class="ts-intro">
                 <h2 class="into-title">Profil Singkat</h2>
                 <h3 class="into-sub-title">Desa Nambak</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>{!! Str::limit($TentangDesaByProfil[0]->deskripsi, 500) !!}</p>
             </div><!-- Intro box end -->
 
             <div class="gap-20"></div>
 
             <div class="row">
-                <div class="col-md-6">
+              @foreach ($TentangDesaByKeunggulan as $key => $data)
+                <div class="col-md-12">
                   <div class="ts-service-box">
                       <span class="ts-service-icon">
                         <i class="fas fa-trophy"></i>
                       </span>
                       <div class="ts-service-box-content">
-                        <h3 class="service-box-title">Prestasi 1</h3>
+                        <h3 class="service-box-title">{{$data->judul}}</h3>
+                        <p>{!! Str::limit($data->deskripsi, 500) !!}</p>
                       </div>
                   </div><!-- Service 1 end -->
-                </div><!-- col end -->
-
-                <div class="col-md-6">
-                  <div class="ts-service-box">
-                      <span class="ts-service-icon">
-                        <i class="fas fa-sliders-h"></i>
-                      </span>
-                      <div class="ts-service-box-content">
-                        <h3 class="service-box-title">Prestasi 2</h3>
-                      </div>
-                  </div><!-- Service 2 end -->
-                </div><!-- col end -->
+                </div>
+              @endforeach
             </div><!-- Content row 1 end -->
 
-            <div class="row">
-                <div class="col-md-6">
-                  <div class="ts-service-box">
-                      <span class="ts-service-icon">
-                        <i class="fas fa-thumbs-up"></i>
-                      </span>
-                      <div class="ts-service-box-content">
-                        <h3 class="service-box-title">Prestasi 3</h3>
-                      </div>
-                  </div><!-- Service 1 end -->
-                </div><!-- col end -->
-
-                <div class="col-md-6">
-                  <div class="ts-service-box">
-                      <span class="ts-service-icon">
-                        <i class="fas fa-users"></i>
-                      </span>
-                      <div class="ts-service-box-content">
-                        <h3 class="service-box-title">Prestasi 4</h3>
-                      </div>
-                  </div><!-- Service 2 end -->
-                </div><!-- col end -->
-            </div><!-- Content row 1 end -->
+            
           </div><!-- Col end -->
 
           <div class="col-lg-6 mt-4 mt-lg-0">
             <h3 class="into-sub-title">Pertanyaan Umum</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>{!! $TentangDesaByPrakataPertanyaan[0]->prakata !!}</p>
 
             <div class="accordion accordion-group" id="our-values-accordion">
+              @foreach ($TentangDesaByPertanyaanUmum as $key => $data)
                 <div class="card">
-                  <div class="card-header p-0 bg-transparent" id="headingOne">
+                  <div class="card-header p-0 bg-transparent" id="heading{{$key}}">
                       <h2 class="mb-0">
-                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          PERTANYAAN 1
-                        </button>
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{$key}}"  aria-expanded="{{$key==0 ? "true" : "false"}}" aria-controls="collapse{{$key}}">
+                          {!! $data->pertanyaan !!}
+                        </button> 
                       </h2>
                   </div>
                 
-                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#our-values-accordion">
+                  <div id="collapse{{$key}}" class="collapse {{$key==0 ? "show" : ""}}" aria-labelledby="heading{{$key}}" data-parent="#our-values-accordion">
                       <div class="card-body">
                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata
                       </div>
                   </div>
                 </div>
-                <div class="card">
-                  <div class="card-header p-0 bg-transparent" id="headingTwo">
-                      <h2 class="mb-0">
-                        <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          PERTANYAAN 2
-                        </button>
-                      </h2>
-                  </div>
-                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#our-values-accordion">
-                      <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata
-                      </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header p-0 bg-transparent" id="headingThree">
-                      <h2 class="mb-0">
-                        <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          PERTANYAAN 3
-                        </button>
-                      </h2>
-                  </div>
-                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#our-values-accordion">
-                      <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata
-                      </div>
-                  </div>
-                </div>
+              @endforeach
             </div>
             <!--/ Accordion end -->
 

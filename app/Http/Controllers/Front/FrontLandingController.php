@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 
-use App\Models\Product_model;
+use App\Models\Banner_model;
 use App\Models\Product_collection_model;
 use App\Models\Product_type_model;
 use App\Models\Product_form_model;
@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class FrontLandingController extends Controller
 {
@@ -42,11 +43,21 @@ class FrontLandingController extends Controller
 
     public function index(Request $request)
     {
-        $title = 'home';
+        $title = 'Desa Nambak';
         $pages = 'landing';
 
-        // return view('front/signin', compact('title', 'pages'))
-        return view('frontend/index', compact('title', 'pages'));
+        $BannerByUcapan = DB::table('tbl_banner')->where('jenis', 'Pembuka')->orderBy('id', 'DESC')->get();
+        $BannerByHighlight = DB::table('tbl_banner')->where('jenis', 'Highlight')->orderBy('id', 'DESC')->get();
+       
+        $TentangDesaByMoto = DB::table('tbl_tentang_desa')->where('jenis', 'Moto')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $TentangDesaByKeunggulan = DB::table('tbl_tentang_desa')->where('jenis', 'Keunggulan')->get();
+        $TentangDesaByPrakataPertanyaan = DB::table('tbl_tentang_desa')->where('jenis', 'Prakata Pertanyaan')->orderBy('id', 'DESC')->get();
+        $TentangDesaByPertanyaanUmum = DB::table('tbl_tentang_desa')->where('jenis', 'Pertanyaan Umum')->get();
+
+
+        // dd($BannerMyUcapan);
+        return view('frontend/index', compact('title', 'pages', 'BannerByUcapan', 'BannerByHighlight', 'TentangDesaByMoto', 'TentangDesaByProfil', 'TentangDesaByKeunggulan', 'TentangDesaByPrakataPertanyaan', 'TentangDesaByPertanyaanUmum'));
     }
 
     public function semua_galeri(Request $request)
