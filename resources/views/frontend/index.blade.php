@@ -190,72 +190,86 @@
 
       <div class="row">
           <div class="col-lg-4">
-            <div class="ts-service-box d-flex">
-                <div class="ts-service-box-img">
-                  <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon1.png" alt="service-icon">
-                </div>
-                <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Layanan 1</a></h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                </div>
-            </div><!-- Service 1 end -->
+            @if (count($Layanan) >= 1)
+              <div class="ts-service-box d-flex">
+                  <div class="ts-service-box-img">
+                    <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon1.png" alt="service-icon">
+                  </div>
+                  <div class="ts-service-box-info">
+                    <h3 class="service-box-title"><a href="#">{{ $Layanan[0]->judul }}</a></h3>
+                    <p>{!! $Layanan[0]->deskripsi !!}</p>
+                  </div>
+              </div><!-- Layanan 1 end -->
+            @endif
+            
+            @if (count($Layanan) >= 3)
+              <div class="ts-service-box d-flex">
+                  <div class="ts-service-box-img">
+                    <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon2.png" alt="service-icon">
+                  </div>
+                  <div class="ts-service-box-info">
+                    <h3 class="service-box-title"><a href="#">{{ $Layanan[2]->judul }}</a></h3>
+                    <p>{!! $Layanan[2]->deskripsi !!}</p>
+                  </div>
+              </div><!-- Layanan 3 end -->
+            @endif
 
-            <div class="ts-service-box d-flex">
-                <div class="ts-service-box-img">
-                  <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon2.png" alt="service-icon">
-                </div>
-                <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Layanan 2</a></h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                </div>
-            </div><!-- Service 2 end -->
-
-            <div class="ts-service-box d-flex">
-                <div class="ts-service-box-img">
-                  <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon3.png"  alt="service-icon">
-                </div>
-                <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Layanan 3</a></h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                </div>
-            </div><!-- Service 3 end -->
+            @if (count($Layanan) >= 5)
+              <div class="ts-service-box d-flex">
+                  <div class="ts-service-box-img">
+                    <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon3.png"  alt="service-icon">
+                  </div>
+                  <div class="ts-service-box-info">
+                    <h3 class="service-box-title"><a href="#">{{ $Layanan[4]->judul }}</a></h3>
+                    <p>{!! $Layanan[4]->deskripsi !!}</p>
+                  </div>
+              </div><!-- Layanan 5 end -->
+            @endif
 
           </div><!-- Col end -->
 
           <div class="col-lg-4 text-center">
-            <img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/services/service-center.jpg" alt="service-avater-image">
+            <img loading="lazy" class="img-fluid" src="{{ URL::asset('uploads/fotoKades/')}}/{{$FotoKades[0]->gambar}}" alt="service-avater-image">
           </div><!-- Col end -->
 
           <div class="col-lg-4 mt-5 mt-lg-0 mb-4 mb-lg-0">
-            <div class="ts-service-box d-flex">
-                <div class="ts-service-box-img">
-                  <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon4.png" alt="service-icon">
-                </div>
-                <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Layanan 4</a></h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                </div>
-            </div><!-- Service 4 end -->
 
-            <div class="ts-service-box d-flex">
-                <div class="ts-service-box-img">
-                  <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon5.png" alt="service-icon">
-                </div>
-                <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Layanan 5</a></h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                </div>
-            </div><!-- Service 5 end -->
+            @if (count($Layanan) >= 2)
+              <div class="ts-service-box d-flex">
+                  <div class="ts-service-box-img">
+                    <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon4.png" alt="service-icon">
+                  </div>
+                  <div class="ts-service-box-info">
+                    <h3 class="service-box-title"><a href="#">{{ $Layanan[1]->judul }}</a></h3>
+                    <p>{!! $Layanan[1]->deskripsi !!}</p>
+                  </div>
+              </div><!-- Layanan 2 end -->
+            @endif
 
-            <div class="ts-service-box d-flex">
+            @if (count($Layanan) >= 4)
+              <div class="ts-service-box d-flex">
+                  <div class="ts-service-box-img">
+                    <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon5.png" alt="service-icon">
+                  </div>
+                  <div class="ts-service-box-info">
+                    <h3 class="service-box-title"><a href="#">{{ $Layanan[3]->judul }}</a></h3>
+                    <p>{!! $Layanan[3]->deskripsi !!}</p>
+                  </div>
+              </div><!-- Layanan 4 end -->
+            @endif
+
+            @if (count($Layanan) >= 6)
+              <div class="ts-service-box d-flex">
                 <div class="ts-service-box-img">
                   <img loading="lazy" src="{{ URL::asset('assets/frontend/')}}/images/icon-image/service-icon6.png" alt="service-icon">
                 </div>
                 <div class="ts-service-box-info">
-                  <h3 class="service-box-title"><a href="#">Layanan 6</a></h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
+                  <h3 class="service-box-title"><a href="#">{{ $Layanan[5]->judul }}</a></h3>
+                  <p>{!! $Layanan[5]->deskripsi !!}</p>
                 </div>
-            </div><!-- Service 6 end -->
+              </div><!-- Layanan 6 end -->        
+            @endif
+            
           </div><!-- Col end -->
       </div><!-- Content row end -->
 
@@ -279,131 +293,36 @@
             <label class="active" for="all">
               <input type="radio" name="shuffle-filter" id="all" value="all" checked="checked">semua
             </label>
-            <label for="commercial">
-              <input type="radio" name="shuffle-filter" id="commercial" value="commercial">Didalam desa
+            <label for="Didalam Desa">
+              <input type="radio" name="shuffle-filter" id="Didalam Desa" value="Didalam Desa">Didalam desa
             </label>
-            <label for="education">
-              <input type="radio" name="shuffle-filter" id="education" value="education">Diluar desa
+            <label for="Diluar Desa">
+              <input type="radio" name="shuffle-filter" id="Diluar Desa" value="Diluar Desa">Diluar desa
             </label>
-            {{-- <label for="government">
-              <input type="radio" name="shuffle-filter" id="government" value="government">Government
-            </label>
-            <label for="infrastructure">
-              <input type="radio" name="shuffle-filter" id="infrastructure" value="infrastructure">Infrastructure
-            </label>
-            <label for="residential">
-              <input type="radio" name="shuffle-filter" id="residential" value="residential">Residential
-            </label>
-            <label for="healthcare">
-              <input type="radio" name="shuffle-filter" id="healthcare" value="healthcare">Healthcare
-            </label> --}}
           </div><!-- project filter end -->
 
 
           <div class="row shuffle-wrapper">
             <div class="col-1 shuffle-sizer"></div>
 
-            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;government&quot;,&quot;healthcare&quot;]">
-              <div class="project-img-container">
-                <a class="gallery-popup" href="{{ URL::asset('assets/frontend/')}}/images/projects/project1.jpg" aria-label="project-img">
-                  <img class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/projects/project1.jpg" alt="project-img">
-                  <span class="gallery-icon"><i class="fa fa-plus"></i></span>
-                </a>
-                <div class="project-item-info">
-                  <div class="project-item-info-content">
-                    <h3 class="project-item-title">
-                      <a href="projects-single.html">Capital Teltway Building</a>
-                    </h3>
-                    <p class="project-cat">Commercial, Interiors</p>
+            @foreach ($Galeri as $key => $data)
+              <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;{{$data->jenis}}&quot;]">
+                <div class="project-img-container">
+                  <a class="gallery-popup" href="{{ URL::asset('uploads/galeri/')}}/{{$data->gambar}}" aria-label="project-img">
+                    <img class="img-fluid" src="{{ URL::asset('uploads/galeri/')}}/{{$data->gambar}}" alt="project-img">
+                    <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                  </a>
+                  <div class="project-item-info">
+                    <div class="project-item-info-content">
+                      <h3 class="project-item-title">
+                        <a>{{$data->judul}}</a>
+                      </h3>
+                      <p class="project-cat">Dokumentasi, Desa</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div><!-- shuffle item 1 end -->
-
-            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;healthcare&quot;]">
-              <div class="project-img-container">
-                <a class="gallery-popup" href="{{ URL::asset('assets/frontend/')}}/images/projects/project2.jpg" aria-label="project-img">
-                  <img class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/projects/project2.jpg" alt="project-img">
-                  <span class="gallery-icon"><i class="fa fa-plus"></i></span>
-                </a>
-                <div class="project-item-info">
-                  <div class="project-item-info-content">
-                    <h3 class="project-item-title">
-                      <a href="projects-single.html">Ghum Touch Hospital</a>
-                    </h3>
-                    <p class="project-cat">Healthcare</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- shuffle item 2 end -->
-
-            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;infrastructure&quot;,&quot;commercial&quot;]">
-              <div class="project-img-container">
-                <a class="gallery-popup" href="{{ URL::asset('assets/frontend/')}}/images/projects/project3.jpg" aria-label="project-img">
-                  <img class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/projects/project3.jpg" alt="project-img">
-                  <span class="gallery-icon"><i class="fa fa-plus"></i></span>
-                </a>
-                <div class="project-item-info">
-                  <div class="project-item-info-content">
-                    <h3 class="project-item-title">
-                      <a href="projects-single.html">TNT East Facility</a>
-                    </h3>
-                    <p class="project-cat">Government</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- shuffle item 3 end -->
-
-            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;education&quot;,&quot;infrastructure&quot;]">
-              <div class="project-img-container">
-                <a class="gallery-popup" href="{{ URL::asset('assets/frontend/')}}/images/projects/project4.jpg" aria-label="project-img">
-                  <img class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/projects/project4.jpg" alt="project-img">
-                  <span class="gallery-icon"><i class="fa fa-plus"></i></span>
-                </a>
-                <div class="project-item-info">
-                  <div class="project-item-info-content">
-                    <h3 class="project-item-title">
-                      <a href="projects-single.html">Narriot Headquarters</a>
-                    </h3>
-                    <p class="project-cat">Infrastructure</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- shuffle item 4 end -->
-
-            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;infrastructure&quot;,&quot;education&quot;]">
-              <div class="project-img-container">
-                <a class="gallery-popup" href="{{ URL::asset('assets/frontend/')}}/images/projects/project5.jpg" aria-label="project-img">
-                  <img class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/projects/project5.jpg" alt="project-img">
-                  <span class="gallery-icon"><i class="fa fa-plus"></i></span>
-                </a>
-                <div class="project-item-info">
-                  <div class="project-item-info-content">
-                    <h3 class="project-item-title">
-                      <a href="projects-single.html">Kalas Metrorail</a>
-                    </h3>
-                    <p class="project-cat">Infrastructure</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- shuffle item 5 end -->
-
-            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;residential&quot;]">
-              <div class="project-img-container">
-                <a class="gallery-popup" href="{{ URL::asset('assets/frontend/')}}/images/projects/project6.jpg" aria-label="project-img">
-                  <img class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/projects/project6.jpg" alt="project-img">
-                  <span class="gallery-icon"><i class="fa fa-plus"></i></span>
-                </a>
-                <div class="project-item-info">
-                  <div class="project-item-info-content">
-                    <h3 class="project-item-title">
-                      <a href="projects-single.html">Ancraft Avenue House</a>
-                    </h3>
-                    <p class="project-cat">Residential</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- shuffle item 6 end -->
+              </div><!-- shuffle item 1 end -->
+            @endforeach
           </div><!-- shuffle end -->
         </div>
 
@@ -425,63 +344,28 @@
             <h3 class="column-title">Testimoni Pengunjung</h3>
 
             <div id="testimonial-slide" class="testimonial-slide">
+              @foreach ($Testimoni as $key => $data)
                 <div class="item">
                   <div class="quote-item">
                       <span class="quote-text">
-                        Question ran over her cheek When she reached the first hills of the Italic Mountains, she had a last
-                        view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the
-                        subline of her own road.
+                        {!! $data->tanggapan!!}
                       </span>
 
                       <div class="quote-item-footer">
-                        <img loading="lazy" class="testimonial-thumb" src="{{ URL::asset('assets/frontend/')}}/images/clients/testimonial1.png" alt="testimonial">
+                        @if ($data->foto != null)
+                          <img loading="lazy" class="testimonial-thumb" src="{{ URL::asset('uploads/testimoni/')}}/{{ $data->foto }}" alt="testimonial">
+                        @else
+                          <img loading="lazy" class="testimonial-thumb" src="{{ URL::asset('assets/frontend/')}}/images/clients/testimonial1.png" alt="testimonial">
+                        @endif
                         <div class="quote-item-info">
-                            <h3 class="quote-author">Gabriel Denis</h3>
-                            <span class="quote-subtext">Chairman, OKT</span>
+                            <h3 class="quote-author">{{ $data->nama }}</h3>
+                            <span class="quote-subtext">{{ $data->alamat }}</span>
                         </div>
                       </div>
                   </div><!-- Quote item end -->
                 </div>
                 <!--/ Item 1 end -->
-
-                <div class="item">
-                  <div class="quote-item">
-                      <span class="quote-text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitoa tion ullamco laboris
-                        nisi aliquip consequat.
-                      </span>
-
-                      <div class="quote-item-footer">
-                        <img loading="lazy" class="testimonial-thumb" src="{{ URL::asset('assets/frontend/')}}/images/clients/testimonial2.png" alt="testimonial">
-                        <div class="quote-item-info">
-                            <h3 class="quote-author">Weldon Cash</h3>
-                            <span class="quote-subtext">CFO, First Choice</span>
-                        </div>
-                      </div>
-                  </div><!-- Quote item end -->
-                </div>
-                <!--/ Item 2 end -->
-
-                <div class="item">
-                  <div class="quote-item">
-                      <span class="quote-text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitoa tion ullamco laboris
-                        nisi ut commodo consequat.
-                      </span>
-
-                      <div class="quote-item-footer">
-                        <img loading="lazy" class="testimonial-thumb" src="{{ URL::asset('assets/frontend/')}}/images/clients/testimonial3.png" alt="testimonial">
-                        <div class="quote-item-info">
-                            <h3 class="quote-author">Minter Puchan</h3>
-                            <span class="quote-subtext">Director, AKT</span>
-                        </div>
-                      </div>
-                  </div><!-- Quote item end -->
-                </div>
-                <!--/ Item 3 end -->
-
+              @endforeach
             </div>
             <!--/ Testimonial carousel end-->
           </div><!-- Col end -->
@@ -493,40 +377,9 @@
             <div class="row all-clients">
                 <div class="col-sm-4 col-6">
                   <figure class="clients-logo">
-                      <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/uwp-ok.jpg" alt="clients-logo" /></a>
+                      <a href="https://uwp.ac.id/" target="blank"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/uwp-ok.jpg" alt="clients-logo" /></a>
                   </figure>
                 </div><!-- Client 1 end -->
-
-                {{-- <div class="col-sm-4 col-6">
-                  <figure class="clients-logo">
-                      <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/client2.png" alt="clients-logo" /></a>
-                  </figure>
-                </div><!-- Client 2 end -->
-
-                <div class="col-sm-4 col-6">
-                  <figure class="clients-logo">
-                      <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/client3.png" alt="clients-logo" /></a>
-                  </figure>
-                </div><!-- Client 3 end -->
-
-                <div class="col-sm-4 col-6">
-                  <figure class="clients-logo">
-                      <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/client4.png" alt="clients-logo" /></a>
-                  </figure>
-                </div><!-- Client 4 end -->
-
-                <div class="col-sm-4 col-6">
-                  <figure class="clients-logo">
-                      <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/client5.png" alt="clients-logo" /></a>
-                  </figure>
-                </div><!-- Client 5 end -->
-
-                <div class="col-sm-4 col-6">
-                  <figure class="clients-logo">
-                      <a href="#!"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/client6.png" alt="clients-logo" /></a>
-                  </figure>
-                </div><!-- Client 6 end --> --}}
-
             </div><!-- Clients row end -->
 
           </div><!-- Col end -->
@@ -551,7 +404,7 @@
             <div class="ts-newsletter row align-items-center">
                 <div class="col-md-8 newsletter-introtext">
                   <h4 class="text-white mb-0">Moto Desa</h4>
-                  <p class="text-white">contoh: Guyup rukun makmur</p>
+                  <p class="text-white">{!! $TentangDesaByMoto[0]->deskripsi !!}</p>
                 </div>
 
                 <div class="col-md-4 newsletter-form">

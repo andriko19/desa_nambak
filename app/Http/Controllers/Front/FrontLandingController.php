@@ -46,27 +46,43 @@ class FrontLandingController extends Controller
         $title = 'Desa Nambak';
         $pages = 'landing';
 
+        // Banner
         $BannerByUcapan = DB::table('tbl_banner')->where('jenis', 'Pembuka')->orderBy('id', 'DESC')->get();
         $BannerByHighlight = DB::table('tbl_banner')->where('jenis', 'Highlight')->orderBy('id', 'DESC')->get();
-       
+        
+        // Tentang desa
         $TentangDesaByMoto = DB::table('tbl_tentang_desa')->where('jenis', 'Moto')->orderBy('id', 'DESC')->get();
         $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
         $TentangDesaByKeunggulan = DB::table('tbl_tentang_desa')->where('jenis', 'Keunggulan')->get();
         $TentangDesaByPrakataPertanyaan = DB::table('tbl_tentang_desa')->where('jenis', 'Prakata Pertanyaan')->orderBy('id', 'DESC')->get();
         $TentangDesaByPertanyaanUmum = DB::table('tbl_tentang_desa')->where('jenis', 'Pertanyaan Umum')->get();
 
+        // Layanan
+        $FotoKades = DB::table('tbl_layanan')->where('jenis', 'Foto Kades')->orderBy('id', 'DESC')->get();
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+
+        // Galeri
+        $Galeri = DB::table('tbl_galeri')->orderBy('id', 'DESC')->limit(6)->get(); 
+
+        // Testimoni
+        $Testimoni = DB::table('tbl_testimoni')->orderBy('id', 'DESC')->limit(6)->get(); 
+
+
+
+
+
 
         // dd($BannerMyUcapan);
-        return view('frontend/index', compact('title', 'pages', 'BannerByUcapan', 'BannerByHighlight', 'TentangDesaByMoto', 'TentangDesaByProfil', 'TentangDesaByKeunggulan', 'TentangDesaByPrakataPertanyaan', 'TentangDesaByPertanyaanUmum'));
+        return view('frontend/index', compact('title', 'pages', 'BannerByUcapan', 'BannerByHighlight', 'TentangDesaByMoto', 'TentangDesaByProfil', 'TentangDesaByKeunggulan', 'TentangDesaByPrakataPertanyaan', 'TentangDesaByPertanyaanUmum', 'FotoKades', 'Layanan', 'Galeri', 'Testimoni'));
     }
 
     public function semua_galeri(Request $request)
     {
-        $title = 'home';
+        $title = 'Galeri';
         $pages = 'landing';
-
-        // return view('front/signin', compact('title', 'pages'))
-        return view('frontend/semua_galeri', compact('title', 'pages'));
+        $AllGaleri = DB::table('tbl_galeri')->orderBy('id', 'DESC')->get(); 
+       
+        return view('frontend/semua_galeri', compact('title', 'pages', 'AllGaleri'));
     }
 
     public function semua_berita(Request $request)
