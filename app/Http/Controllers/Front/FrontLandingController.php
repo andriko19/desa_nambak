@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Models\Banner_model;
-use App\Models\Product_collection_model;
-use App\Models\Product_type_model;
-use App\Models\Product_form_model;
-use App\Models\Product_package_model;
+use App\Models\Berita_model;
 use App\Models\File;
 use Illuminate\Http\Request;
 
@@ -67,13 +64,22 @@ class FrontLandingController extends Controller
         // Testimoni
         $Testimoni = DB::table('tbl_testimoni')->orderBy('id', 'DESC')->limit(6)->get();
 
+        // Berita
+        $Berita = DB::table('tbl_berita')->orderBy('id', 'DESC')->limit(3)->get();
+
+        // Parkata Footer
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
 
 
+        // dd(count($PrakataFooter));
+        return view('frontend/index', compact('title', 'pages', 'BannerByUcapan', 'BannerByHighlight', 'TentangDesaByMoto', 'TentangDesaByProfil', 'TentangDesaByKeunggulan', 'TentangDesaByPrakataPertanyaan', 'TentangDesaByPertanyaanUmum', 'FotoKades', 'Layanan', 'Galeri', 'Testimoni', 'Berita', 'PrakataFooter', 'HariLayanan'));
+    }
 
+    public function footer(){
+       
 
-
-        // dd($TentangDesaByMoto);
-        return view('frontend/index', compact('title', 'pages', 'BannerByUcapan', 'BannerByHighlight', 'TentangDesaByMoto', 'TentangDesaByProfil', 'TentangDesaByKeunggulan', 'TentangDesaByPrakataPertanyaan', 'TentangDesaByPertanyaanUmum', 'FotoKades', 'Layanan', 'Galeri', 'Testimoni'));
+        return view('frontend/layouts/footer', compact('ParkataFooter'));
     }
 
     public function semua_galeri(Request $request)
@@ -87,20 +93,24 @@ class FrontLandingController extends Controller
 
     public function semua_berita(Request $request)
     {
-        $title = 'home';
+        $title = 'Berita';
         $pages = 'landing';
 
-        // return view('front/signin', compact('title', 'pages'))
-        return view('frontend/semua_berita', compact('title', 'pages'));
+        $AllBerita = DB::table('tbl_berita')->orderBy('id', 'DESC')->limit(5)->get();
+        $Berita = DB::table('tbl_berita')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+        return view('frontend/semua_berita', compact('title', 'pages', 'AllBerita', 'Berita', 'AllTag'));
     }
 
-    public function detail_berita(Request $request)
+    public function detail_berita(Request $request, $id)
     {
-        $title = 'home';
+        $title = 'Detail Berita';
         $pages = 'landing';
 
-        // return view('front/signin', compact('title', 'pages'))
-        return view('frontend/detail_berita', compact('title', 'pages'));
+        $Berita = DB::table('tbl_berita')->orderBy('id', 'DESC')->limit(3)->get();
+        $DetailBerita = DB::table('tbl_berita')->where('id', $id)->get();
+        // dd($DetailBerita[0]->gambar);
+        return view('frontend/detail_berita', compact('title', 'pages', 'Berita', 'DetailBerita'));
     }
 
     public function profil_desa(Request $request)

@@ -5,8 +5,11 @@
         <div class="col-lg-4 col-md-6 footer-widget footer-about">
           <h3 class="widget-title">About Us</h3>
           <img loading="lazy" class="" src="{{ URL::asset('assets/frontend/')}}/images/footer-logo.png" alt="Constra" style="width: 60%; height: auto; margin-bottom: 25px">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
-            labore et dolore magna aliqua.</p>
+          @if ($TentangDesaByProfil)
+            <p>{!! Str::limit($TentangDesaByProfil[0]->deskripsi, 300) !!}</p>
+          @else
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut labore et dolore magna aliqua.</p>
+          @endif
           <div class="footer-social">
             <ul>
               <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i
@@ -21,24 +24,42 @@
         </div><!-- Col end -->
 
         <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
-          <h3 class="widget-title">Working Hours</h3>
+          <h3 class="widget-title">Prakata Footer</h3>
           <div class="working-hours">
-            We work 7 days a week, every day excluding major holidays. Contact us if you have an emergency, with our
-            Hotline and Contact form.
-            <br><br> Monday - Friday: <span class="text-right">10:00 - 16:00 </span>
-            <br> Saturday: <span class="text-right">12:00 - 15:00</span>
-            <br> Sunday and holidays: <span class="text-right">09:00 - 12:00</span>
+            @if (count($PrakataFooter) != 0 )
+              <p>{!! Str::limit($PrakataFooter[0]->prakata, 300) !!}</p>
+            @else
+              We work 7 days a week, every day excluding major holidays. Contact us if you have an emergency, with our Hotline and Contact form.
+            @endif
+            {{-- @yield('footer') --}}
+
+            <br> 
+            @if (count($HariLayanan) != 0)
+              @foreach ($HariLayanan as $key => $data)
+                <br>{{ $data->hari }}: <span class="text-right">{{ $data->jam_oprasional }}</span>
+              @endforeach
+            @else
+              <br>Monday - Friday: <span class="text-right">10:00 - 16:00 </span>
+              <br> Saturday: <span class="text-right">12:00 - 15:00</span>
+              <br> Sunday and holidays: <span class="text-right">09:00 - 12:00</span>
+            @endif
           </div>
         </div><!-- Col end -->
 
         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
-          <h3 class="widget-title">Services</h3>
+          <h3 class="widget-title">Layanan</h3>
           <ul class="list-arrow">
-            <li><a href="service-single.html">Pre-Construction</a></li>
-            <li><a href="service-single.html">General Contracting</a></li>
-            <li><a href="service-single.html">Construction Management</a></li>
-            <li><a href="service-single.html">Design and Build</a></li>
-            <li><a href="service-single.html">Self-Perform Construction</a></li>
+            @if (count($Layanan) != 0)
+              @foreach ($Layanan as $key => $data)
+                <li><a href="#">{{ $data->judul }}</a></li>
+              @endforeach
+            @else
+              <li><a href="#">Pre-Construction</a></li>
+              <li><a href="#">General Contracting</a></li>
+              <li><a href="#">Construction Management</a></li>
+              <li><a href="#">Design and Build</a></li>
+              <li><a href="#">Self-Perform Construction</a></li>
+            @endif
           </ul>
         </div><!-- Col end -->
       </div><!-- Row end -->
