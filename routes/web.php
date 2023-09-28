@@ -20,6 +20,7 @@ use App\Http\Controllers\TentangDesaController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\KontakController;
@@ -90,6 +91,7 @@ Route::post('galeri/update/{id}', [GaleriController::class, 'update'])->name('ga
 Route::get('galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
 
 Route::post('testimoni/store', [TestimoniController::class, 'store'])->name('testimoni.store');
+Route::post('konseling/store', [FormController::class, 'store'])->name('konseling.store');
 
 Route::post('berita/store', [BeritaController::class, 'store'])->name('berita.store');
 Route::get('berita/show/{id}', [BeritaController::class, 'show'])->name('berita.show');
@@ -137,9 +139,11 @@ Route::get('/konseling_keluarga', [FrontLandingController::class, 'konseling_kel
 Route::get('/pemahaman_tanggung_jawab', [FrontLandingController::class, 'pemahaman_tanggung_jawab'])->name('pemahaman_tanggung_jawab');
 Route::get('/pengendalian_emosi', [FrontLandingController::class, 'pengendalian_emosi'])->name('pengendalian_emosi');
 Route::get('/perlindungan_hukum', [FrontLandingController::class, 'perlindungan_hukum'])->name('perlindungan_hukum');
+// page khusus start
 Route::get('/layanan_internal', [FrontLandingController::class, 'layanan_internal'])->name('layanan_internal');
 Route::get('/layanan_konseling', [FrontLandingController::class, 'layanan_konseling'])->name('layanan_konseling');
 Route::get('/form_pengaduan_masyarakat', [FrontLandingController::class, 'form_pengaduan_masyarakat'])->name('form_pengaduan_masyarakat');
+// end
 Route::get('/cara_mendidikan_anak', [FrontLandingController::class, 'cara_mendidikan_anak'])->name('cara_mendidikan_anak');
 Route::get('/mengambangkan_hubungan_yang_sehat_pada_anak', [FrontLandingController::class, 'mengambangkan_hubungan_yang_sehat_pada_anak'])->name('mengambangkan_hubungan_yang_sehat_pada_anak');
 Route::get('/membangun_komunikasi_yang_baik', [FrontLandingController::class, 'membangun_komunikasi_yang_baik'])->name('membangun_komunikasi_yang_baik');

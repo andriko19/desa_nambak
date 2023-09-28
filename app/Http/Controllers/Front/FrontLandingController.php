@@ -82,12 +82,6 @@ class FrontLandingController extends Controller
         return view('frontend/index', compact('title', 'pages', 'BannerByUcapan', 'BannerByHighlight', 'TentangDesaByMoto', 'TentangDesaByProfil', 'TentangDesaByKeunggulan', 'TentangDesaByPrakataPertanyaan', 'TentangDesaByPertanyaanUmum', 'FotoKades', 'Layanan', 'Galeri', 'Testimoni', 'Berita', 'PrakataFooter', 'HariLayanan', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
-    public function footer(){
-       
-
-        return view('frontend/layouts/footer', compact('ParkataFooter'));
-    }
-
     public function semua_galeri(Request $request)
     {
         $title = 'Galeri';
@@ -567,11 +561,6 @@ class FrontLandingController extends Controller
         $title = 'Layanan Konseling';
         $pages = 'landing';
 
-        // data jumlahh penduduk
-        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Layanan Konseling')->orderBy('id', 'DESC')->limit(5)->get();
-        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Layanan Konseling')->orderBy('id', 'DESC')->limit(3)->get();
-        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
-
         // Kontak Head and Footer
         $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
         $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
@@ -585,7 +574,7 @@ class FrontLandingController extends Controller
         $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
         $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
 
-        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+        return view('frontend/layanan_konseling', compact('title', 'pages', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
     public function form_pengaduan_masyarakat(Request $request)
@@ -771,8 +760,6 @@ class FrontLandingController extends Controller
         return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
-
-
     public function detail_data_dan_informasi(Request $request, $id)
     {
         $title = 'Detail Data dan Informasi';
@@ -821,12 +808,6 @@ class FrontLandingController extends Controller
         } else if ($DetailDataInformasi[0]->jenis == "Perkembangan Anak") {
             $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
         }
-        
-
-
-
-
-        
         
         // Kontak Head and Footer
         $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
