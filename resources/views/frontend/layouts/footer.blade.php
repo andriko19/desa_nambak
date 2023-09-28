@@ -5,20 +5,52 @@
         <div class="col-lg-4 col-md-6 footer-widget footer-about">
           <h3 class="widget-title">About Us</h3>
           <img loading="lazy" class="" src="{{ URL::asset('assets/frontend/')}}/images/footer-logo.png" alt="Constra" style="width: 60%; height: auto; margin-bottom: 25px">
-          @if ($TentangDesaByProfil)
+          @if (count($TentangDesaByProfil) != 0)
             <p>{!! Str::limit($TentangDesaByProfil[0]->deskripsi, 300) !!}</p>
           @else
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut labore et dolore magna aliqua.</p>
           @endif
           <div class="footer-social">
             <ul>
-              <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i
-                    class="fab fa-facebook-f"></i></a></li>
-              <li><a href="https://twitter.com/themefisher" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i
-                    class="fab fa-instagram"></i></a></li>
-              <li><a href="https://github.com/themefisher" aria-label="Github"><i class="fab fa-github"></i></a></li>
+              @if (count($KontakByFacebook) != 0)
+                <li>
+                  <a href="{{ $KontakByFacebook[0]->link }}" target="blank" aria-label="{{ $KontakByFacebook[0]->jenis }}">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+              @endif
+              
+              @if (count($KontakByTwitter) != 0)
+                <li>
+                  <a href="{{ $KontakByTwitter[0]->link }}" target="blank" aria-label="{{ $KontakByTwitter[0]->jenis }}">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+              @endif
+
+              @if (count($KontakByLinkedIn) != 0)
+                <li>
+                  <a href="{{ $KontakByLinkedIn[0]->link }}" target="blank" aria-label="{{ $KontakByLinkedIn[0]->jenis }}">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+              @endif
+
+              @if (count($KontakByTikTok) != 0)
+                <li>
+                  <a href="{{ $KontakByTikTok[0]->link }}" target="blank" aria-label="{{ $KontakByTikTok[0]->jenis }}">
+                    <i class="fab fa-tiktok"></i>
+                  </a>
+                </li>
+              @endif
+              
+              @if (count($KontakByInstagram) != 0)
+                <li>
+                  <a href="{{ $KontakByInstagram[0]->link }}" target="blank" aria-label="{{ $KontakByInstagram[0]->jenis }}">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+              @endif
             </ul>
           </div><!-- Footer social end -->
         </div><!-- Col end -->

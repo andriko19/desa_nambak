@@ -70,10 +70,16 @@ class FrontLandingController extends Controller
         // Parkata Footer
         $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
         $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
-
-
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+        
         // dd(count($PrakataFooter));
-        return view('frontend/index', compact('title', 'pages', 'BannerByUcapan', 'BannerByHighlight', 'TentangDesaByMoto', 'TentangDesaByProfil', 'TentangDesaByKeunggulan', 'TentangDesaByPrakataPertanyaan', 'TentangDesaByPertanyaanUmum', 'FotoKades', 'Layanan', 'Galeri', 'Testimoni', 'Berita', 'PrakataFooter', 'HariLayanan'));
+        return view('frontend/index', compact('title', 'pages', 'BannerByUcapan', 'BannerByHighlight', 'TentangDesaByMoto', 'TentangDesaByProfil', 'TentangDesaByKeunggulan', 'TentangDesaByPrakataPertanyaan', 'TentangDesaByPertanyaanUmum', 'FotoKades', 'Layanan', 'Galeri', 'Testimoni', 'Berita', 'PrakataFooter', 'HariLayanan', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
     public function footer(){
@@ -99,7 +105,21 @@ class FrontLandingController extends Controller
         $AllBerita = DB::table('tbl_berita')->orderBy('id', 'DESC')->limit(5)->get();
         $Berita = DB::table('tbl_berita')->orderBy('id', 'DESC')->limit(3)->get();
         $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
-        return view('frontend/semua_berita', compact('title', 'pages', 'AllBerita', 'Berita', 'AllTag'));
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_berita', compact('title', 'pages', 'AllBerita', 'Berita', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
     public function detail_berita(Request $request, $id)
@@ -109,17 +129,46 @@ class FrontLandingController extends Controller
 
         $Berita = DB::table('tbl_berita')->orderBy('id', 'DESC')->limit(3)->get();
         $DetailBerita = DB::table('tbl_berita')->where('id', $id)->get();
-        // dd($DetailBerita[0]->gambar);
-        return view('frontend/detail_berita', compact('title', 'pages', 'Berita', 'DetailBerita'));
+        
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/detail_berita', compact('title', 'pages', 'Berita', 'DetailBerita', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
     public function profil_desa(Request $request)
     {
-        $title = 'home';
+        $title = 'Profil Desa';
         $pages = 'landing';
 
-        // return view('front/signin', compact('title', 'pages'))
-        return view('frontend/profil_desa', compact('title', 'pages'));
+        // Data Profil Desa
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $FotoKades = DB::table('tbl_layanan')->where('jenis', 'Foto Kades')->orderBy('id', 'DESC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/profil_desa', compact('title', 'pages', 'FotoKades', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
     public function jumlah_remaja_preventif_jenis_kelamin_dan_usia(Request $request)
@@ -127,17 +176,45 @@ class FrontLandingController extends Controller
         $title = 'home';
         $pages = 'landing';
 
-        // return view('front/signin', compact('title', 'pages'))
-        return view('frontend/informasi', compact('title', 'pages'));
+       
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+        
+        return view('frontend/informasi', compact('title', 'pages', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
     public function contact(Request $request)
     {
-        $title = 'home';
+        $title = 'Kontak';
         $pages = 'landing';
 
-        // return view('front/signin', compact('title', 'pages'))
-        return view('frontend/contact', compact('title', 'pages'));
+        // Data Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+       
+        // Data Kontak
+        $KontakByAlamat = DB::table('tbl_kontak')->where('jenis', 'Alamat')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/contact', compact('title', 'pages', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'Layanan', 'KontakByAlamat', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
     public function testimoni(Request $request)

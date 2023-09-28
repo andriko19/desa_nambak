@@ -111,7 +111,10 @@
                             <option value="Email">Email</option>
                             <option value="Telepon">Telepon</option>
                             <option value="Instagram">Instagram</option>
-                            <option value="Maps">Maps</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="TikTok">TikTok</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Twitter">Twitter</option>
                             {{-- @endforeach  --}} 
                         </select>
                     </div>
@@ -124,7 +127,7 @@
                         <input type="text" class="form-control" id="isi_kontak" name="isi_kontak" placeholder="Contoh : 082387337**** atau Jl. Jhosuman RT/RW 008/008">
                     </div>
                     <div class="form-group div_link">
-                        <label for="link">Link Sosmed / Maps</label>
+                        <label for="link">Link Sosmed</label>
                         <input type="text" class="form-control" id="link" name="link" placeholder="Contoh : copy dari google">
                     </div>
                 </div>
@@ -199,21 +202,7 @@
                 // allowClear: true,
             });
         });
-
-        // // ckeditor_add
-        // var prakata = document.getElementById("prakata");
-        //     CKEDITOR.replace(prakata,{
-        //     language:'en-gb'
-        // });
-        // CKEDITOR.config.allowedContent = true;
-
-        // //ckeditor_edit
-        // var prakata = document.getElementById("edit_prakata");
-        //     CKEDITOR.replace(prakata,{
-        //     language:'en-gb'
-        // });
-        // CKEDITOR.config.allowedContent = true;
-            
+          
         // change jenis kontak
         $('.jenis').change(function() {
             let jenis_val = $('.jenis').val();
@@ -230,7 +219,16 @@
             } else if (jenis_val == "Instagram") {
                 document.getElementsByClassName('div_isi_kontak')[0].style.display = "none";
                 document.getElementsByClassName('div_link')[0].style.display = "block";
-            } else if (jenis_val == "Maps") {
+            } else if (jenis_val == "TikTok") {
+                document.getElementsByClassName('div_isi_kontak')[0].style.display = "none";
+                document.getElementsByClassName('div_link')[0].style.display = "block";
+            } else if (jenis_val == "LinkedIn") {
+                document.getElementsByClassName('div_isi_kontak')[0].style.display = "none";
+                document.getElementsByClassName('div_link')[0].style.display = "block";
+            } else if (jenis_val == "Twitter") {
+                document.getElementsByClassName('div_isi_kontak')[0].style.display = "none";
+                document.getElementsByClassName('div_link')[0].style.display = "block";
+            } else if (jenis_val == "Facebook") {
                 document.getElementsByClassName('div_isi_kontak')[0].style.display = "none";
                 document.getElementsByClassName('div_link')[0].style.display = "block";
             }

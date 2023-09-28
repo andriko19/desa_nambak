@@ -12,18 +12,35 @@
           <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
             <ul class="list-unstyled">
                 <li>
-                  <a title="Facebook" href="https://facebbok.com/themefisher.com">
+                  @if (count($KontakByFacebook) != 0)
+                    <a href="{{ $KontakByFacebook[0]->link }}" target="blank" title="{{ $KontakByFacebook[0]->jenis }}">
                       <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-                  </a>
-                  <a title="Twitter" href="https://twitter.com/themefisher.com">
+                    </a>
+                  @endif
+                  
+                  @if (count($KontakByTwitter) != 0)
+                    <a href="{{ $KontakByTwitter[0]->link }}" target="blank" title="{{ $KontakByTwitter[0]->jenis }}">
                       <span class="social-icon"><i class="fab fa-twitter"></i></span>
-                  </a>
-                  <a title="Instagram" href="https://instagram.com/themefisher.com">
+                    </a>
+                  @endif
+
+                  @if (count($KontakByLinkedIn) != 0)
+                    <a href="{{ $KontakByLinkedIn[0]->link }}" target="blank" title="{{ $KontakByLinkedIn[0]->jenis }}">
+                      <span class="social-icon"><i class="fab fa-linkedin-in"></i></span>
+                    </a>
+                  @endif
+
+                  @if (count($KontakByTikTok) != 0)
+                    <a href="{{ $KontakByTikTok[0]->link }}" target="blank" title="{{ $KontakByTikTok[0]->jenis }}">
+                      <span class="social-icon"><i class="fab fa-tiktok"></i></span>
+                    </a>
+                  @endif
+                  
+                  @if (count($KontakByInstagram) != 0)
+                    <a href="{{ $KontakByInstagram[0]->link }}" target="blank" title="{{ $KontakByInstagram[0]->jenis }}">
                       <span class="social-icon"><i class="fab fa-instagram"></i></span>
-                  </a>
-                  <a title="Linkdin" href="https://github.com/themefisher.com">
-                      <span class="social-icon"><i class="fab fa-github"></i></span>
-                  </a>
+                    </a>
+                  @endif
                 </li>
             </ul>
           </div>
@@ -51,24 +68,26 @@
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
+                        @if (count($KontakByTelepon) != 0)
+                          <p class="info-box-title">{{ $KontakByTelepon[0]->judul}}</p>
+                          <p class="info-box-subtitle">{{ $KontakByTelepon[0]->isi_kontak}}</p>
+                        @else
                           <p class="info-box-title">Telfon</p>
                           <p class="info-box-subtitle">0823321******</p>
+                        @endif
                       </div>
                     </div>
                   </li>
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
-                          <p class="info-box-title">Email</p>
-                          <p class="info-box-subtitle">dsnambak008@gmail.com</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="last">
-                    <div class="info-box last">
-                      <div class="info-box-content">
-                          <p class="info-box-title">Global Certificate</p>
-                          <p class="info-box-subtitle">ISO 9001:2017</p>
+                        @if (count($KontakByEmail) != 0)
+                          <p class="info-box-title">{{ $KontakByEmail[0]->judul}}</p>
+                          <p class="info-box-subtitle">{{ $KontakByEmail[0]->isi_kontak}}</p>
+                        @else
+                          <p class="info-box-title">Email Us</p>
+                          <p class="info-box-subtitle">office@Constra.com</p>
+                        @endif
                       </div>
                     </div>
                   </li>
