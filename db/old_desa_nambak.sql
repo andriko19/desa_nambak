@@ -11,7 +11,7 @@
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 29/09/2023 00:21:31
+ Date: 13/09/2023 22:33:34
 */
 
 SET NAMES utf8mb4;
@@ -1032,14 +1032,11 @@ CREATE TABLE `tbl_banner`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_banner
 -- ----------------------------
-INSERT INTO `tbl_banner` VALUES (2, 'Selamat Datang Di Desa Nambak', '<p>Desa penuh dengan inspirasi</p>', 'Pembuka', '169556255786.jpg', '2023-09-24 13:35:58', '2023-09-24 13:35:58');
-INSERT INTO `tbl_banner` VALUES (3, 'Sosialisasi Parenting Bagi Anak', '<p><em>Lorem ipsum </em>is placeholder text commonly used in the graphic, print, and publishing</p>', 'Highlight', '169556279434.jpg', '2023-09-24 13:39:54', '2023-09-24 14:39:36');
-INSERT INTO `tbl_banner` VALUES (4, 'Perjanjian Kontrak Dengan UWP', '<p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing</p>', 'Highlight', '169556284594.jpg', '2023-09-24 13:40:45', '2023-09-24 13:40:45');
 
 -- ----------------------------
 -- Table structure for tbl_berita
@@ -1054,14 +1051,11 @@ CREATE TABLE `tbl_berita`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_berita
 -- ----------------------------
-INSERT INTO `tbl_berita` VALUES (1, 'Berita 1', '<p>Lorem ipsum dolor sit amet<em><strong><u>, consectetur adipiscing elit, </u></strong></em>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt augue interdum velit euismod in pellentesque massa. Ornare massa eget egestas purus. Diam donec adipiscing tristique risus. Nunc eget lorem dolor sed viverra ipsum nunc. Et ligula ullamcorper malesuada proin libero nunc. Dolor sed viverra ipsum nunc. <span style=\"color:#2ecc71;\">Risus ultricies tristique nulla aliquet enim tortor at auctor. Laoreet id donec ultrices tincidunt arcu non sodales neque sodales. Sit amet dictum sit amet justo donec enim.</span></p>', '1,4', '169582457476.jpg', '2023-09-27 14:22:54', '2023-09-27 14:22:54');
-INSERT INTO `tbl_berita` VALUES (2, 'Berita 2', '<p>Aliquam sem fringilla ut <span style=\"color:#e74c3c;\">morbi tincidunt augue interdum.</span> Dolor magna eget est lorem ipsum. Condimentum lacinia quis vel eros <strong>donec ac odio tempor. </strong>Vulputate enim nulla aliquet porttitor. Quam pellentesque nec nam aliquam. Sit amet purus gravida quis blandit turpis. Mauris cursus mattis molestie a. Amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Erat nam at lectus urna duis convallis convallis tellus id. Aliquam etiam erat velit scelerisque in. Dignissim diam quis enim lobortis. Imperdiet massa tincidunt nunc pulvinar sapien. Sagittis id consectetur purus ut faucibus pulvinar elementum. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan. Id porta nibh venenatis cras. Non enim praesent elementum facilisis leo vel fringilla. Est lorem ipsum dolor sit.</p>', '3,5', '169582465112.png', '2023-09-27 14:24:11', '2023-09-27 14:24:11');
-INSERT INTO `tbl_berita` VALUES (3, 'Berita 3', '<p>Montes nascetur ridiculus mus mauris. Lectus proin nibh nisl condimentum id venenatis a condimentum. Faucibus nisl tincidunt eget nullam non nisi. Sed odio morbi quis commodo odio aenean sed adipiscing. Leo integer malesuada nunc vel risus commodo viverra. Nunc sed blandit libero volutpat sed cras ornare arcu. Libero enim sed faucibus turpis in eu mi bibendum neque. Tempus egestas sed sed risus pretium quam vulputate. Maecenas ultricies mi eget mauris pharetra et. Eu facilisis sed odio morbi quis commodo odio aenean. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Sit amet nisl suscipit adipiscing bibendum est. Venenatis a condimentum vitae sapien pellentesque habitant morbi.</p>', '1,2', '169582631356.png', '2023-09-27 21:51:53', '2023-09-27 21:51:53');
 
 -- ----------------------------
 -- Table structure for tbl_data_dan_informasi
@@ -1077,15 +1071,11 @@ CREATE TABLE `tbl_data_dan_informasi`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_data_dan_informasi
 -- ----------------------------
-INSERT INTO `tbl_data_dan_informasi` VALUES (1, 'Jumlah Penduduk', 'Jumlah Penduduk Laki-laki', '<p><span style=\"color:#2ecc71;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At consectetur lorem donec massa sapien faucibus et. Justo nec ultrices dui sapien eget. Aliquet risus feugiat in ante metus dictum at tempor. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Auctor elit s</span>ed vulputate mi sit amet. Sit amet aliquam id diam maecenas ultricies mi eget mauris. Tortor dignissim convallis aenean et tortor. Vitae tempus quam pellentesque nec nam aliquam sem. Id interdum <strong>velit laoreet id donec. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Rutrum quisque non tellus orci ac auctor augue mauris. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam.</strong></p>', '2,3', '169590734959.jpg', '2023-09-28 20:22:29', '2023-09-28 20:22:29');
-INSERT INTO `tbl_data_dan_informasi` VALUES (4, 'Jumlah Penduduk', 'Jumlah Penduduk Perempuan', '<p><span style=\"color:#27ae60;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At consectetur lorem donec massa sapien faucibus et. Justo nec ultrices dui sapien eget. Aliquet risus feugiat in ante metus dictum at tempor. </span>Mi ipsum<span style=\"color:#c0392b;\"> faucibus vitae aliquet nec ullamcorper</span> sit amet. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Auctor elit sed vulputate mi sit amet. Sit amet aliquam id diam maecenas ultricies mi eget mauris. Tortor dignissim convallis aenean et tortor. Vitae tempus quam pellentesque nec nam aliquam sem. Id interdum velit laoreet id donec. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Rutrum quisque non tellus orci ac auctor augue mauris. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam.</p>', '2,3', '169590942520.png', '2023-09-28 20:57:05', '2023-09-28 20:59:49');
-INSERT INTO `tbl_data_dan_informasi` VALUES (5, 'Informasi Reproduksi Perempuan', 'Informasi Reproduksi Perempuan ke 1', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At consectetur lorem donec massa sapien faucibus et. Justo nec ultrices dui sapien eget. Aliquet risus feugiat in ante metus dictum at tempor. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Auctor elit sed vulputate mi sit amet. Sit amet aliquam id diam maecenas ultricies mi eget mauris. Tortor dignissim convallis aenean et tortor. Vitae tempus quam pellentesque nec nam aliquam sem. Id interdum velit laoreet id donec. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Rutrum quisque non tellus orci ac auctor augue mauris. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam.</p>', '1,3,5', '169591134243.jpg', '2023-09-28 21:29:02', '2023-09-28 21:29:02');
-INSERT INTO `tbl_data_dan_informasi` VALUES (6, 'Perkembangan Anak', 'Perkembangan Anak KE 1', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At consectetur lorem donec massa sapien faucibus et. Justo nec ultrices dui sapien eget. Aliquet risus feugiat in ante metus dictum at tempor. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Auctor elit sed vulputate mi sit amet. Sit amet aliquam id diam maecenas ultricies mi eget mauris. Tortor dignissim convallis aenean et tortor. Vitae tempus quam pellentesque nec nam aliquam sem. Id interdum velit laoreet id donec. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Rutrum quisque non tellus orci ac auctor augue mauris. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam.</p>\r\n\r\n<ol>\r\n	<li>JJDJSDS</li>\r\n	<li>ususdushd</li>\r\n	<li>dssdhsio</li>\r\n	<li>sdsidjsdjsi</li>\r\n</ol>\r\n\r\n<p>hhoushdoshdiadhiasdiasdjaois</p>', '5', '169591325686.jpg', '2023-09-28 22:00:56', '2023-09-28 22:00:56');
 
 -- ----------------------------
 -- Table structure for tbl_footer
@@ -1101,36 +1091,11 @@ CREATE TABLE `tbl_footer`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_footer
 -- ----------------------------
-INSERT INTO `tbl_footer` VALUES (1, 'Prakata', 'Prakata Footer', '<p>Montes nascetur ridiculus mus mauris. Lectus proin nibh nisl condimentum id venenatis a condimentum. Faucibus nisl tincidunt eget nullam non nisi. Sed odio morbi quis commodo odio aenean sed adipiscing. Leo integer malesuada nunc vel risus commodo viverra. Nunc sed blandit libero volutpat sed cras ornare arcu. Libero enim sed faucibus turpis in eu mi bibendum neque. Tempus egestas sed sed risus pretium quam vulputate. Maecenas ultricies mi eget mauris pharetra et. Eu facilisis sed odio morbi quis commodo odio aenean. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Sit amet nisl suscipit adipiscing bibendum est. Venenatis a condimentum vitae sapien pellentesque habitant morbi.</p>', NULL, NULL, '2023-09-27 23:48:25', '2023-09-27 23:48:25');
-INSERT INTO `tbl_footer` VALUES (2, 'Oprasional', 'oprasional 1', NULL, 'Senin - Rabu', '08:00 - 15:00', '2023-09-28 00:11:08', '2023-09-28 00:11:08');
-INSERT INTO `tbl_footer` VALUES (3, 'Oprasional', 'Oprasional 2', NULL, 'Kamis - Jumat', '08:30 - 16:00', '2023-09-28 00:13:32', '2023-09-28 00:13:32');
-
--- ----------------------------
--- Table structure for tbl_form
--- ----------------------------
-DROP TABLE IF EXISTS `tbl_form`;
-CREATE TABLE `tbl_form`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `alamat` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `no_tlp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `aduan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of tbl_form
--- ----------------------------
-INSERT INTO `tbl_form` VALUES (1, 'tesss', 'sasas', '4432432432', 'dadasdasdas', 'asdasdasdasdasdas', '2023-09-29 00:18:06', '2023-09-29 00:18:06');
-INSERT INTO `tbl_form` VALUES (2, 'adsadsa', 'nfghfgh', 'htrhet3453543534', 'fgdfgrhtrh', 'thhgtrhregergregr', '2023-09-29 00:19:20', '2023-09-29 00:19:20');
 
 -- ----------------------------
 -- Table structure for tbl_galeri
@@ -1144,13 +1109,11 @@ CREATE TABLE `tbl_galeri`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_galeri
 -- ----------------------------
-INSERT INTO `tbl_galeri` VALUES (2, 'Didalam Desa', 'Senam Sehat', '169565126295.jpg', '2023-09-25 14:14:22', '2023-09-25 14:14:22');
-INSERT INTO `tbl_galeri` VALUES (3, 'Diluar Desa', 'Turnamen Sepak Bola', '169565128130.jpg', '2023-09-25 14:14:41', '2023-09-25 14:14:41');
 
 -- ----------------------------
 -- Table structure for tbl_kontak
@@ -1161,19 +1124,15 @@ CREATE TABLE `tbl_kontak`  (
   `jenis` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `isi_kontak` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `link_maps` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_kontak
 -- ----------------------------
-INSERT INTO `tbl_kontak` VALUES (1, 'Alamat', 'ini alamat desa edit', 'Edit Jl. Suka sama aku nikah sama dia', NULL, '2023-09-21 15:04:06', '2023-09-21 15:19:16');
-INSERT INTO `tbl_kontak` VALUES (3, 'Email', 'Email official', 'desanambak@gmail.com', NULL, '2023-09-28 13:38:04', '2023-09-28 13:38:04');
-INSERT INTO `tbl_kontak` VALUES (4, 'Telepon', 'Telepon Kami', '0823987*****', NULL, '2023-09-28 13:39:23', '2023-09-28 13:39:23');
-INSERT INTO `tbl_kontak` VALUES (5, 'Facebook', 'Facebook', NULL, 'https://www.facebook.com/youtcubs.ananda', '2023-09-28 15:13:56', '2023-09-28 15:13:56');
 
 -- ----------------------------
 -- Table structure for tbl_layanan
@@ -1188,39 +1147,11 @@ CREATE TABLE `tbl_layanan`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_layanan
 -- ----------------------------
-INSERT INTO `tbl_layanan` VALUES (2, 'Foto Kades', 'Foto kades', NULL, '169564815145.png', '2023-09-25 13:14:15', '2023-09-25 13:22:31');
-INSERT INTO `tbl_layanan` VALUES (4, 'Layanan', 'Layanan 2', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed.</p>', NULL, '2023-09-25 13:28:07', '2023-09-25 13:28:07');
-INSERT INTO `tbl_layanan` VALUES (5, 'Layanan', 'Layanan 3', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed.</p>', NULL, '2023-09-25 13:28:19', '2023-09-25 13:28:19');
-INSERT INTO `tbl_layanan` VALUES (6, 'Layanan', 'Layanan 4', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed.</p>', NULL, '2023-09-25 13:28:33', '2023-09-25 13:28:33');
-INSERT INTO `tbl_layanan` VALUES (7, 'Layanan', 'Layanan 5', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed.</p>', NULL, '2023-09-25 13:28:45', '2023-09-25 13:28:45');
-INSERT INTO `tbl_layanan` VALUES (9, 'Layanan', 'Layanan 6', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed.dsdsdsds</p>', NULL, '2023-09-25 14:06:25', '2023-09-25 14:06:25');
-
--- ----------------------------
--- Table structure for tbl_tag
--- ----------------------------
-DROP TABLE IF EXISTS `tbl_tag`;
-CREATE TABLE `tbl_tag`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `judul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `link` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of tbl_tag
--- ----------------------------
-INSERT INTO `tbl_tag` VALUES (1, 'Santri Coding', 'https://santrikoding.com/tutorial-laravel-8-edit-update-data', '2023-09-24 12:46:29', '2023-09-24 12:46:29');
-INSERT INTO `tbl_tag` VALUES (2, 'Bootstrap', 'https://getbootstrap.com/docs/5.0/components/modal/', '2023-09-24 12:47:10', '2023-09-24 12:47:10');
-INSERT INTO `tbl_tag` VALUES (3, 'Editor Online', 'https://www.shutterstock.com/create/editor/CiQ2N2U1ODgwNC0zNDUyLTQ4YzgtOTFjNC1jYWMyMjI1YjNiYzQ?pageType=home&subpageType=catalog', '2023-09-24 12:47:36', '2023-09-24 12:47:36');
-INSERT INTO `tbl_tag` VALUES (4, 'Darmaji', 'https://www.dermaji.desa.id/prestasi/', '2023-09-24 12:48:04', '2023-09-24 12:48:04');
-INSERT INTO `tbl_tag` VALUES (5, 'Petani Code', 'https://www.petanikode.com/github-ssh/', '2023-09-24 13:03:32', '2023-09-24 13:03:32');
 
 -- ----------------------------
 -- Table structure for tbl_tentang_desa
@@ -1238,21 +1169,11 @@ CREATE TABLE `tbl_tentang_desa`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_tentang_desa
 -- ----------------------------
-INSERT INTO `tbl_tentang_desa` VALUES (3, 'Moto', 'Moto Desa', NULL, '<p><strong><span style=\"color:#ecf0f1;\">Guyup Rukun Wargane</span></strong></p>', NULL, NULL, NULL, '2023-09-24 15:07:19', '2023-09-25 15:03:59');
-INSERT INTO `tbl_tentang_desa` VALUES (4, 'Profil', 'profil desa', NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem integer vitae justo eget magna fermentum iaculis. Ac ut consequat semper viverra nam libero justo laoreet. Commodo sed egestas egestas fringilla phasellus faucibus. Ultrices dui sapien eget mi proin. Id leo in vitae turpis massa sed elementum tempus egestas. Imperdiet dui accumsan sit amet nulla. Nisl suscipit adipiscing bibendum est ultricies integer quis. Pretium fusce id velit ut tortor. A diam maecenas sed enim.</p>\r\n\r\n<p>Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt. Netus et malesuada fames ac turpis egestas sed. Congue mauris rhoncus aenean vel elit. Fermentum dui faucibus in ornare quam viverra orci sagittis eu. Tristique sollicitudin nibh sit amet commodo nulla. Pharetra sit amet aliquam id diam maecenas. Velit dignissim sodales ut eu sem integer vitae justo. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Bibendum at varius vel pharetra. Facilisis sed odio morbi quis commodo. Arcu odio ut sem nulla. Quam pellentesque nec nam aliquam. Nulla facilisi cras fermentum odio eu feugiat pretium nibh. Mauris nunc congue nisi vitae suscipit. At tellus at urna condimentum mattis pellentesque. Adipiscing commodo elit at imperdiet dui accumsan sit amet nulla.</p>', NULL, NULL, '169556817234.jpg', '2023-09-24 15:09:32', '2023-09-24 15:09:32');
-INSERT INTO `tbl_tentang_desa` VALUES (5, 'Keunggulan', 'Keunggulan 1', NULL, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>', NULL, NULL, NULL, '2023-09-24 15:13:37', '2023-09-24 15:36:49');
-INSERT INTO `tbl_tentang_desa` VALUES (6, 'Keunggulan', 'keunggulan 2', NULL, '<p>consectetur adipiscing elit</p>', NULL, NULL, NULL, '2023-09-24 15:13:59', '2023-09-24 15:13:59');
-INSERT INTO `tbl_tentang_desa` VALUES (7, 'Keunggulan', 'keunggulan 3', NULL, '<p>sed do eiusmod tempor incididunt ut</p>', NULL, NULL, NULL, '2023-09-24 15:15:02', '2023-09-24 15:15:02');
-INSERT INTO `tbl_tentang_desa` VALUES (8, 'Keunggulan', 'Keunggulan 4', NULL, '<p>labore et dolore magna aliqua</p>', NULL, NULL, NULL, '2023-09-24 15:15:35', '2023-09-24 15:15:35');
-INSERT INTO `tbl_tentang_desa` VALUES (9, 'Prakata Pertanyaan', 'Prakata Pertanyaan', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>', NULL, NULL, NULL, NULL, '2023-09-24 15:16:18', '2023-09-24 15:16:18');
-INSERT INTO `tbl_tentang_desa` VALUES (10, 'Pertanyaan Umum', 'pertanyaan 1', NULL, NULL, '<p>Lorem ipsum dolor ?</p>', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata</p>', NULL, '2023-09-24 15:17:24', '2023-09-24 15:17:24');
-INSERT INTO `tbl_tentang_desa` VALUES (11, 'Pertanyaan Umum', 'pertanyaan 2', NULL, NULL, '<p>consectetur adipiscing elit?</p>', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata</p>', NULL, '2023-09-24 15:18:04', '2023-09-24 15:18:28');
-INSERT INTO `tbl_tentang_desa` VALUES (12, 'Pertanyaan Umum', 'pertanyaan 3', NULL, NULL, '<p>Ut enim ad minim veniam?</p>', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata</p>', NULL, '2023-09-24 15:19:06', '2023-09-24 15:19:06');
 
 -- ----------------------------
 -- Table structure for tbl_testimoni
@@ -1267,15 +1188,11 @@ CREATE TABLE `tbl_testimoni`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_testimoni
 -- ----------------------------
-INSERT INTO `tbl_testimoni` VALUES (1, 'sadsdsd', 'asdasdasd', '', 'adADSXASXASAS', '2023-09-19 15:42:33', '2023-09-19 15:42:33');
-INSERT INTO `tbl_testimoni` VALUES (2, 'yuyuyuyu', 'asasddsds', '16951382417.jpg', 'sdasdasdasdasdsad', '2023-09-19 15:44:01', '2023-09-19 15:44:01');
-INSERT INTO `tbl_testimoni` VALUES (3, 'ayunda', 'RT/RW 009/009 Ds. Nambak', '169514225534.jpg', 'desa yang sangat asik dan masih asri', '2023-09-19 16:50:55', '2023-09-19 16:50:55');
-INSERT INTO `tbl_testimoni` VALUES (4, 'Aji jaya', 'RT/RW 008/009', '169582443033.jpg', 'Ini desa yang sejuk dan bagus penataan desanya', '2023-09-27 14:20:30', '2023-09-27 14:20:30');
 
 -- ----------------------------
 -- Table structure for users
