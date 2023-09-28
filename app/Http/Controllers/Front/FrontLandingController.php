@@ -171,12 +171,16 @@ class FrontLandingController extends Controller
         return view('frontend/profil_desa', compact('title', 'pages', 'FotoKades', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
-    public function jumlah_remaja_preventif_jenis_kelamin_dan_usia(Request $request)
+    public function jumlah_penduduk(Request $request)
     {
-        $title = 'home';
+        $title = 'Jumlah Penduduk';
         $pages = 'landing';
 
-       
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Jumlah Penduduk')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Jumlah Penduduk')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
         // Kontak Head and Footer
         $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
         $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
@@ -189,8 +193,655 @@ class FrontLandingController extends Controller
         $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
         $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
         $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function informasi_reproduksi_perempuan(Request $request)
+    {
+        $title = 'Informasi Reproduksi Perempuan';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Informasi Reproduksi Perempuan')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Informasi Reproduksi Perempuan')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function informasi_reproduksi_lakilaki(Request $request)
+    {
+        $title = 'Informasi Reproduksi Laki-laki';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Informasi Reproduksi Laki-laki')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Informasi Reproduksi Laki-laki')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function pendidikan_seksual_pencegahan(Request $request)
+    {
+        $title = 'Pendidikan Seksual';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Pendidikan Seksual (Pencegahan)')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Pendidikan Seksual (Pencegahan)')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function komunikasi_terbuka(Request $request)
+    {
+        $title = 'Komunikasi Terbuka';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Komunikasi Terbuka')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Komunikasi Terbuka')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function kepercayaan_diri_dan_keterampilan_pengambilan_keputusan(Request $request)
+    {
+        $title = 'Kepercayaan Diri dan Keterampilan Pengambilan Keputusan';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Kepercayaan Diri dan Keterampilan Pengambilan Keputusan')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Kepercayaan Diri dan Keterampilan Pengambilan Keputusan')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function membangun_nilai_diri_yang_positif(Request $request)
+    {
+        $title = 'Membangun Nilai Diri Yang Positif';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Membangun Nilai Diri Yang Positif')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Membangun Nilai Diri Yang Positif')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function menghindari_tekanan_teman_sebaya(Request $request)
+    {
+        $title = 'Menghindari Tekanan Teman Sebaya';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Menghindari Tekanan Teman Sebaya')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Menghindari Tekanan Teman Sebaya')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function memahami_konsekuensi_dan_resiko_perilaku_seks_bebas(Request $request)
+    {
+        $title = 'Memahami Konsekuensi dan Resiko Perilaku Seks Bebas';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Memahami Konsekuensi dan Resiko Perilaku Seks Bebas')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Memahami Konsekuensi dan Resiko Perilaku Seks Bebas')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function pendidikan_seksual_penanganan_remaja(Request $request)
+    {
+        $title = 'Pendidikan Seksual';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Pendidikan Seksual (Penanganan Remaja)')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Pendidikan Seksual (Penanganan Remaja)')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function konseling_keluarga(Request $request)
+    {
+        $title = 'Konseling Keluarga';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Konseling Keluarga')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Konseling Keluarga')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function pemahaman_tanggung_jawab(Request $request)
+    {
+        $title = 'Pemahaman Tanggung Jawab';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Pemahaman Tanggung Jawab')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Pemahaman Tanggung Jawab')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function pengendalian_emosi(Request $request)
+    {
+        $title = 'Pengendalian Emosi';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Pengendalian Emosi')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Pengendalian Emosi')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function perlindungan_hukum(Request $request)
+    {
+        $title = 'Perlindungan Hukum';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Perlindungan Hukum')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Perlindungan Hukum')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    // start khusus 3 route
+    public function layanan_internal(Request $request)
+    {
+        $title = 'Layanan Internal';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Layanan Internal')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Layanan Internal')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function layanan_konseling(Request $request)
+    {
+        $title = 'Layanan Konseling';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Layanan Konseling')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Layanan Konseling')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function form_pengaduan_masyarakat(Request $request)
+    {
+        $title = 'Form Pengaduan Masyarakat';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Form Pengaduan Masyarakat')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Form Pengaduan Masyarakat')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+    // End
+    
+    public function cara_mendidikan_anak(Request $request)
+    {
+        $title = 'Cara Mendidikan Anak';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Cara Mendidikan Anak')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Cara Mendidikan Anak')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function mengambangkan_hubungan_yang_sehat_pada_anak(Request $request)
+    {
+        $title = 'Mengambangkan Hubungan Yang Sehat Pada Anak';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Mengambangkan Hubungan Yang Sehat Pada Anak')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Mengambangkan Hubungan Yang Sehat Pada Anak')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function membangun_komunikasi_yang_baik(Request $request)
+    {
+        $title = 'Membangun Komunikasi Yang Baik';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Membangun Komunikasi Yang Baik')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Membangun Komunikasi Yang Baik')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function mendorong_perkembangan_anak(Request $request)
+    {
+        $title = 'Mendorong Perkembangan Anak';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Mendorong Perkembangan Anak')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Mendorong Perkembangan Anak')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function menerapkan_aturan_dan_batasan(Request $request)
+    {
+        $title = 'Menerapkan Aturan dan Batasan';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Menerapkan Aturan dan Batasan')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Menerapkan Aturan dan Batasan')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+    public function perkembangan_anak(Request $request)
+    {
+        $title = 'Perkembangan Anak';
+        $pages = 'landing';
+
+        // data jumlahh penduduk
+        $AllDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Perkembangan Anak')->orderBy('id', 'DESC')->limit(5)->get();
+        $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', 'Perkembangan Anak')->orderBy('id', 'DESC')->limit(3)->get();
+        $AllTag = DB::table('tbl_tag')->orderBy('judul', 'ASC')->get();
+
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/semua_data_dan_informasi', compact('title', 'pages', 'AllDataInformasi', 'ListLiftDataInformasi', 'AllTag', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+    }
+
+
+
+    public function detail_data_dan_informasi(Request $request, $id)
+    {
+        $title = 'Detail Data dan Informasi';
+        $pages = 'landing';
+
+        $DetailDataInformasi = DB::table('tbl_data_dan_informasi')->where('id', $id)->get();
         
-        return view('frontend/informasi', compact('title', 'pages', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
+        if ($DetailDataInformasi[0]->jenis == "Jumlah Penduduk") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Informasi Reproduksi Perempuan") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Informasi Reproduksi Laki-laki") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Pendidikan Seksual (Pencegahan)") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Komunikasi Terbuka") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Kepercayaan Diri dan Keterampilan Pengambilan Keputusan") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Membangun Nilai Diri Yang Positif") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Menghindari Tekanan Teman Sebaya") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Memahami Konsekuensi dan Resiko Perilaku Seks Bebas") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Pendidikan Seksual (Penanganan Remaja)") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Konseling Keluarga") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Pemahaman Tanggung Jawab") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Pengemdalian Emosi") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Perlindungan Hukum") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Cara Mendidikan Anak") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Mengambangkan Hubungan Yang Sehat Pada Anak") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Membangun Komunikasi Yang Baik") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Mendorong Perkembangan Anak") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Menerapkan Aturan dan Batasan") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        } else if ($DetailDataInformasi[0]->jenis == "Perkembangan Anak") {
+            $ListLiftDataInformasi = DB::table('tbl_data_dan_informasi')->where('jenis', $DetailDataInformasi[0]->jenis)->orderBy('id', 'DESC')->limit(3)->get();
+        }
+        
+
+
+
+
+        
+        
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/detail_data_dan_informasi', compact('title', 'pages', 'ListLiftDataInformasi', 'DetailDataInformasi', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
     public function contact(Request $request)
@@ -219,11 +870,23 @@ class FrontLandingController extends Controller
 
     public function testimoni(Request $request)
     {
-        $title = 'home';
+        $title = 'Testimoni';
         $pages = 'landing';
 
-        // return view('front/signin', compact('title', 'pages'))
-        return view('frontend/testimoni', compact('title', 'pages'));
+        // Kontak Head and Footer
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+
+        return view('frontend/testimoni', compact('title', 'pages', 'Layanan', 'PrakataFooter', 'HariLayanan', 'TentangDesaByProfil', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
     /**
      * Show the form for creating a new resource.

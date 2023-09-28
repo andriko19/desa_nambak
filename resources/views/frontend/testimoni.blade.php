@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title')
-  Desa Nambak
+  Desa Nambak | {{ $title }}
 @endsection
 @section('css')
     <!-- DataTables -->

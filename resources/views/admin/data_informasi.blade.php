@@ -129,8 +129,7 @@
                         <select class="form-select jenis" name="jenis" id="jenis">
                             {{-- @foreach ($product_collection_models as $product_collection) --}}
                             <option value="0" selected> --Pilih Jenis {{$title}}-- </option>
-                            <option value="Jumlah Remaja Preventif, Jenis Kelamin dan Usia">Jumlah Remaja Preventif, Jenis Kelamin dan Usia</option>
-                            <option value="Jumlah Remaja Dispensasi Kawin, Usia, Jenis Kelamin">Jumlah Remaja Dispensasi Kawin, Usia, Jenis Kelamin</option>
+                            <option value="Jumlah Penduduk">Jumlah Penduduk</option>
                             <option value="Informasi Reproduksi Perempuan">Informasi Reproduksi Perempuan</option>
                             <option value="Informasi Reproduksi Laki-laki">Informasi Reproduksi Laki-laki</option>
                             <option value="Pendidikan Seksual (Pencegahan)">Pendidikan Seksual (Pencegahan)</option>
@@ -142,7 +141,7 @@
                             <option value="Pendidikan Seksual (Penanganan Remaja)">Pendidikan Seksual (Penanganan Remaja)</option>
                             <option value="Konseling Keluarga">Konseling Keluarga</option>
                             <option value="Pemahaman Tanggung Jawab">Pemahaman Tanggung Jawab</option>
-                            <option value="Pengemdalian Emosi">Pengemdalian Emosi</option>
+                            <option value="Pengendalian Emosi">Pengendalian Emosi</option>
                             <option value="Perlindungan Hukum">Perlindungan Hukum</option>
                             <option value="Cara Mendidikan Anak">Cara Mendidikan Anak</option>
                             <option value="Mengambangkan Hubungan Yang Sehat Pada Anak">Mengambangkan Hubungan Yang Sehat Pada Anak</option>

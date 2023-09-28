@@ -122,7 +122,36 @@ Route::get('/semua_galeri', [FrontLandingController::class, 'semua_galeri'])->na
 Route::get('/profil_desa', [FrontLandingController::class, 'profil_desa'])->name('profil_desa');
 Route::get('/semua_berita', [FrontLandingController::class, 'semua_berita'])->name('semua_berita');
 Route::get('/detail_berita/{id}', [FrontLandingController::class, 'detail_berita'])->name('detail_berita');
-Route::get('/jumlah_remaja_preventif_jenis_kelamin_dan_usia', [FrontLandingController::class, 'jumlah_remaja_preventif_jenis_kelamin_dan_usia'])->name('jumlah_remaja_preventif_jenis_kelamin_dan_usia');
+
+Route::get('/jumlah_penduduk', [FrontLandingController::class, 'jumlah_penduduk'])->name('jumlah_penduduk');
+Route::get('/informasi_reproduksi_perempuan', [FrontLandingController::class, 'informasi_reproduksi_perempuan'])->name('informasi_reproduksi_perempuan');
+Route::get('/informasi_reproduksi_lakilaki', [FrontLandingController::class, 'informasi_reproduksi_lakilaki'])->name('informasi_reproduksi_lakilaki');
+Route::get('/pendidikan_seksual_pencegahan', [FrontLandingController::class, 'pendidikan_seksual_pencegahan'])->name('pendidikan_seksual_pencegahan');
+Route::get('/komunikasi_terbuka', [FrontLandingController::class, 'komunikasi_terbuka'])->name('komunikasi_terbuka');
+Route::get('/kepercayaan_diri_dan_keterampilan_pengambilan_keputusan', [FrontLandingController::class, 'kepercayaan_diri_dan_keterampilan_pengambilan_keputusan'])->name('kepercayaan_diri_dan_keterampilan_pengambilan_keputusan');
+Route::get('/membangun_nilai_diri_yang_positif', [FrontLandingController::class, 'membangun_nilai_diri_yang_positif'])->name('membangun_nilai_diri_yang_positif');
+Route::get('/menghindari_tekanan_teman_sebaya', [FrontLandingController::class, 'menghindari_tekanan_teman_sebaya'])->name('menghindari_tekanan_teman_sebaya');
+Route::get('/memahami_konsekuensi_dan_resiko_perilaku_seks_bebas', [FrontLandingController::class, 'memahami_konsekuensi_dan_resiko_perilaku_seks_bebas'])->name('memahami_konsekuensi_dan_resiko_perilaku_seks_bebas');
+Route::get('/pendidikan_seksual_penanganan_remaja', [FrontLandingController::class, 'pendidikan_seksual_penanganan_remaja'])->name('pendidikan_seksual_penanganan_remaja');
+Route::get('/konseling_keluarga', [FrontLandingController::class, 'konseling_keluarga'])->name('konseling_keluarga');
+Route::get('/pemahaman_tanggung_jawab', [FrontLandingController::class, 'pemahaman_tanggung_jawab'])->name('pemahaman_tanggung_jawab');
+Route::get('/pengendalian_emosi', [FrontLandingController::class, 'pengendalian_emosi'])->name('pengendalian_emosi');
+Route::get('/perlindungan_hukum', [FrontLandingController::class, 'perlindungan_hukum'])->name('perlindungan_hukum');
+Route::get('/layanan_internal', [FrontLandingController::class, 'layanan_internal'])->name('layanan_internal');
+Route::get('/layanan_konseling', [FrontLandingController::class, 'layanan_konseling'])->name('layanan_konseling');
+Route::get('/form_pengaduan_masyarakat', [FrontLandingController::class, 'form_pengaduan_masyarakat'])->name('form_pengaduan_masyarakat');
+Route::get('/cara_mendidikan_anak', [FrontLandingController::class, 'cara_mendidikan_anak'])->name('cara_mendidikan_anak');
+Route::get('/mengambangkan_hubungan_yang_sehat_pada_anak', [FrontLandingController::class, 'mengambangkan_hubungan_yang_sehat_pada_anak'])->name('mengambangkan_hubungan_yang_sehat_pada_anak');
+Route::get('/membangun_komunikasi_yang_baik', [FrontLandingController::class, 'membangun_komunikasi_yang_baik'])->name('membangun_komunikasi_yang_baik');
+Route::get('/mendorong_perkembangan_anak', [FrontLandingController::class, 'mendorong_perkembangan_anak'])->name('mendorong_perkembangan_anak');
+Route::get('/menerapkan_aturan_dan_batasan', [FrontLandingController::class, 'menerapkan_aturan_dan_batasan'])->name('menerapkan_aturan_dan_batasan');
+Route::get('/perkembangan_anak', [FrontLandingController::class, 'perkembangan_anak'])->name('perkembangan_anak');
+
+
+
+
+
+Route::get('/detail_data_dan_informasi/{id}', [FrontLandingController::class, 'detail_data_dan_informasi'])->name('detail_data_dan_informasi');
 Route::get('/contact', [FrontLandingController::class, 'contact'])->name('contact');
 Route::get('/testimoni', [FrontLandingController::class, 'testimoni'])->name('testimoni');
 

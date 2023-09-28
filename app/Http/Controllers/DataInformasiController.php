@@ -160,7 +160,7 @@ class DataInformasiController extends Controller
                     'judul' => $request->edit_judul,
                     'isi_data_informasi' => $request->edit_isi_data_informasi,
                     'tag' => implode(",",$request->edit_tag),
-                    'gambar' => null,
+                    // 'gambar' => null,
                 ]);
 
             } else {

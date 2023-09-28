@@ -125,8 +125,7 @@
                       <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Data dan Informasi<i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{url('/jumlah_remaja_preventif_jenis_kelamin_dan_usia')}}">Jumlah Remaja Preventif, Jenis Kelamin dan Usia</a></li>
-                            <li><a href="#">Jumlah Remaja Dispensasi Kawin, Usia, Jenis Kelamin</a></li>
+                            <li><a href="{{url('/jumlah_penduduk')}}">Jumlah Penduduk</a></li>
                           </ul>
                       </li>
               
@@ -134,31 +133,31 @@
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informasi Publik<i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
                             <li class="dropdown-submenu">
-                              <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Reproduksi</a>
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reproduksi</a>
                               <ul class="dropdown-menu">
-                                <li><a href="#!">Informasi Reproduksi Perempuan</a></li>
-                                <li><a href="#!">Informasi Reproduksi Laki-laki</a></li>
+                                <li><a href="{{url('/informasi_reproduksi_perempuan')}}">Informasi Reproduksi Perempuan</a></li>
+                                <li><a href="{{url('/informasi_reproduksi_lakilaki')}}">Informasi Reproduksi Laki-laki</a></li>
                               </ul>
                             </li>
                             <li class="dropdown-submenu">
-                              <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Pencegahan</a>
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pencegahan</a>
                               <ul class="dropdown-menu">
-                                <li><a href="#!">Pendidikan Seksual</a></li>
-                                <li><a href="#!">Komunikasi Terbuka</a></li>
-                                <li><a href="#!">Kepercayaan Diri dan Keterampilan Pengambilan Keputusan</a></li>
-                                <li><a href="#!">Membangun Nilai Diri Yang Positif</a></li>
-                                <li><a href="#!">Menghindari Tekanan Teman Sebaya</a></li>
-                                <li><a href="#!">Memahami Konsekuensi dan Resiko Perilaku Seks Bebas</a></li>
+                                <li><a href="{{url('/pendidikan_seksual_pencegahan')}}">Pendidikan Seksual</a></li>
+                                <li><a href="{{url('/komunikasi_terbuka')}}">Komunikasi Terbuka</a></li>
+                                <li><a href="{{url('/kepercayaan_diri_dan_keterampilan_pengambilan_keputusan')}}">Kepercayaan Diri dan Keterampilan Pengambilan Keputusan</a></li>
+                                <li><a href="{{url('/membangun_nilai_diri_yang_positif')}}">Membangun Nilai Diri Yang Positif</a></li>
+                                <li><a href="{{url('/menghindari_tekanan_teman_sebaya')}}">Menghindari Tekanan Teman Sebaya</a></li>
+                                <li><a href="{{url('/memahami_konsekuensi_dan_resiko_perilaku_seks_bebas')}}">Memahami Konsekuensi dan Resiko Perilaku Seks Bebas</a></li>
                               </ul>
                             </li>
                             <li class="dropdown-submenu">
-                              <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Penanganan Remaja Dispensasi Kawin</a>
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Penanganan Remaja Dispensasi Kawin</a>
                               <ul class="dropdown-menu">
-                                <li><a href="#!">Pendidikan Seksual</a></li>
-                                <li><a href="#!">Konseling Keluarga</a></li>
-                                <li><a href="#!">Pemahaman Tanggung Jawab</a></li>
-                                <li><a href="#!">Pengemdalian Emosi</a></li>
-                                <li><a href="#!">Perlindungan Hukum</a></li>
+                                <li><a href="{{url('/pendidikan_seksual_penanganan_remaja')}}">Pendidikan Seksual </a></li>
+                                <li><a href="{{url('/konseling_keluarga')}}">Konseling Keluarga</a></li>
+                                <li><a href="{{url('/pemahaman_tanggung_jawab')}}">Pemahaman Tanggung Jawab</a></li>
+                                <li><a href="{{url('/pengendalian_emosi')}}">Pengendalian Emosi</a></li>
+                                <li><a href="{{url('/perlindungan_hukum')}}">Perlindungan Hukum</a></li>
                               </ul>
                             </li>
                           </ul>
@@ -167,21 +166,21 @@
                       <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan Publik<i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Layanan Internal</a></li>
-                          <li><a href="#">Layanan Konseling</a></li>
-                          <li><a href="#">Form Pengaduan Masyarakat</a></li>
+                          <li><a href="{{url('/layanan_internal')}}">Layanan Internal</a></li>
+                          <li><a href="{{url('/layanan_konseling')}}">Layanan Konseling</a></li>
+                          <li><a href="{{url('/form_pengaduan_masyarakat')}}">Form Pengaduan Masyarakat</a></li>
                         </ul>
                       </li>
 
                       <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Parenting<i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Cara Mendidikan Anak</a></li>
-                            <li><a href="#">Mengambangkan Hubungan Yang Sehat Pada Anak</a></li>
-                            <li><a href="#">Membangun Komunikasi Yang Baik</a></li>
-                            <li><a href="#">Mendorong Perkembangan Anak</a></li>
-                            <li><a href="#">Menerapkan Aturan dan Batasan</a></li>
-                            <li><a href="#">Perkembangan Anak</a></li>
+                            <li><a href="{{url('/cara_mendidikan_anak')}}">Cara Mendidikan Anak</a></li>
+                            <li><a href="{{url('/mengambangkan_hubungan_yang_sehat_pada_anak')}}">Mengambangkan Hubungan Yang Sehat Pada Anak</a></li>
+                            <li><a href="{{url('/membangun_komunikasi_yang_baik')}}">Membangun Komunikasi Yang Baik</a></li>
+                            <li><a href="{{url('/mendorong_perkembangan_anak')}}">Mendorong Perkembangan Anak</a></li>
+                            <li><a href="{{url('/menerapkan_aturan_dan_batasan')}}">Menerapkan Aturan dan Batasan</a></li>
+                            <li><a href="{{url('/perkembangan_anak')}}">Perkembangan Anak</a></li>
                           </ul>
                       </li>
               
