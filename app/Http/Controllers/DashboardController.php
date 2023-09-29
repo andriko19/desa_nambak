@@ -41,7 +41,21 @@ class DashboardController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(Request $request)
-    {
-        return view('dashboard.index');
+    {   
+        // Tentang desa
+        $TentangDesaByMoto = DB::table('tbl_tentang_desa')->where('jenis', 'Moto')->orderBy('id', 'DESC')->get();
+        // Galeri
+        $Galeri = DB::table('tbl_galeri')->orderBy('id', 'DESC')->get();
+        // Testimoni
+        $Testimoni = DB::table('tbl_testimoni')->orderBy('id', 'DESC')->get();
+        // Berita
+        $Berita = DB::table('tbl_berita')->orderBy('id', 'DESC')->get();
+        // data dan informasi
+        $dataDanInformasi = DB::table('tbl_data_dan_informasi')->orderBy('id', 'DESC')->get();
+        // Form
+        $Form = DB::table('tbl_form')->orderBy('id', 'DESC')->get();
+
+
+        return view('dashboard.index', compact('TentangDesaByMoto', 'Galeri', 'Testimoni', 'Berita', 'dataDanInformasi', 'Form'));
     }
 }

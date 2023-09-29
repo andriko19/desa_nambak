@@ -4,10 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- App favicon -->
+	<link rel="icon" type="image/png" href="{{ URL::asset('assets/frontend/')}}/images/favicon.png">
 	@if (!empty($title))
-	<title>RO &bull; {{ $title }}</title>
+	<title>Desa Nambak &bull; {{ $title }}</title>
 	@else
-	<title>RO</title>
+	<title>Desa Nambak</title>
 	@endif
 
 

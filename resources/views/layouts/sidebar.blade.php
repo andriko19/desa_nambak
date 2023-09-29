@@ -5,19 +5,19 @@
     <div class="navbar-brand-box">
         <a href="{{url('index')}}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ URL::asset('/assets/images/logo-indracode.png') }}" alt="" height="22">
+                <img src="{{ URL::asset('assets/frontend/')}}/images/logo.png" alt="" height="50">
             </span>
             <span class="logo-lg">
-                <img src="{{ URL::asset('/assets/images/logo-indracode.png') }}" alt="" height="20">
+                <img src="{{ URL::asset('assets/frontend/')}}/images/logo.png" alt="" height="50">
             </span>
         </a>
 
         <a href="{{url('index')}}" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ URL::asset('/assets/images/logo-indracode.png') }}" alt="" height="22">
+                <img src="{{ URL::asset('assets/frontend/')}}/images/footer-logo.png" alt="" height="50">
             </span>
             <span class="logo-lg">
-                <img src="{{ URL::asset('/assets/images/logo-indracode.png') }}" alt="" height="20">
+                <img src="{{ URL::asset('assets/frontend/')}}/images/footer-logo.png" alt="" height="50">
             </span>
         </a>
     </div>
@@ -42,7 +42,7 @@
                     </a>
                 </li>
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-user-circle"></i>
                         <span>@lang('Users Management')</span>
@@ -56,7 +56,7 @@
 
                         <li><a href={{ route('permissions.index') }}>@lang('Permissions')</a></li> @endcan
                     </ul>
-                </li>
+                </li> --}}
 
                 <li class="menu-title">@lang('Master')</li>
 

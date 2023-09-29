@@ -13,7 +13,7 @@
   {{-- <meta property="og:url" content="https://nothing.com"> --}}
   <meta property="og:type" content="website">
   <meta property="og:title" content="Desa Nambak">
-  <meta property="og:description" content="Moto Desa">
+  <meta property="og:description" content="Jalan Pemuda No. 27, Nambak, Bungkal, Nambak Tengah, Nambak, Ponorogo, Kabupaten Ponorogo, Jawa Timur 63462">
   <meta property="og:image" content="{{ URL::asset('assets/frontend/')}}/images/logo.png">
 
   <!-- Favicon
