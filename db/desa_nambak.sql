@@ -11,7 +11,7 @@
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 29/09/2023 00:21:31
+ Date: 29/09/2023 21:08:02
 */
 
 SET NAMES utf8mb4;
@@ -1292,7 +1292,7 @@ CREATE TABLE `users`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
@@ -1303,5 +1303,6 @@ INSERT INTO `users` VALUES (3, 'asikin', 'asikin@asik.com', NULL, '$2y$10$AEvwlr
 INSERT INTO `users` VALUES (4, 'Mintul', 'mintul@gmail.com', NULL, '$2y$10$29GHkAfriG13Hu.QT/J0Z.W17wEFEBefiN99PZ0HkFiGBu2MMoUhu', NULL, '2022-10-13 03:13:34', '2022-10-13 03:13:34');
 INSERT INTO `users` VALUES (5, 'agus', 'assgiworld@gmail.com', NULL, '$2y$10$g/BmZgk.6m79ysTvwnZ7l.lulJm7cryrnEF1JMWaXiq3/2aohJhPi', NULL, '2022-10-18 06:49:43', '2022-10-20 09:16:33');
 INSERT INTO `users` VALUES (6, 'nambak@gmail.com', 'nambak@gmail.com', NULL, '$2y$10$1bvw4J9RXAzIrpLWihJFJOWcoKOMbrTcZsTYC3uE1VdNNfQ6rDLRK', NULL, '2023-08-25 11:36:09', '2023-08-25 11:36:09');
+INSERT INTO `users` VALUES (7, 'Admin', 'desanambak@gmail.com', NULL, '$2y$10$d/zDcHAcZPMi5ynYOXQUFud7692E/9ekSf3CI80z3EcNdiCRwgpDm', NULL, '2022-09-16 08:26:44', '2022-09-16 08:26:44');
 
 SET FOREIGN_KEY_CHECKS = 1;
