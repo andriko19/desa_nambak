@@ -88,7 +88,22 @@ class FrontLandingController extends Controller
         $pages = 'landing';
         $AllGaleri = DB::table('tbl_galeri')->orderBy('id', 'DESC')->get();
 
-        return view('frontend/semua_galeri', compact('title', 'pages', 'AllGaleri'));
+        $TentangDesaByProfil = DB::table('tbl_tentang_desa')->where('jenis', 'Profil')->orderBy('id', 'DESC')->get();
+        $Layanan = DB::table('tbl_layanan')->where('jenis', 'Layanan')->orderBy('judul', 'ASC')->get();
+
+        // Parkata Footer
+        $PrakataFooter = DB::table('tbl_footer')->where('jenis', 'Prakata')->orderBy('id', 'DESC')->get();
+        $HariLayanan = DB::table('tbl_footer')->where('jenis', 'Oprasional')->orderBy('id', 'DESC')->get();
+        $KontakByEmail = DB::table('tbl_kontak')->where('jenis', 'Email')->orderBy('id', 'DESC')->get();
+        $KontakByTelepon = DB::table('tbl_kontak')->where('jenis', 'Telepon')->orderBy('id', 'DESC')->get();
+        $KontakByInstagram = DB::table('tbl_kontak')->where('jenis', 'Instagram')->orderBy('id', 'DESC')->get();
+        $KontakByTikTok = DB::table('tbl_kontak')->where('jenis', 'TikTok')->orderBy('id', 'DESC')->get();
+        $KontakByLinkedIn = DB::table('tbl_kontak')->where('jenis', 'LinkedIn')->orderBy('id', 'DESC')->get();
+        $KontakByTwitter = DB::table('tbl_kontak')->where('jenis', 'Twitter')->orderBy('id', 'DESC')->get();
+        $KontakByFacebook = DB::table('tbl_kontak')->where('jenis', 'Facebook')->orderBy('id', 'DESC')->get();
+         
+
+        return view('frontend/semua_galeri', compact('title', 'pages', 'AllGaleri', 'TentangDesaByProfil', 'Layanan', 'PrakataFooter', 'HariLayanan', 'KontakByEmail', 'KontakByTelepon', 'KontakByInstagram', 'KontakByTikTok', 'KontakByLinkedIn', 'KontakByTwitter', 'KontakByFacebook'));
     }
 
     public function semua_berita(Request $request)
