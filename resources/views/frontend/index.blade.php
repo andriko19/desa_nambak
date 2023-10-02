@@ -15,8 +15,8 @@
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
                         <div class="col-md-12 text-center">
-                        <h2 class="slide-title" data-animation-in="slideInLeft" style="color:#ffc107;">{{$BannerByUcapan[0]->judul}}</h2>
-                        <h3 class="slide-sub-title" data-animation-in="slideInRight" style="color:#ffc107;">{!!$BannerByUcapan[0]->deskripsi!!}</h3>
+                        <h2 class="slide-title" data-animation-in="slideInLeft"><b>{{$BannerByUcapan[0]->judul}}</b></h2>
+                        <h3 class="slide-sub-title" data-animation-in="slideInRight">{!!$BannerByUcapan[0]->deskripsi!!}</h3>
                         {{-- <p data-animation-in="slideInLeft" data-duration-in="1.2">
                             <a href="services.html" class="slider btn btn-primary">Our Services</a>
                             <a href="contact.html" class="slider btn btn-primary border">Contact Now</a>
@@ -34,8 +34,8 @@
                 <div class="row align-items-center h-100">
                     <div class="col-md-12">
                         {{-- <h2 class="slide-title-box" data-animation-in="slideInDown">World Class Service</h2> --}}
-                        <h3 class="slide-title" data-animation-in="fadeIn" style="color:#ffc107;">{{$data->judul}}</h3>
-                        <h3 class="slide-sub-title" data-animation-in="slideInLeft" style="color:#ffc107;">{!! $data->deskripsi !!}</h3>
+                        <h3 class="slide-title" data-animation-in="fadeIn"><b>{{$data->judul}}</b></h3>
+                        <h3 class="slide-sub-title" data-animation-in="slideInLeft">{!! $data->deskripsi !!}</h3>
                         {{-- <p data-animation-in="slideInRight">
                             <a href="services.html" class="slider btn btn-primary border">Our Services</a>
                         </p> --}}
@@ -629,10 +629,16 @@
 
             <div class="row all-clients">
                 <div class="col-sm-4 col-6">
-                  <figure class="clients-logo">
-                      <a href="https://uwp.ac.id/" target="blank"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/uwp-ok.jpg" alt="clients-logo" /></a>
-                  </figure>
+                  {{-- <figure class="clients-logo"> --}}
+                      <a href="https://uwp.ac.id/" target="blank"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/uwp.jpg" alt="clients-logo" /></a>
+                  {{-- </figure> --}}
                 </div><!-- Client 1 end -->
+
+                <div class="col-sm-4 col-6">
+                    {{-- <figure class="clients-logo"> --}}
+                        <a href="https://unipma.ac.id/" target="blank"><img loading="lazy" class="img-fluid" src="{{ URL::asset('assets/frontend/')}}/images/clients/unipma.jpg" alt="clients-logo" /></a>
+                    {{-- </figure> --}}
+                  </div><!-- Client 1 end -->
             </div><!-- Clients row end -->
 
           </div><!-- Col end -->
