@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div id="banner-area" class="banner-area" style="background-image:url({{ URL::asset('assets/frontend/')}}/images/banner/banner1.jpg)">
+    <div id="banner-area" class="banner-area" style="background-image:url({{ URL::asset('assets/frontend/')}}/images/banner/tugu-crop.jpg)">
         <div class="banner-text">
         <div class="container">
             <div class="row">
@@ -76,10 +76,45 @@
                             <div class="share-items">
                             <ul class="post-social-icons list-unstyled">
                                 <li class="social-icons-head">Share:</li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                @if (count($KontakByFacebook) != 0)
+                                    <li>
+                                    <a href="{{ $KontakByFacebook[0]->link }}" target="blank" aria-label="{{ $KontakByFacebook[0]->jenis }}">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    </li>
+                                @endif
+                                
+                                @if (count($KontakByTwitter) != 0)
+                                    <li>
+                                    <a href="{{ $KontakByTwitter[0]->link }}" target="blank" aria-label="{{ $KontakByTwitter[0]->jenis }}">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    </li>
+                                @endif
+
+                                @if (count($KontakByLinkedIn) != 0)
+                                    <li>
+                                    <a href="{{ $KontakByLinkedIn[0]->link }}" target="blank" aria-label="{{ $KontakByLinkedIn[0]->jenis }}">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    </li>
+                                @endif
+
+                                @if (count($KontakByTikTok) != 0)
+                                    <li>
+                                    <a href="{{ $KontakByTikTok[0]->link }}" target="blank" aria-label="{{ $KontakByTikTok[0]->jenis }}">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                    </li>
+                                @endif
+                                
+                                @if (count($KontakByInstagram) != 0)
+                                    <li>
+                                    <a href="{{ $KontakByInstagram[0]->link }}" target="blank" aria-label="{{ $KontakByInstagram[0]->jenis }}">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    </li>
+                                @endif
                             </ul>
                             </div>
                         </div>
